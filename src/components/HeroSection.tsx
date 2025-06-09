@@ -17,7 +17,7 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="text-center mb-16 relative z-10">
+    <div className="text-center relative z-10 mb-16">
       {/* SIP the Owl Avatar */}
       <div className="mb-8 flex justify-center">
         <div className="relative group">
