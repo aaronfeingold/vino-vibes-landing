@@ -8,17 +8,17 @@ const stats = [
   {
     number: 1247,
     label: "Wine Pairings Created",
-    trend: "↗ 34% this month",
+    trend: "34% this month",
   },
   {
     number: 89,
     label: "Restaurants Supported",
-    trend: "venues across NOLA",
+    trend: "in 2025",
   },
   {
     number: 2.1,
     label: "Happy Diners",
-    trend: "K satisfied customers",
+    trend: "satisfied customers",
     suffix: "K",
   },
 ];

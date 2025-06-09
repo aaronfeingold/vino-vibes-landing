@@ -3,12 +3,16 @@ import FeaturesSection from "../components/features-section"
 import StatsSection from "../components/stats-section"
 import CTASection from "../components/cta-section"
 import VenmoSection from "../components/VenmoSection";
+import Navbar from "@/components/navbar";
 import Link from "next/link";
 import { Globe, Instagram } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen flex flex-col justify-center items-center bg-pink-900 text-white p-4 isolate px-6 pt-14 lg:px-8 overflow-hidden">
+    <div className="relative min-h-screen flex flex-col justify-center items-center bg-pink-900 text-white isolate overflow-hidden">
+      {/* Navbar */}
+      <Navbar />
+
       {/* PRESERVED: Upper left gradient */}
       <div className="absolute top-0 left-0 -z-10 transform-gpu overflow-hidden blur-3xl">
         <div
@@ -43,14 +47,24 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto w-full">
+      <div className="max-w-7xl mx-auto w-full px-6 pt-20">
         <HeroSection />
-        <FeaturesSection />
-        <StatsSection />
-        <CTASection />
-        <div className="text-center mb-8 relative z-10">
+
+        <section id="features">
+          <FeaturesSection />
+        </section>
+
+        <section id="stats">
+          <StatsSection />
+        </section>
+
+        <section id="chat">
+          <CTASection />
+        </section>
+
+        <section id="about" className="text-center mb-8 relative z-10">
           <VenmoSection />
-        </div>
+        </section>
 
         {/* Social Links */}
         <div className="flex flex-col justify-center text-center mb-8 z-10 overflow-hidden">

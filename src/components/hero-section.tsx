@@ -38,12 +38,28 @@ export default function HeroSection() {
       </div>
 
       {/* Headlines */}
+      <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+        Your Best
+        <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          {" "}
+          Vino Vibes
+        </span>
+        <br />
+        Start With
+        <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          {" "}
+          SIP
+        </span>
+      </h1>
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-pink-200">
-        SIP: The Sommelier In Pocket
+        The Sommelier In Pocket
       </h1>
 
       <p className="text-lg md:text-xl text-pink-100 mb-8 max-w-2xl mx-auto leading-relaxed">
-        SIP gives you the confidence to find the wine that suits your vibes.
+        SIP gives you the confidence to choose the wine that suits your vibes
+        everytime.
+      </p>
+      <p className="text-lg md:text-xl text-pink-100 mb-8 max-w-2xl mx-auto leading-relaxed">
         Experience personalized, expert recommendations that impress at any
         restaurant or occasion.
       </p>
@@ -60,7 +76,7 @@ export default function HeroSection() {
           asChild
           className="backdrop-blur-sm bg-white/10 border-2 border-white/30 text-white hover:bg-white/20 transition-all duration-300 px-8 py-3 text-lg font-semibold rounded-full"
         >
-          <Link href="#chat">Experience SIP's AI Sommelier</Link>
+          <Link href="#chat">Vibe with SIP</Link>
         </Button>
 
         <Button
@@ -73,7 +89,7 @@ export default function HeroSection() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Join the Wine Revolution
+            Find Your Vino Vibe
           </Link>
         </Button>
       </div>
