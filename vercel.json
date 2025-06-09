@@ -10,11 +10,6 @@
       "main": true
     }
   },
-  "functions": {
-    "app/**/*.{js,ts,jsx,tsx}": {
-      "runtime": "nodejs20.x"
-    }
-  },
   "build": {
     "env": {
       "NODE_VERSION": "20"
