@@ -1,9 +1,10 @@
-import HeroSection from "../components/hero-section"
-import FeaturesSection from "../components/features-section"
-import StatsSection from "../components/stats-section"
-import CTASection from "../components/cta-section"
+import HeroSection from "../components/HeroSection";
+import FeaturesSection from "../components/FeaturesSection";
+import StatsSection from "../components/StatsSection";
+import OwlParallaxSection from "../components/OwlParallaxSection";
+import CTASection from "../components/CTASection";
 import VenmoSection from "../components/VenmoSection";
-import Navbar from "@/components/navbar";
+import Navbar from "../components/Navbar";
 import Link from "next/link";
 import { Globe, Instagram } from "lucide-react";
 
@@ -57,6 +58,9 @@ export default function Home() {
         <section id="stats">
           <StatsSection />
         </section>
+
+        {/* Owl Parallax Section - Introducing Brutalist Aesthetic */}
+        <OwlParallaxSection />
 
         <section id="chat">
           <CTASection />

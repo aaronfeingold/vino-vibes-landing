@@ -6,9 +6,15 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "SIP the Owl - Your Sommelier In Palm",
-  description: "Let SIP the Owl, your pocket sommelier, guide you to extraordinary dining experiences in New Orleans",
-}
+  title: "Vino Vibes AI",
+  description: "SIP and vibe with Vino Vibes AI",
+  generator: "v0.dev",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
+};
 
 export default function RootLayout({
   children,
