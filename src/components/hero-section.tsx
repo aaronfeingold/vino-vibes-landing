@@ -1,5 +1,6 @@
 import { Button } from "./ui/button"
 import Link from "next/link"
+import Image from "next/image";
 
 export default function HeroSection() {
   return (
@@ -8,7 +9,13 @@ export default function HeroSection() {
       <div className="mb-8 flex justify-center">
         <div className="relative group">
           <div className="absolute inset-0 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-300 animate-pulse-glow"></div>
-          {/* INSERT OWL IMAGE HERE*/}
+          <Image
+            src="/sip-owl.png"
+            alt="SIP the Owl"
+            width={120}
+            height={120}
+            className="mx-auto transition-transform duration-300 hover:scale-110 hover:rotate-3"
+          />
         </div>
       </div>
 
@@ -18,11 +25,13 @@ export default function HeroSection() {
       </h1>
 
       <p className="text-lg md:text-xl text-pink-100 mb-8 max-w-2xl mx-auto leading-relaxed">
-        Let SIP the Owl, your pocket sommelier, guide you to extraordinary dining experiences
+        Let SIP the Owl, your pocket sommelier, guide you to extraordinary
+        dining experiences
       </p>
 
       <p className="text-md text-pink-200 mb-12 max-w-xl mx-auto">
-        Launching this Valentine's in New Orleans — elevate your palette with our wise wine companion
+        Launching this Valentine's in New Orleans — elevate your palette with
+        our wise wine companion
       </p>
 
       {/* CTA Buttons */}
@@ -39,11 +48,15 @@ export default function HeroSection() {
           variant="outline"
           className="backdrop-blur-sm bg-transparent border-2 border-pink-300/50 text-pink-100 hover:bg-pink-300/10 transition-all duration-300 px-8 py-3 text-lg rounded-full"
         >
-          <Link href="https://forms.gle/3uyzDNNS2qc7GnWG6" target="_blank" rel="noopener noreferrer">
+          <Link
+            href="https://forms.gle/3uyzDNNS2qc7GnWG6"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Take Our Survey
           </Link>
         </Button>
       </div>
     </div>
-  )
+  );
 }
