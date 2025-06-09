@@ -1,8 +1,19 @@
 import { Button } from "./ui/button"
 import Link from "next/link"
 import Image from "next/image";
+import { useState } from "react";
 
 export default function HeroSection() {
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const handleOwlClick = () => {
+    if (isAnimating) return; // Prevent multiple animations
+
+    setIsAnimating(true);
+    // Reset animation after it completes
+    setTimeout(() => setIsAnimating(false), 600);
+  };
+
   return (
     <div className="text-center mb-16 relative z-10">
       {/* SIP the Owl Avatar */}
@@ -14,24 +25,33 @@ export default function HeroSection() {
             alt="SIP the Owl"
             width={120}
             height={120}
-            className="mx-auto transition-transform duration-300 hover:scale-110 hover:rotate-3"
+            className={`mx-auto transition-transform duration-300 hover:scale-110 hover:rotate-3 cursor-pointer select-none ${
+              isAnimating ? "animate-bounce scale-110 rotate-3" : ""
+            }`}
+            onClick={handleOwlClick}
+            onTouchStart={handleOwlClick}
+            style={{
+              transform: isAnimating ? "scale(1.1) rotate(3deg)" : undefined,
+            }}
           />
         </div>
       </div>
 
       {/* Headlines */}
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-pink-200">
-        Meet SIP: Your Sommelier In Palm
+        SIP: The Sommelier In Pocket
       </h1>
 
       <p className="text-lg md:text-xl text-pink-100 mb-8 max-w-2xl mx-auto leading-relaxed">
-        Let SIP the Owl, your pocket sommelier, guide you to extraordinary
-        dining experiences
+        SIP transforms you from wine novice to confident connoisseur. Get
+        personalized, expert recommendations that impress at any restaurant or
+        occasion.
       </p>
 
       <p className="text-md text-pink-200 mb-12 max-w-xl mx-auto">
-        Launching this Valentine's in New Orleans — elevate your palette with
-        our wise wine companion
+        Built for ambitious professionals who want to elevate their dining game
+        — launching soon in New Orleans where culinary excellence meets
+        cutting-edge AI.
       </p>
 
       {/* CTA Buttons */}
@@ -40,7 +60,7 @@ export default function HeroSection() {
           asChild
           className="backdrop-blur-sm bg-white/10 border-2 border-white/30 text-white hover:bg-white/20 transition-all duration-300 px-8 py-3 text-lg font-semibold rounded-full"
         >
-          <Link href="#chat">Chat with SIP</Link>
+          <Link href="#chat">Experience SIP's AI Sommelier</Link>
         </Button>
 
         <Button
@@ -53,7 +73,7 @@ export default function HeroSection() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Take Our Survey
+            Join the Wine Revolution
           </Link>
         </Button>
       </div>
