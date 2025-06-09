@@ -43,9 +43,9 @@ export default function HeroSection() {
       </h1>
 
       <p className="text-lg md:text-xl text-pink-100 mb-8 max-w-2xl mx-auto leading-relaxed">
-        SIP transforms you from wine novice to confident connoisseur. Get
-        personalized, expert recommendations that impress at any restaurant or
-        occasion.
+        SIP gives you the confidence to find the wine that suits your vibes.
+        Experience personalized, expert recommendations that impress at any
+        restaurant or occasion.
       </p>
 
       <p className="text-md text-pink-200 mb-12 max-w-xl mx-auto">
