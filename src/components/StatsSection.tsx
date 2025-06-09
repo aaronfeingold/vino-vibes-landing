@@ -1,8 +1,9 @@
 "use client"
 
+import React from "react";
 import { useEffect, useState } from "react";
 import { TrendingUp } from "lucide-react";
-import { useIntersectionObserver } from "@/lib/useIntersectionObserver";
+import { useIntersectionObserver } from "@/src/lib/useIntersectionObserver";
 
 const stats = [
   {

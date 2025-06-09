@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import { Button } from "@/src/components/ui/button";
+import Link from "next/link";
 
 export default function CTASection() {
   return (
@@ -10,7 +10,8 @@ export default function CTASection() {
         </h2>
 
         <p className="text-lg text-pink-100 mb-8 max-w-2xl mx-auto leading-relaxed">
-          Join wine lovers who've discovered their perfect pairings. Start your sommelier journey today.
+          Join wine lovers who've discovered their perfect pairings. Start your
+          sommelier journey today.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -26,12 +27,16 @@ export default function CTASection() {
             variant="outline"
             className="backdrop-blur-sm bg-transparent border-2 border-pink-300/50 text-pink-100 hover:bg-pink-300/10 transition-all duration-300 px-8 py-3 text-lg rounded-full"
           >
-            <Link href="https://forms.gle/3uyzDNNS2qc7GnWG6" target="_blank" rel="noopener noreferrer">
+            <Link
+              href="https://forms.gle/3uyzDNNS2qc7GnWG6"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Share Your Feedback
             </Link>
           </Button>
         </div>
       </div>
     </div>
-  )
+  );
 }
