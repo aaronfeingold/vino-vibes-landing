@@ -2,8 +2,9 @@ import HeroSection from "../components/hero-section"
 import FeaturesSection from "../components/features-section"
 import StatsSection from "../components/stats-section"
 import CTASection from "../components/cta-section"
-import VenmoSection from "../components/venmo-section"
-import Link from "next/link"
+import VenmoSection from "../components/VenmoSection";
+import Link from "next/link";
+import { Globe, Instagram } from "lucide-react";
 
 export default function Home() {
   return (
@@ -47,35 +48,40 @@ export default function Home() {
         <FeaturesSection />
         <StatsSection />
         <CTASection />
-        <VenmoSection />
+        <div className="text-center mb-8 relative z-10">
+          <VenmoSection />
+        </div>
 
         {/* Social Links */}
-        <div className="text-center mb-8 relative z-10">
+        <div className="flex flex-col justify-center text-center mb-8 z-10 overflow-hidden">
           <div className="flex justify-center space-x-6">
             <Link
               href="https://instagram.com/siptheowl"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-pink-200 hover:text-white transition-colors duration-300"
+              className="flex items-center gap-2 text-white hover:text-pink-200 transition-colors text-lg"
             >
-              📷 @siptheowl
+              <Instagram size={32} /> @siptheowl
             </Link>
             <Link
               href="https://aaronfeingold.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-pink-200 hover:text-white transition-colors duration-300"
+              className="flex items-center gap-2 text-white hover:text-pink-200 transition-colors text-lg"
             >
-              🌐 aaronfeingold.com
+              <Globe size={20} />
+              aaronfeingold.com
             </Link>
           </div>
         </div>
 
         {/* Footer */}
         <footer className="text-center relative z-10">
-          <p className="text-pink-200 font-bold text-lg tracking-wider">SIP IN STYLE</p>
+          <p className="text-pink-200 font-bold text-lg tracking-wider">
+            SIP IN STYLE
+          </p>
         </footer>
       </div>
     </div>
-  )
+  );
 }
