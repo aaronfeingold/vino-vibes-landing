@@ -6,9 +6,9 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  images: {
-    unoptimized: true,
-  },
-}
+  // Optimize for Vercel deployment
+  poweredByHeader: false,
+  compress: true,
+};
 
-export default nextConfig
+export default nextConfig;
