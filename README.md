@@ -1,7 +1,6 @@
 # Vino Vibes Landing Page
 
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/aaronfeingolds-projects/v0-vino-vibes)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/aI7oapFkkdG)
 [![Next.js](https://img.shields.io/badge/Next.js-15.2.4-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 
@@ -21,7 +20,6 @@ This is a **landing page designed for A/B testing** wine experience offerings. T
 - **UI Components:** shadcn/ui (Radix UI primitives)
 - **Package Manager:** pnpm
 - **Deployment:** Vercel
-- **Development:** v0.dev integration
 
 ## Key Dependencies
 
@@ -112,7 +110,6 @@ The project uses **shadcn/ui** components built on **Radix UI** primitives:
 
 - **Main Branch:** Automatically deploys to production on Vercel
 - **Feature Branches:** Create preview deployments
-- **v0.dev Integration:** Changes sync automatically from v0.dev
 
 ### Manual Deployment
 
@@ -141,14 +138,6 @@ The project includes a `vercel.json` file optimized for:
 - Optimal build commands
 - US East deployment region
 
-## v0.dev Integration
-
-This project is synchronized with v0.dev:
-
-1. **Continue Building:** [v0.dev Project](https://v0.dev/chat/projects/aI7oapFkkdG)
-2. **Auto-Sync:** Changes deploy automatically to this repository
-3. **Version Control:** All changes are tracked in Git
-
 ## A/B Testing Guidelines
 
 When creating test variations:
@@ -175,7 +164,6 @@ This project is private and proprietary.
 ## Support
 
 For questions or issues:
-- Check the [v0.dev project](https://v0.dev/chat/projects/aI7oapFkkdG)
 - Review Vercel deployment logs
 - Contact the development team
 
