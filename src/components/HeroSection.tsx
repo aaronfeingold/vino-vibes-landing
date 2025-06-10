@@ -7,6 +7,9 @@ import { useState } from "react";
 
 export default function HeroSection() {
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   const handleOwlClick = () => {
     if (isAnimating) return; // Prevent multiple animations
@@ -16,13 +19,50 @@ export default function HeroSection() {
     setTimeout(() => setIsAnimating(false), 600);
   };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+
+    // Basic validation
+    if (!email || !email.includes("@")) {
+      setError("Please enter a valid email address");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/beta-signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setTimeout(() => {
+          onClose();
+        }, 3000); // Show success message longer
+      } else {
+        setError(data.error || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setError("Network error. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section
       id="home"
       className="md:mt-20 md:pt-10 mb-32 scroll-mt-16 md:scroll-mt-20"
     >
       <div className="text-center relative z-10 mb-16">
-        {/* SIP the Owl Avatar */}
         <div className="mb-8 flex justify-center">
           <div className="relative group">
             <div className="absolute inset-0 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-300 animate-pulse-glow"></div>
@@ -42,9 +82,10 @@ export default function HeroSection() {
             />
           </div>
         </div>
-
-        {/* Headlines */}
-        <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+        <h1
+          id="tagline"
+          className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+        >
           Your Best
           <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             {" "}
