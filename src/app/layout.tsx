@@ -9,21 +9,35 @@ export const metadata: Metadata = {
   title: "Vino Vibes AI",
   description: "SIP and vibe with Vino Vibes AI",
   generator: "v0.dev",
-  icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
-  },
+  icons: [
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "128x128",
+      url: "/favicon.png",
+    },
+    {
+      rel: "shortcut icon",
+      url: "/favicon.png",
+    },
+    {
+      rel: "apple-touch-icon",
+      url: "/favicon.png",
+    },
+  ],
 };
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.png" type="image/png" />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
-  )
+  );
 }

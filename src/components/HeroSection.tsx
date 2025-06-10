@@ -19,7 +19,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="mt-20 sm:mt-0 mb-32 scroll-mt-16 md:scroll-mt-20"
+      className="md:mt-20 md:pt-10 mb-32 scroll-mt-16 md:scroll-mt-20"
     >
       <div className="text-center relative z-10 mb-16">
         {/* SIP the Owl Avatar */}
@@ -70,7 +70,7 @@ export default function HeroSection() {
           restaurant or occasion.
         </p>
 
-        <p className="text-md text-pink-200 mb-12 max-w-xl mx-auto">
+        <p className="text-md text-pink-200 mb-5 md:mb-12 max-w-xl mx-auto">
           Built for ambitious professionals who want to elevate their dining
           game — launching soon in New Orleans where culinary excellence meets
           cutting-edge AI.
