@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function CTASection() {
   return (
     <section
-      id="chat"
+      id="vibe"
       className="max-w-7xl mx-auto w-full px-6 mb-32 scroll-mt-16 md:scroll-mt-20"
     >
       <div className="text-center mb-16 relative z-10">
@@ -23,7 +23,7 @@ export default function CTASection() {
               asChild
               className="backdrop-blur-sm bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-400 hover:to-purple-400 border-0 text-white transition-all duration-300 px-8 py-3 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105"
             >
-              <Link href="#chat">Start Chatting with SIP</Link>
+              <Link href="#chat">Start Vibing with SIP</Link>
             </Button>
 
             <Button
