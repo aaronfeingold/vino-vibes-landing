@@ -7,8 +7,8 @@ const navItems = [
   { id: "home", label: "Home" },
   { id: "features", label: "Features" },
   { id: "stats", label: "Stats" },
-  { id: "chat", label: "Chat" },
-  { id: "vibes", label: "Vibes" },
+  { id: "vibe", label: "Vibe" },
+  { id: "vibes", label: "Vino Vibes" },
 ];
 
 export default function Navbar() {
