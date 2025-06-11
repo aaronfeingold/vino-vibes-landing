@@ -7,9 +7,7 @@ import { useState } from "react";
 
 export default function HeroSection() {
   const [isAnimating, setIsAnimating] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [error, setError] = useState("");
+  const [showBetaModal, setShowBetaModal] = useState(false);
 
   const handleOwlClick = () => {
     if (isAnimating) return; // Prevent multiple animations
@@ -19,42 +17,8 @@ export default function HeroSection() {
     setTimeout(() => setIsAnimating(false), 600);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError("");
-
-    // Basic validation
-    if (!email || !email.includes("@")) {
-      setError("Please enter a valid email address");
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch("/api/beta-signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setIsSubmitted(true);
-        setTimeout(() => {
-          onClose();
-        }, 3000); // Show success message longer
-      } else {
-        setError(data.error || "Something went wrong. Please try again.");
-      }
-    } catch (err) {
-      setError("Network error. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
+  const handleVibeClick = () => {
+    setShowBetaModal(true);
   };
 
   return (
@@ -102,11 +66,11 @@ export default function HeroSection() {
           The Sommelier In Pocket
         </h1>
 
-        <p className="text-lg md:text-xl text-pink-100 mb-8 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg md:text-xl text-pink-100 mb-5 md:mb-8 max-w-2xl mx-auto leading-relaxed">
           SIP gives you the confidence to choose the wine that suits your vibes
           everytime.
         </p>
-        <p className="text-lg md:text-xl text-pink-100 mb-8 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg md:text-xl text-pink-100 mb-5 md:mb-12 max-w-2xl mx-auto leading-relaxed">
           Experience personalized, expert recommendations that impress at any
           restaurant or occasion.
         </p>
@@ -120,10 +84,10 @@ export default function HeroSection() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
           <Button
-            asChild
             className="backdrop-blur-sm bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-400 hover:to-purple-400 border-0 text-white transition-all duration-300 px-8 py-3 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105"
+            onClick={handleVibeClick}
           >
-            <Link href="#chat">Vibe with SIP</Link>
+            Vibe with SIP
           </Button>
 
           <Button
@@ -141,6 +105,113 @@ export default function HeroSection() {
           </Button>
         </div>
       </div>
+
+      {/* Beta Signup Modal */}
+      {showBetaModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 max-w-md mx-4 relative">
+            <button
+              onClick={() => setShowBetaModal(false)}
+              className="absolute top-4 right-4 text-white hover:text-pink-300 text-2xl font-bold"
+            >
+              ×
+            </button>
+
+            <div className="text-center mb-6">
+              <h3 className="text-2xl font-bold text-white mb-2">
+                Join the Beta!
+              </h3>
+              <p className="text-pink-100">
+                Be the first to experience SIP when we launch.
+              </p>
+            </div>
+
+            <BetaSignupForm onClose={() => setShowBetaModal(false)} />
+          </div>
+        </div>
+      )}
     </section>
+  );
+}
+
+function BetaSignupForm({ onClose }: { onClose: () => void }) {
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+
+    // Basic validation
+    if (!email || !email.includes("@")) {
+      setError("Please enter a valid email address");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/beta-signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setTimeout(() => {
+          onClose();
+        }, 3000);
+      } else {
+        setError(data.error || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setError("Network error. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  if (isSubmitted) {
+    return (
+      <div className="text-center">
+        <div className="text-4xl mb-4">🎉</div>
+        <p className="text-white font-semibold">You're on the list!</p>
+        <p className="text-pink-100 text-sm">
+          We'll notify you when SIP launches.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div>
+        <input
+          type="email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400"
+          disabled={isSubmitting}
+        />
+      </div>
+
+      {error && <p className="text-red-300 text-sm">{error}</p>}
+
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-400 hover:to-purple-400 disabled:opacity-50 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300"
+      >
+        {isSubmitting ? "Joining..." : "Join Beta List"}
+      </button>
+    </form>
   );
 }
