@@ -22,14 +22,10 @@ export const betaSignups = pgTable(
     ipAddress: inet("ip_address"),
     userAgent: text("user_agent"),
   },
-  (table) => ({
-    normalizedEmailIdx: index("idx_beta_signups_normalized_email").on(
-      table.normalizedEmail
-    ),
-    createdAtIdx: index("idx_beta_signups_created_at").on(
-      table.createdAt.desc()
-    ),
-  })
+  (table) => [
+    index("idx_beta_signups_normalized_email").on(table.normalizedEmail),
+    index("idx_beta_signups_created_at").on(table.createdAt.desc()),
+  ]
 );
 
 export type BetaSignup = typeof betaSignups.$inferSelect;
