@@ -4,6 +4,7 @@ import { generateBetaWelcomeEmail } from "../../../lib/email-templates";
 import { db } from "../../../lib/db";
 import { betaSignups } from "../../../lib/db/schema";
 import { eq } from "drizzle-orm";
+import { betaSignupSchema } from "../../../lib/validation";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Normalize email to detect Gmail aliases and other tricks
@@ -23,15 +24,20 @@ function normalizeEmail(email: string): string {
 
 export async function POST(request: NextRequest) {
   try {
-    const { email } = await request.json();
+    const body = await request.json();
 
-    // Basic validation
-    if (!email || !email.includes("@")) {
+    // Validate request body with Zod
+    const validationResult = betaSignupSchema.safeParse(body);
+
+    if (!validationResult.success) {
       return NextResponse.json(
-        { error: "Invalid email address" },
+        { error: validationResult.error.errors[0]?.message || "Invalid input" },
         { status: 400 }
       );
     }
+
+    const { email, wantsDonation, hasSeenDonationModal } =
+      validationResult.data;
 
     const normalizedEmail = normalizeEmail(email);
 
@@ -53,6 +59,8 @@ export async function POST(request: NextRequest) {
     await db.insert(betaSignups).values({
       email,
       normalizedEmail,
+      wantsDonation,
+      hasSeenDonationModal,
     });
 
     // Send welcome email
