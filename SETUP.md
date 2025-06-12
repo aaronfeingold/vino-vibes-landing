@@ -97,9 +97,9 @@ The system automatically normalizes emails to prevent duplicates:
 - **Image not loading**: Ensure `NEXT_PUBLIC_DOMAIN` points to accessible domain
 
 ### Environment Variable Checklist
-- ✅ `.env.local` file exists
-- ✅ `NEON_DATABASE_URL` is valid PostgreSQL connection string
-- ✅ `RESEND_API_KEY` starts with `re_`
-- ✅ `NEXT_PUBLIC_DOMAIN` includes protocol (http/https)
-- ✅ Database schema has been executed
-- ✅ Dependencies are installed
+- `.env.local` file exists
+- `NEON_DATABASE_URL` is valid PostgreSQL connection string
+- `RESEND_API_KEY` starts with `re_`
+- `NEXT_PUBLIC_DOMAIN` includes protocol (http/https)
+- Database schema has been executed
+- Dependencies are installed
