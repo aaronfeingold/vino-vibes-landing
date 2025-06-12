@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const navItems = [
   { id: "home", label: "Home" },
@@ -64,7 +64,7 @@ export default function Navbar() {
                 <button
                   className={`px-3 py-2 text-sm font-bold uppercase tracking-wider transition-colors duration-200 ${
                     current === item.id
-                      ? "text-white bg-white text-black"
+                      ? "bg-white text-black"
                       : "text-white hover:text-gray-300"
                   }`}
                   onClick={() => handleClick(item.id)}
