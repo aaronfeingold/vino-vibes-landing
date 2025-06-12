@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import EnhancedBetaSignup from "./EnhancedBetaSignup";
 
 export default function HeroSection() {
   const [isAnimating, setIsAnimating] = useState(false);
@@ -126,7 +127,7 @@ export default function HeroSection() {
               </p>
             </div>
 
-            <BetaSignupForm onClose={() => setShowBetaModal(false)} />
+            <EnhancedBetaSignup onClose={() => setShowBetaModal(false)} />
           </div>
         </div>
       )}
@@ -134,84 +135,4 @@ export default function HeroSection() {
   );
 }
 
-function BetaSignupForm({ onClose }: { onClose: () => void }) {
-  const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [error, setError] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError("");
-
-    // Basic validation
-    if (!email || !email.includes("@")) {
-      setError("Please enter a valid email address");
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch("/api/beta-signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setIsSubmitted(true);
-        setTimeout(() => {
-          onClose();
-        }, 3000);
-      } else {
-        setError(data.error || "Something went wrong. Please try again.");
-      }
-    } catch (err) {
-      setError("Network error. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  if (isSubmitted) {
-    return (
-      <div className="text-center">
-        <div className="text-4xl mb-4">🎉</div>
-        <p className="text-white font-semibold">You're on the list!</p>
-        <p className="text-pink-100 text-sm">
-          We'll notify you when SIP launches.
-        </p>
-      </div>
-    );
-  }
-
-  return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
-        <input
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400"
-          disabled={isSubmitting}
-        />
-      </div>
-
-      {error && <p className="text-red-300 text-sm">{error}</p>}
-
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-400 hover:to-purple-400 disabled:opacity-50 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300"
-      >
-        {isSubmitting ? "Joining..." : "Join Beta List"}
-      </button>
-    </form>
-  );
-}
