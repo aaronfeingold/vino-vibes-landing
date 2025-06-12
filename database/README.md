@@ -19,6 +19,29 @@ pnpm db:studio
 pnpm db:push
 ```
 
+#### Accessing Drizzle Studio Remotely
+
+If you're working on a remote machine via SSH, Drizzle Studio runs on `localhost:4983` of the remote machine. To access it from your local browser, you need SSH port forwarding:
+
+**Method 1: SSH Tunnel (Recommended)**
+```bash
+# On your local machine, open a new terminal:
+ssh -L 4983:localhost:4983 username@your-remote-machine
+```
+
+Then open `http://localhost:4983` in your local browser.
+
+**Method 2: Add to SSH Config**
+Edit `~/.ssh/config` on your local machine:
+```
+Host your-remote-machine
+    HostName your.remote.ip.address
+    User your-username
+    LocalForward 4983 localhost:4983
+```
+
+**What this does**: Creates a secure encrypted tunnel that forwards port 4983 from your local machine to the remote machine's port 4983, allowing you to access Drizzle Studio as if it were running locally.
+
 ### Production
 Migrations run automatically during the build process via the `scripts/migrate.js` script.
 
@@ -61,10 +84,21 @@ NEON_DATABASE_URL="postgresql://username:password@host/database?sslmode=require"
    - For security, never commit your actual database URL to version control
 
 ### Local Development
-Create a `.env.local` file in your project root:
+Create a `.env` file in your project root:
 ```bash
 NEON_DATABASE_URL="your_neon_database_url_here"
+NEXT_PUBLIC_VENMO_USERNAME="your_venmo_username"
 ```
+
+**Important**: Use `.env` (not `.env.local`) because drizzle-kit only reads `.env` files by default. Next.js will automatically load `.env` files, so this works for both Next.js and drizzle-kit commands.
+
+### Additional Environment Variables
+
+#### Venmo Integration
+- **`NEXT_PUBLIC_VENMO_USERNAME`**: Your Venmo username (without @) for donation links
+  - Used in the donation modal and support links
+  - Example: `siptheowl`
+  - Required for Venmo payment functionality
 
 ## Current Tables
 
