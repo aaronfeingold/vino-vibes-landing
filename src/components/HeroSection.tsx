@@ -49,9 +49,10 @@ export default function HeroSection() {
         </div>
         <h1
           id="tagline"
-          className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+          className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-2 md:mb-6 leading-tight"
         >
           Your Best
+          <br />
           <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             {" "}
             Vino Vibes
@@ -63,7 +64,7 @@ export default function HeroSection() {
             SIP
           </span>
         </h1>
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-pink-200">
+        <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-pink-200">
           The Sommelier In Pocket
         </h1>
 
