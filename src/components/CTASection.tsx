@@ -1,7 +1,17 @@
+"use client";
+
 import { Button } from "@/src/components/ui/button";
 import Link from "next/link";
+import { useState } from "react";
+import EnhancedBetaSignup from "./EnhancedBetaSignup";
 
 export default function CTASection() {
+  const [showBetaModal, setShowBetaModal] = useState(false);
+
+  const handleVibeClick = () => {
+    setShowBetaModal(true);
+  };
+
   return (
     <section
       id="vibe"
@@ -20,10 +30,10 @@ export default function CTASection() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
-              asChild
               className="backdrop-blur-sm bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-400 hover:to-purple-400 border-0 text-white transition-all duration-300 px-8 py-3 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105"
+              onClick={handleVibeClick}
             >
-              <Link href="#chat">Start Vibing with SIP</Link>
+              Start Vibing with SIP
             </Button>
 
             <Button
@@ -42,6 +52,31 @@ export default function CTASection() {
           </div>
         </div>
       </div>
+
+      {/* Beta Signup Modal */}
+      {showBetaModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 max-w-md mx-4 relative">
+            <button
+              onClick={() => setShowBetaModal(false)}
+              className="absolute top-4 right-4 text-white hover:text-pink-300 text-2xl font-bold"
+            >
+              ×
+            </button>
+
+            <div className="text-center mb-6">
+              <h3 className="text-2xl font-bold text-white mb-2">
+                Join the Beta!
+              </h3>
+              <p className="text-pink-100">
+                Be the first to experience SIP when we launch.
+              </p>
+            </div>
+
+            <EnhancedBetaSignup onClose={() => setShowBetaModal(false)} />
+          </div>
+        </div>
+      )}
     </section>
   );
 }
