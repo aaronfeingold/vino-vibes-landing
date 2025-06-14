@@ -51,7 +51,7 @@ export default function SocialLinksSection() {
         {/* Tagline */}
         <div className="text-center">
           <p className="text-pink-200 font-bold text-lg tracking-wider">
-            SIP IN STYLE
+            Confident SIP. Perfect vibes
           </p>
         </div>
       </div>

@@ -1,10 +1,9 @@
 "use client";
 
 import { Button } from "./ui/button";
-import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import EnhancedBetaSignup from "./EnhancedBetaSignup";
+import BetaSignupModal from "./BetaSignupModal";
 
 export default function HeroSection() {
   const [isAnimating, setIsAnimating] = useState(false);
@@ -80,7 +79,7 @@ export default function HeroSection() {
           Sommelier, don't kill my vibe!
         </p>
         <p className="text-sm md:text-xl text-pink-100 mb-2 md:mb-12 max-w-2xl mx-auto leading-relaxed">
-          You're different. Your wine pairings should be too.{" "}
+          You're different. Your wine pairings should be too. <br />
           <span className="font-bold">SIP gets it.</span>
         </p>
 
@@ -113,30 +112,10 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Beta Signup Modal */}
-      {showBetaModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 max-w-md mx-4 relative">
-            <button
-              onClick={() => setShowBetaModal(false)}
-              className="absolute top-4 right-4 text-white hover:text-pink-300 text-2xl font-bold"
-            >
-              ×
-            </button>
-
-            <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold text-white mb-2">
-                Join the Beta!
-              </h3>
-              <p className="text-pink-100">
-                Be the first to experience SIP when we launch.
-              </p>
-            </div>
-
-            <EnhancedBetaSignup onClose={() => setShowBetaModal(false)} />
-          </div>
-        </div>
-      )}
+      <BetaSignupModal
+        isOpen={showBetaModal}
+        onClose={() => setShowBetaModal(false)}
+      />
     </section>
   );
 }
