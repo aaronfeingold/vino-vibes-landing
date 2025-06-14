@@ -4,19 +4,22 @@ const features = [
   {
     icon: Wine,
     title: "AI-Powered Wine Pairing",
-    description: "Upload menu photos and get expert wine recommendations from our sassy AI sommelier",
+    description:
+      "Upload menu photos and get expert, personalized wine recommendations from our sassy AI sommelier, SIP the Owl",
   },
   {
     icon: Camera,
-    title: "Image Analysis",
-    description: "Advanced image recognition analyzes your food and wine menus for perfect pairings",
+    title: "Making Dining Memories",
+    description:
+      "Track what wines you've tried, where you had them, and share your vibes with others.",
   },
   {
     icon: MessageCircle,
     title: "Expert Chat Interface",
-    description: "Discuss and refine recommendations through our interactive chat experience",
+    description:
+      "Discuss and refine selections through our educational chat experience. Discover new wines with the confidence.",
   },
-]
+];
 
 export default function FeaturesSection() {
   return (
