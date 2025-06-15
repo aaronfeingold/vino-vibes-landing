@@ -6,6 +6,7 @@ import DonationModal from "./ui/donation-modal";
 import { Button } from "./ui/button";
 import { emailSchema } from "../lib/validation";
 import { z } from "zod";
+import { analytics } from "@/src/lib/analytics";
 
 interface EnhancedBetaSignupProps {
   onClose: () => void;
@@ -40,6 +41,7 @@ export default function EnhancedBetaSignup({
     setApiError("");
     if (value.trim()) {
       validateEmail(value);
+      analytics.betaSignup.emailEntered(isValidEmail);
     } else {
       setEmailError("");
       setIsValidEmail(false);
@@ -56,15 +58,18 @@ export default function EnhancedBetaSignup({
 
     // Show donation modal after email validation
     setShowDonationModal(true);
+    analytics.betaSignup.modalOpened();
   };
 
   const handleDonationAccept = async () => {
     setShowDonationModal(false);
+    analytics.donation.accepted();
     await submitSignup(true, true);
   };
 
   const handleDonationDecline = async () => {
     setShowDonationModal(false);
+    analytics.donation.declined();
     await submitSignup(false, true);
   };
 
@@ -92,14 +97,17 @@ export default function EnhancedBetaSignup({
 
       if (response.ok) {
         setIsSubmitted(true);
+        analytics.betaSignup.completed();
         setTimeout(() => {
           onClose();
         }, 3000);
       } else {
         setApiError(data.error || "Something went wrong. Please try again.");
+        analytics.betaSignup.submitted(true);
       }
     } catch (err) {
       setApiError("Network error. Please try again.");
+      analytics.betaSignup.submitted(true);
     } finally {
       setIsSubmitting(false);
     }
