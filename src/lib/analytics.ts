@@ -18,18 +18,46 @@ export const initGA = () => {
 };
 
 // Generic event tracking
-export const trackEvent = (
+export const trackEvent = async (
   action: string,
   category: string,
   label?: string,
   value?: number
 ) => {
-  if (typeof window !== "undefined" && window.gtag) {
-    window.gtag("event", action, {
-      event_category: category,
-      event_label: label,
-      value: value,
-    });
+  if (typeof window !== "undefined") {
+    // Send to Google Analytics
+    if (window.gtag) {
+      window.gtag("event", action, {
+        event_category: category,
+        event_label: label,
+        value: value,
+      });
+    }
+
+    // Store in our database
+    try {
+      await fetch("/api/analytics", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          eventName: action,
+          eventCategory: category,
+          eventLabel: label,
+          eventValue: value,
+          pageUrl: window.location.href,
+          referrer: document.referrer,
+          userAgent: navigator.userAgent,
+          metadata: {
+            title: document.title,
+            timestamp: new Date().toISOString(),
+          },
+        }),
+      });
+    } catch (error) {
+      console.error("Failed to store analytics event:", error);
+    }
   }
 };
 
