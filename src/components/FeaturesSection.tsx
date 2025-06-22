@@ -1,6 +1,6 @@
 "use client";
 
-import { Wine, Camera, MessageCircle, ChevronDown } from "lucide-react";
+import { Wine, Camera, MessageCircle } from "lucide-react";
 import { Button } from "./ui/button";
 
 const features = [
