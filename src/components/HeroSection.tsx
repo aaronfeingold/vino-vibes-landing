@@ -1,21 +1,11 @@
 "use client";
 
 import { Button } from "./ui/button";
-import Image from "next/image";
 import { useState } from "react";
 import BetaSignupModal from "./BetaSignupModal";
 
 export default function HeroSection() {
-  const [isAnimating, setIsAnimating] = useState(false);
   const [showBetaModal, setShowBetaModal] = useState(false);
-
-  const handleOwlClick = () => {
-    if (isAnimating) return; // Prevent multiple animations
-
-    setIsAnimating(true);
-    // Reset animation after it completes
-    setTimeout(() => setIsAnimating(false), 600);
-  };
 
   const handleVibeClick = () => {
     setShowBetaModal(true);
