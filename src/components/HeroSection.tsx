@@ -63,17 +63,6 @@ export default function HeroSection() {
             SIP
           </span>
         </h1>
-        {/* SIP Badge for clarity */}
-        <span className="px-3 py-1 rounded-full bg-pink-600/20 text-pink-400 font-semibold tracking-wide text-sm inline-block animate-pulse">
-          <h3 className="text-3xl md:text-5xl lg:text-6xl font-extrabold md:mb-3 md:mt-3 bg-clip-text text-transparent bg-gradient-to-r from-white via-pink-300 to-pink-500 drop-shadow-lg text-center">
-            <span className="text-pink-400 animate-bounce">S</span>
-            <span className="text-white">ommelier </span>
-            <span className="text-pink-400 animate-bounce delay-150">I</span>
-            <span className="text-white">n </span>
-            <span className="text-pink-400 animate-bounce delay-300">P</span>
-            <span className="text-white">ocket</span>
-          </h3>
-        </span>
 
         <p className="text-lg md:text-xl text-pink-100 mb-2 md:mb-4 max-w-2xl mx-auto leading-relaxed">
           Sommelier, don't kill my vibe!
