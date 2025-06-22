@@ -24,12 +24,12 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="md:mt-20 md:pt-10 mb-32 scroll-mt-16 md:scroll-mt-20"
+      className="flex flex-col items-center md:mt-20 md:pt-10 mb-32 scroll-mt-16 md:scroll-mt-20 h-screen"
     >
       <div className="text-left relative z-10 mb-16">
         <h1
           id="tagline"
-          className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mt-4 mb-6 leading-tight"
+          className="text-4xl md:text-5xl lg:text-10xl lg:text-9xl font-bold text-white mt-4 mb-6 leading-tight"
         >
           Make Dining
           <br />
@@ -41,15 +41,15 @@ export default function HeroSection() {
           </span>
         </h1>
         <div className="flex flex-col items-center text-center font-bold text-grey-200">
-          <p className="text-lg font-bold md:text-xl mb-2 md:mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg font-bold md:text-xl lg:text-2xl mb-2 md:mb-8 mx-auto leading-relaxed">
             Everyone should be able to experience the best wine when dining out.
           </p>
-          <p className="text-xl md:text-xl  mt-4 mb-2 md:mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg font-bold md:text-xl lg:text-2xl mb-2 md:mb-8 mx-auto leading-relaxed">
             Yet choosing the wrong wine can kill the vibe.
             <br />
             <span className="font-bold"></span>
           </p>
-          <p className="text-lg md:text-xl text-grey-200  mt-4 mb-2 md:mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg font-bold md:text-xl lg:text-2xl mb-2 md:mb-8 mx-auto leading-relaxed">
             With a sommelier in pocket, the vibe of every sip is unforgettable.
             <br />
             <span className="font-bold"></span>
