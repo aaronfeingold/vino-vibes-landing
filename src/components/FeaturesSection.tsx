@@ -5,7 +5,7 @@ const features = [
     icon: Wine,
     title: "AI-Powered Wine Pairing",
     description:
-      "Upload menu photos and get expert, personalized wine recommendations from our sassy AI sommelier, SIP the Owl",
+      "Upload menu photos and get expert, personalized wine recommendations from our sassy AI sommelier, Sip the Owl",
   },
   {
     icon: Camera,
@@ -17,7 +17,7 @@ const features = [
     icon: MessageCircle,
     title: "Expert Chat Interface",
     description:
-      "Discuss and refine selections through our educational chat experience. Discover new wines with the confidence.",
+      "Discuss and refine selections through educational chats with Sip the Owl. Discover new wines with the confidence.",
   },
 ];
 
@@ -26,7 +26,7 @@ export default function FeaturesSection() {
     <section id="features" className="mb-32">
       <div className="mb-16 relative z-10">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-white to-pink-200">
-          How SIP Elevates Your Dining
+          Create Your Own Vino Vibes
         </h2>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">

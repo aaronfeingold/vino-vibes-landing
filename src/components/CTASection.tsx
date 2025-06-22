@@ -33,7 +33,7 @@ export default function CTASection() {
               className="backdrop-blur-sm bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-400 hover:to-purple-400 border-0 text-white transition-all duration-300 px-8 py-3 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105"
               onClick={handleVibeClick}
             >
-              Start Vibing with SIP
+              Experience Vino Vibes
             </Button>
 
             <Button

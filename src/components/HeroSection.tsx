@@ -26,63 +26,44 @@ export default function HeroSection() {
       id="home"
       className="md:mt-20 md:pt-10 mb-32 scroll-mt-16 md:scroll-mt-20"
     >
-      <div className="text-center relative z-10 mb-16">
-        <div className="mb-4 flex justify-center">
-          <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-300 animate-pulse-glow"></div>
-            <Image
-              src="/sip-owl.png"
-              alt="SIP the Owl"
-              width={120}
-              height={120}
-              className={`mx-auto transition-transform duration-300 hover:scale-110 hover:rotate-3 cursor-pointer select-none ${
-                isAnimating ? "animate-bounce scale-110 rotate-3" : ""
-              }`}
-              onClick={handleOwlClick}
-              onTouchStart={handleOwlClick}
-              style={{
-                transform: isAnimating ? "scale(1.1) rotate(3deg)" : undefined,
-              }}
-            />
-          </div>
-        </div>
+      <div className="text-left relative z-10 mb-16">
         <h1
           id="tagline"
-          className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-2 md:mb-6 leading-tight"
+          className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mt-4 mb-6 leading-tight"
         >
-          Your Best
+          Make Dining
+          <br />
+          Memories With
           <br />
           <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             {" "}
             Vino Vibes
           </span>
-          <br />
-          Start With
-          <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-            {" "}
-            SIP
-          </span>
         </h1>
-
-        <p className="text-lg md:text-xl text-pink-100 mb-2 md:mb-4 max-w-2xl mx-auto leading-relaxed">
-          Sommelier, don't kill my vibe!
-        </p>
-        <p className="text-sm md:text-xl text-pink-100 mb-2 md:mb-12 max-w-2xl mx-auto leading-relaxed">
-          You're different. Your wine pairings should be too. <br />
-          <span className="font-bold">SIP gets it.</span>
-        </p>
-
-        <p className="text-md text-pink-200 mb-3 md:mb-6 max-w-xl mx-auto">
-          Confident selections. Endless knowledge. Experience the vibes.
-        </p>
+        <div className="flex flex-col items-center text-center font-bold text-grey-200">
+          <p className="text-lg font-bold md:text-xl mb-2 md:mb-8 max-w-2xl mx-auto leading-relaxed">
+            Everyone should be able to experience the best wine when dining out.
+          </p>
+          <p className="text-xl md:text-xl  mt-4 mb-2 md:mb-8 max-w-2xl mx-auto leading-relaxed">
+            Yet choosing the wrong wine can kill the vibe.
+            <br />
+            <span className="font-bold"></span>
+          </p>
+          <p className="text-lg md:text-xl text-grey-200  mt-4 mb-2 md:mb-8 max-w-2xl mx-auto leading-relaxed">
+            With a sommelier in pocket, the vibe of every sip is unforgettable.
+            <br />
+            <span className="font-bold"></span>
+          </p>
+        </div>
+        <p className="text-md text-center text-pink-200 mb-6 max-w-xl mx-auto"></p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+        <div className="flex flex-col mt-2 sm:flex-row gap-4 justify-center items-center mb-8">
           <Button
             className="backdrop-blur-sm bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-400 hover:to-purple-400 border-0 text-white transition-all duration-300 px-8 py-3 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105"
             onClick={handleVibeClick}
           >
-            Vibe with SIP
+            Experience Vino Vibes AI Beta
           </Button>
 
           <Button
@@ -96,7 +77,7 @@ export default function HeroSection() {
               }
             }}
           >
-            Spill the tea!
+            Learn How We Pair Wines for You
           </Button>
         </div>
       </div>

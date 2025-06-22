@@ -38,7 +38,7 @@ export default function SocialLinksSection() {
         {/* Support Section */}
         <div className="mb-8">
           <p className="text-pink-100 mb-4 text-sm md:text-base">
-            Love SIP? Help keep the project growing!
+            Feeling the Vino Vibes? Help keep the project growing!
           </p>
           <VenmoDeepLink
             username="Aaron-Feingold"
@@ -51,7 +51,7 @@ export default function SocialLinksSection() {
         {/* Tagline */}
         <div className="text-center">
           <p className="text-pink-200 font-bold text-lg tracking-wider">
-            Confident SIP. Perfect vibes
+            Confident Vino Vibes
           </p>
         </div>
       </div>
