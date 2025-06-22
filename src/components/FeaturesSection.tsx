@@ -1,11 +1,14 @@
-import { Wine, Camera, MessageCircle } from "lucide-react"
+"use client";
+
+import { Wine, Camera, MessageCircle, ChevronDown } from "lucide-react";
+import { Button } from "./ui/button";
 
 const features = [
   {
     icon: Wine,
     title: "AI-Powered Wine Pairing",
     description:
-      "Upload menu photos and get expert, personalized wine recommendations from our sassy AI sommelier, Sip the Owl",
+      "Upload menu photos and get expert, personalized wine recommendations from our sassy AI sommelier.",
   },
   {
     icon: Camera,
@@ -23,10 +26,16 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section id="features" className="mb-32">
-      <div className="mb-16 relative z-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-white to-pink-200">
-          Create Your Own Vino Vibes
+    <section
+      id="features"
+      className="mb-32 lg:h-screen lg:flex lg:items-center lg:justify-center"
+    >
+      <div
+        id="features-content"
+        className="mb-16 relative z-10 flex flex-col items-center"
+      >
+        <h2 className="text-2xl md:text-3xl font-bold text-center lg:mb-20 bg-clip-text text-transparent bg-gradient-to-r from-white to-pink-200">
+          Introducing Our Mascot: Sip the Owl
         </h2>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -50,6 +59,34 @@ export default function FeaturesSection() {
               </p>
             </div>
           ))}
+        </div>
+
+        {/* Scroll to next section button */}
+        <div className="mt-12 flex justify-center">
+          <button
+            onClick={() => {
+              const nextSection =
+                document.querySelector("#stats") ||
+                document.querySelector("#cta");
+              nextSection?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="group flex flex-col items-center gap-2 p-4"
+            aria-label="Learn how we pair wines for you"
+          >
+            <Button
+              variant="outline"
+              className="backdrop-blur-sm bg-transparent border-2 border-pink-300/50 text-pink-100 hover:bg-pink-300/10 transition-all duration-300 px-8 py-3 text-lg rounded-full"
+              onClick={() => {
+                const element = document.getElementById("features");
+                if (element) {
+                  const offset = element.offsetTop - 80; // 80px offset for navbar
+                  window.scrollTo({ top: offset, behavior: "smooth" });
+                }
+              }}
+            >
+              Dining Memories by the Numbers
+            </Button>
+          </button>
         </div>
       </div>
     </section>
