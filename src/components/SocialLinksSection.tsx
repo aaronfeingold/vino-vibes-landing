@@ -50,8 +50,8 @@ export default function SocialLinksSection() {
 
         {/* Tagline */}
         <div className="text-center">
-          <p className="text-pink-200 font-bold text-lg tracking-wider">
-            Confident Vino Vibes
+          <p className="text-orange-400 font-bold text-lg tracking-wider">
+            Build Your Wine Confidence
           </p>
         </div>
       </div>

@@ -51,7 +51,7 @@ export const EnhancedEmailInput = forwardRef<
       <div className="relative">
         <div className="flex gap-2">
           <div className="relative flex-1">
-            <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-pink-300 h-4 w-4" />
+            <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-orange-300 h-4 w-4" />
             <Input
               ref={ref}
               type="email"
@@ -59,7 +59,7 @@ export const EnhancedEmailInput = forwardRef<
               value={value}
               onChange={handleInputChange}
               disabled={disabled}
-              className={`pl-10 bg-white/20 border border-white/30 text-white placeholder-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400 ${
+              className={`pl-10 bg-white/20 border border-white/30 text-white placeholder-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-400 ${
                 error ? "border-red-300 focus:ring-red-400" : ""
               }`}
             />

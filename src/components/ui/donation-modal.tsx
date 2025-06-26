@@ -25,7 +25,7 @@ export default function DonationModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-      <div className="bg-gradient-to-br from-purple-900/90 to-pink-900/90 backdrop-blur-md border border-white/20 rounded-3xl p-8 max-w-md mx-4 relative shadow-2xl">
+      <div className="bg-gradient-to-br from-neutral-900/90 to-neutral-800/90 backdrop-blur-md border border-white/20 rounded-3xl p-8 max-w-md mx-4 relative shadow-2xl">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-white/70 hover:text-white text-2xl font-bold transition-colors"
@@ -35,7 +35,7 @@ export default function DonationModal({
 
         <div className="text-center mb-6">
           <div className="mb-4 flex justify-center">
-            <div className="bg-gradient-to-r from-pink-500 to-purple-500 rounded-full p-3">
+            <div className="bg-gradient-to-r from-amber-600 to-orange-800 rounded-full p-3">
               <Gift className="text-white" size={32} />
             </div>
           </div>
@@ -44,17 +44,17 @@ export default function DonationModal({
             Support SIP & Get Early Access!
           </h3>
 
-          <p className="text-pink-100 leading-relaxed">
+          <p className="text-gray-100 leading-relaxed">
             Love the idea of SIP? Support our development with just{" "}
-            <span className="font-bold text-yellow-300">$1</span> and get{" "}
-            <span className="font-bold text-green-300">2 free months</span> when
-            we launch!
+            <span className="font-bold text-amber-300">$1</span> and get{" "}
+            <span className="font-bold text-orange-300">2 free months</span>{" "}
+            when we launch!
           </p>
         </div>
 
         <div className="bg-white/10 rounded-2xl p-4 mb-6 border border-white/20">
           <div className="flex items-center gap-3 mb-3">
-            <Heart className="text-red-400" size={20} />
+            <Heart className="text-orange-400" size={20} />
             <span className="text-white font-semibold">What you get:</span>
           </div>
           <ul className="text-pink-100 space-y-2 text-sm">
@@ -71,7 +71,7 @@ export default function DonationModal({
             amount={1}
             note="SIP Beta - 2 Free Months"
             onClick={onAccept}
-            className="w-full bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-400 hover:to-blue-400 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg"
+            className="w-full bg-gradient-to-r from-amber-600 to-orange-800 hover:from-amber-500 hover:to-orange-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
             <DollarSign className="mr-2" size={20} />
             Donate $1 via Venmo
