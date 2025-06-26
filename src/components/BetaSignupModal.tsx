@@ -25,7 +25,7 @@ export default function BetaSignupModal({
 
         <div className="text-center mb-6">
           <h3 className="text-2xl font-bold text-white mb-2">Join the Beta!</h3>
-          <p className="text-pink-100">
+          <p className="text-gray-100">
             Be the first to experience SIP when we launch.
           </p>
         </div>

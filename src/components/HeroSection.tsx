@@ -1,21 +1,11 @@
 "use client";
 
 import { Button } from "./ui/button";
-import Image from "next/image";
 import { useState } from "react";
 import BetaSignupModal from "./BetaSignupModal";
 
 export default function HeroSection() {
-  const [isAnimating, setIsAnimating] = useState(false);
   const [showBetaModal, setShowBetaModal] = useState(false);
-
-  const handleOwlClick = () => {
-    if (isAnimating) return; // Prevent multiple animations
-
-    setIsAnimating(true);
-    // Reset animation after it completes
-    setTimeout(() => setIsAnimating(false), 600);
-  };
 
   const handleVibeClick = () => {
     setShowBetaModal(true);
@@ -24,81 +14,56 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="md:mt-20 md:pt-10 mb-32 scroll-mt-16 md:scroll-mt-20"
+      className="flex flex-col items-center md:mt-20 md:pt-10 mb-32 scroll-mt-16 md:scroll-mt-20 h-screen"
     >
-      <div className="text-center relative z-10 mb-16">
-        <div className="mb-4 flex justify-center">
-          <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-300 animate-pulse-glow"></div>
-            <Image
-              src="/sip-owl.png"
-              alt="SIP the Owl"
-              width={120}
-              height={120}
-              className={`mx-auto transition-transform duration-300 hover:scale-110 hover:rotate-3 cursor-pointer select-none ${
-                isAnimating ? "animate-bounce scale-110 rotate-3" : ""
-              }`}
-              onClick={handleOwlClick}
-              onTouchStart={handleOwlClick}
-              style={{
-                transform: isAnimating ? "scale(1.1) rotate(3deg)" : undefined,
-              }}
-            />
-          </div>
-        </div>
+      <div className="text-left relative z-10 mb-16">
         <h1
           id="tagline"
-          className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-2 md:mb-6 leading-tight"
+          className="text-4xl md:text-5xl lg:text-9xl font-bold text-white mt-4 mb-6 leading-tight"
         >
-          Your Best
+          Does reading
           <br />
-          <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          a wine list
+          <br />
+          <span className="bg-gradient-to-r from-orange-800 to-amber-600 bg-clip-text text-transparent">
             {" "}
-            Vino Vibes
+            Scare the sh*t
           </span>
           <br />
-          Start With
-          <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-amber-600 to-orange-800 bg-clip-text text-transparent">
             {" "}
-            SIP
+            outta you?
           </span>
         </h1>
-        {/* SIP Badge for clarity */}
-        <span className="px-3 py-1 rounded-full bg-pink-600/20 text-pink-400 font-semibold tracking-wide text-sm inline-block animate-pulse">
-          <h3 className="text-3xl md:text-5xl lg:text-6xl font-extrabold md:mb-3 md:mt-3 bg-clip-text text-transparent bg-gradient-to-r from-white via-pink-300 to-pink-500 drop-shadow-lg text-center">
-            <span className="text-pink-400 animate-bounce">S</span>
-            <span className="text-white">ommelier </span>
-            <span className="text-pink-400 animate-bounce delay-150">I</span>
-            <span className="text-white">n </span>
-            <span className="text-pink-400 animate-bounce delay-300">P</span>
-            <span className="text-white">ocket</span>
-          </h3>
-        </span>
-
-        <p className="text-lg md:text-xl text-pink-100 mb-2 md:mb-4 max-w-2xl mx-auto leading-relaxed">
-          Sommelier, don't kill my vibe!
-        </p>
-        <p className="text-sm md:text-xl text-pink-100 mb-2 md:mb-12 max-w-2xl mx-auto leading-relaxed">
-          You're different. Your wine pairings should be too. <br />
-          <span className="font-bold">SIP gets it.</span>
-        </p>
-
-        <p className="text-md text-pink-200 mb-3 md:mb-6 max-w-xl mx-auto">
-          Confident selections. Endless knowledge. Experience the vibes.
-        </p>
+        <div className="flex flex-col items-center text-center font-bold text-grey-200">
+          <p className="text-lg font-bold md:text-xl lg:text-2xl mb-2 md:mb-8 mx-auto leading-relaxed">
+            Wine lists are hard, especially when no one can explain them.
+          </p>
+          <p className="text-lg font-bold md:text-xl lg:text-2xl mb-2 md:mb-8 mx-auto leading-relaxed">
+            And the wrong wine can ruin the vibe.
+            <br />
+            <span className="font-bold"></span>
+          </p>
+          <p className="text-lg font-bold md:text-xl lg:text-2xl mb-2 md:mb-8 mx-auto leading-relaxed">
+            Vino Vibes gives you AI-powered confidence in every glass.
+            <br />
+            <span className="font-bold"></span>
+          </p>
+        </div>
+        <p className="text-md text-center text-pink-200 mb-6 max-w-xl mx-auto"></p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+        <div className="flex flex-col mt-2 sm:flex-row gap-4 justify-center items-center mb-8">
           <Button
-            className="backdrop-blur-sm bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-400 hover:to-purple-400 border-0 text-white transition-all duration-300 px-8 py-3 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="backdrop-blur-sm bg-gradient-to-r from-amber-600 to-orange-800 hover:from-amber-500 hover:to-orange-600 border-0 text-white transition-all duration-300 px-8 py-3 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105"
             onClick={handleVibeClick}
           >
-            Vibe with SIP
+            Experience Vino Vibes AI Beta
           </Button>
 
           <Button
             variant="outline"
-            className="backdrop-blur-sm bg-transparent border-2 border-pink-300/50 text-pink-100 hover:bg-pink-300/10 transition-all duration-300 px-8 py-3 text-lg rounded-full"
+            className="backdrop-blur-sm bg-transparent border-2 border-orange-300/50 text-slate-100 hover:bg-pink-300/10 transition-all duration-300 px-8 py-3 text-lg rounded-full"
             onClick={() => {
               const element = document.getElementById("features");
               if (element) {
@@ -107,7 +72,7 @@ export default function HeroSection() {
               }
             }}
           >
-            Spill the tea!
+            Learn How We Pair Wines for You
           </Button>
         </div>
       </div>

@@ -110,12 +110,12 @@ export default function EnhancedBetaSignup({
       <div className="text-center">
         <div className="text-4xl mb-4">🎉</div>
         <p className="text-white font-semibold">You're on the list!</p>
-        <p className="text-pink-100 text-sm">
+        <p className="text-gray-100 text-sm">
           We'll notify you when SIP launches.
         </p>
         {showDonationModal && (
           <p className="text-green-300 text-sm mt-2">
-            Thanks for supporting SIP! You'll get 2 free months. 💚
+            Thanks for supporting SIP! You'll get 2 free months. 🧡
           </p>
         )}
       </div>
@@ -141,7 +141,7 @@ export default function EnhancedBetaSignup({
         <Button
           type="submit"
           disabled={!isValidEmail || isSubmitting}
-          className="w-full bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-400 hover:to-purple-400 disabled:opacity-50 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300"
+          className="w-full bg-gradient-to-r from-amber-600 to-orange-800 hover:from-amber-500 hover:to-orange-600 disabled:opacity-50 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300"
         >
           {isSubmitting ? "Processing..." : "Join Beta List"}
         </Button>
