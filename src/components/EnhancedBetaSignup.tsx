@@ -141,7 +141,7 @@ export default function EnhancedBetaSignup({
         <Button
           type="submit"
           disabled={!isValidEmail || isSubmitting}
-          className="w-full bg-gradient-to-r from-amber-600 to-orange-800 hover:from-amber-500 hover:to-orange-600 disabled:opacity-50 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300"
+          className="w-full gradient-1 hover:from-purple-500 hover:to-fuchsia-600 disabled:opacity-50 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300"
         >
           {isSubmitting ? "Processing..." : "Join Beta List"}
         </Button>
