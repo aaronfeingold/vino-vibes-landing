@@ -107,7 +107,7 @@ export default function StatsSection() {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className={`backdrop-blur-sm bg-white/10 border-2 border-black/20 rounded-2xl p-8 text-center hover:bg-white/20 transition-all duration-700 hover:scale-105 hover:shadow-lg hover:shadow-slate-500/20 ${
+              className={`backdrop-blur-sm bg-white/10 app-border-1 rounded-2xl p-8 text-center hover:bg-white/20 transition-all duration-700 hover:scale-105 hover:shadow-lg hover:shadow-slate-500/20 ${
                 isIntersecting
                   ? "opacity-100 translate-y-0 scale-100"
                   : "opacity-0 translate-y-12 scale-95"

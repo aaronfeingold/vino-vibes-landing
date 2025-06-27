@@ -51,7 +51,7 @@ export const EnhancedEmailInput = forwardRef<
       <div className="relative">
         <div className="flex gap-2">
           <div className="relative flex-1">
-            <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-orange-300 h-4 w-4" />
+            <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-fuchsia-600 h-4 w-4" />
             <Input
               ref={ref}
               type="email"

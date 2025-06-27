@@ -7,7 +7,7 @@ import VenmoDeepLink from "./VenmoDeepLink";
 export default function SocialLinksSection() {
   return (
     <div className="text-center relative z-10">
-      <div className="backdrop-blur-sm bg-white/5 border-2 border-black/20 rounded-3xl p-8 md:p-12 max-w-4xl mx-auto">
+      <div className="backdrop-blur-sm bg-white/5 app-border-1 rounded-3xl p-8 md:p-12 max-w-4xl mx-auto">
         {/* Social Links */}
         <div className="mb-8">
           <h3 className="text-xl md:text-2xl font-bold text-black mb-6 tracking-wide">

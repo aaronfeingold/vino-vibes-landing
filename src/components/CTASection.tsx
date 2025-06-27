@@ -18,7 +18,7 @@ export default function CTASection() {
       className="max-w-7xl mx-auto w-full px-6 mb-32 scroll-mt-16 md:scroll-mt-20"
     >
       <div className="text-center mb-16 relative z-10">
-        <div className="backdrop-blur-sm bg-white/5 border-2 border-black/20 rounded-3xl p-8 md:p-12 max-w-4xl mx-auto">
+        <div className="backdrop-blur-sm bg-white/5 app-border-1 rounded-3xl p-8 md:p-12 max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 bg-clip-text text-black">
             Ready to elevate your dining experience?
           </h2>
@@ -29,18 +29,11 @@ export default function CTASection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button
-              className="backdrop-blur-sm bg-gradient-to-r from-purple-600 to-fuchsia-800 hover:from-purple-500 hover:to-fuchsia-600 border-0 text-white transition-all duration-300 px-8 py-3 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105"
-              onClick={handleVibeClick}
-            >
+            <Button className="btn-primary" onClick={handleVibeClick}>
               Get Your First Pairing
             </Button>
 
-            <Button
-              asChild
-              variant="outline"
-              className="backdrop-blur-sm bg-transparent border-2 border-stone-900/50 text-black hover:bg-pink-300/10 transition-all duration-300 px-8 py-3 text-lg rounded-full"
-            >
+            <Button asChild variant="outline" className="btn-secondary">
               <Link
                 href="https://forms.gle/3uyzDNNS2qc7GnWG6"
                 target="_blank"

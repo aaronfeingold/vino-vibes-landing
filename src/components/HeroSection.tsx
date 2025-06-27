@@ -25,15 +25,9 @@ export default function HeroSection() {
           <br />
           a wine list
           <br />
-          <span className="bg-gradient-to-r from-purple-600 to-fuchsia-800 bg-clip-text text-transparent">
-            {" "}
-            scare the sh*t
-          </span>
+          <span className="gradient-1-text"> scare the sh*t</span>
           <br />
-          <span className="bg-gradient-to-r from-purple-600 to-fuchsia-800 bg-clip-text text-transparent">
-            {" "}
-            outta you?
-          </span>
+          <span className="gradient-1-text"> outta you?</span>
         </h1>
         <div className="flex flex-col font-bold text-black text-left items-start pb-8 md:pb-0">
           <p className="text-lg font-bold md:text-xl lg:text-xl 2xl:text-2xl mb-2 md:mb-8 leading-relaxed">
@@ -52,7 +46,7 @@ export default function HeroSection() {
         {/* CTA Buttons */}
         <div className="flex flex-col mt-2 sm:flex-row gap-4 justify-center items-center mb-8">
           <Button
-            className="backdrop-blur-sm bg-gradient-to-r from-purple-600 to-fuchsia-800 hover:from-purple-500 hover:to-fuchsia-600 border-0 text-zinc-100 transition-all duration-300 px-8 py-3 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="btn-primary text-zinc-100"
             onClick={handleVibeClick}
           >
             Experience Vino Vibes Beta
@@ -60,7 +54,7 @@ export default function HeroSection() {
 
           <Button
             variant="outline"
-            className="backdrop-blur-sm bg-transparent border-2 border-purple-300/50 text-black hover:bg-pink-300/10 transition-all duration-300 px-8 py-3 text-lg rounded-full"
+            className="btn-secondary border-purple-300/50"
             onClick={() => {
               const element = document.getElementById("features");
               if (element) {

@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .gradient-1 {
+    @apply bg-gradient-to-r from-purple-600 to-fuchsia-800;
+  }
+
+  .gradient-1-tr {
+    @apply bg-gradient-to-tr from-purple-600 to-fuchsia-800;
+  }
+
+  .gradient-1-text {
+    @apply bg-gradient-to-r from-purple-600 to-fuchsia-800 bg-clip-text text-transparent;
+  }
+
+  .bg-blob-clip {
+    clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%);
+  }
+
+  .app-border-1 {
+    @apply border-2 border-black/20;
+  }
+
+    .btn-primary {
+    @apply backdrop-blur-sm gradient-1 hover:from-purple-500 hover:to-fuchsia-600 border-0 text-white transition-all duration-300 px-8 py-3 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105;
+  }
+
+  .btn-primary-form {
+    @apply gradient-1 hover:from-purple-500 hover:to-fuchsia-600 text-white font-semibold py-3 px-6 transition-all duration-300 transform hover:scale-105 shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply backdrop-blur-sm bg-transparent border-2 border-stone-900/50 text-black hover:bg-pink-300/10 transition-all duration-300 px-8 py-3 text-lg rounded-full;
+  }
+}
