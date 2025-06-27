@@ -35,22 +35,19 @@ export default function HeroSection() {
             outta you?
           </span>
         </h1>
-        <div className="flex flex-col items-center text-center font-bold text-black">
-          <p className="text-lg font-bold md:text-xl lg:text-xl 2xl:text-2xl mb-2 md:mb-8 mx-auto leading-relaxed">
-            Wine lists are hard, especially when no one can explain them.
+        <div className="flex flex-col font-bold text-black text-left items-start pb-8 md:pb-0">
+          <p className="text-lg font-bold md:text-xl lg:text-xl 2xl:text-2xl mb-2 md:mb-8 leading-relaxed">
+            Long lists suck.
           </p>
-          <p className="text-lg font-bold md:text-xl lg:text-xl 2xl:text-2xl mb-2 md:mb-8 mx-auto leading-relaxed">
-            And the wrong wine can ruin the vibe.
+          <p className="text-lg font-bold md:text-xl lg:text-xl 2xl:text-2xl mb-2 md:mb-8 leading-relaxed">
+            Choose wrong and ruin the vibe.
             <br />
-            <span className="font-bold"></span>
           </p>
-          <p className="text-lg font-bold md:text-xl lg:text-xl 2xl:text-2xl mb-2 md:mb-8 mx-auto leading-relaxed">
-            Vino Vibes gives you AI-powered confidence in every glass.
+          <p className="text-lg font-bold md:text-xl lg:text-xl 2xl:text-2xl mb-2 md:mb-8 leading-relaxed">
+            Vino Vibes is AI-powered confidence in every glass.
             <br />
-            <span className="font-bold"></span>
           </p>
         </div>
-        <p className="text-md text-center text-pink-200 mb-6 max-w-xl mx-auto"></p>
 
         {/* CTA Buttons */}
         <div className="flex flex-col mt-2 sm:flex-row gap-4 justify-center items-center mb-8">
@@ -58,7 +55,7 @@ export default function HeroSection() {
             className="backdrop-blur-sm bg-gradient-to-r from-purple-600 to-fuchsia-800 hover:from-purple-500 hover:to-fuchsia-600 border-0 text-zinc-100 transition-all duration-300 px-8 py-3 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105"
             onClick={handleVibeClick}
           >
-            Experience Vino Vibes AI Beta
+            Experience Vino Vibes Beta
           </Button>
 
           <Button
