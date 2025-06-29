@@ -22,7 +22,7 @@ export function generateBetaWelcomeEmail({
             <img src="${domain}/sip-owl.png" alt="SIP the Owl" style="width: 80px; height: 80px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.2);" />
           </div>
 
-          <h1 style="font-size: 2.5rem; margin-bottom: 20px; background: linear-gradient(to right, #ffffff, #f3e8ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2;">
+          <h1 style="font-size: 2.5rem; margin-bottom: 20px; color: #000000; font-weight: bold; line-height: 1.2;">
             Welcome to Vino Vibes AI
           </h1>
 
