@@ -59,8 +59,8 @@ export default function HeroSection() {
 
           <div className="flex flex-col text-black text-center items-center pb-2 md:pb-0">
             <p className="text-lg font-bold md:text-xl lg:text-xl 2xl:text-2xl mb-2 md:mb-8 leading-relaxed">
-              Ignore the second cheapest bottle. Stop pouring juice down the
-              drain.
+              Stop pouring juice down the drain. Ignore the second cheapest
+              bottle.
             </p>
             {/* <p className="text-lg font-bold  md:text-xl lg:text-xl 2xl:text-2xl mb-2 md:mb-8 leading-relaxed">
               Stop pouring juice down the drain.
