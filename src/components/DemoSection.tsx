@@ -8,8 +8,10 @@ import {
   TrendingUp,
   DollarSign,
   Star,
+  ChevronDown,
 } from "lucide-react";
 import Image from "next/image";
+import { Button } from "./ui/button";
 
 export default function DemoSection() {
   return (
@@ -79,6 +81,25 @@ export default function DemoSection() {
               ))}
             </div>
           </div>
+        </div>
+
+        {/* Scroll to next section button */}
+        <div className="mt-12 flex justify-center">
+          <Button
+            variant="outline"
+            className="btn-secondary flex items-center gap-2"
+            aria-label="See our community stats"
+            onClick={() => {
+              const element = document.getElementById("stats");
+              if (element) {
+                const offset = element.offsetTop - 80; // 80px offset for navbar
+                window.scrollTo({ top: offset, behavior: "smooth" });
+              }
+            }}
+          >
+            See Our Community
+            <ChevronDown className="w-4 h-4" />
+          </Button>
         </div>
       </div>
     </section>
