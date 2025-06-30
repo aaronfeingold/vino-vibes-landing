@@ -19,7 +19,7 @@ export default function SocialLinksSection() {
               href="https://instagram.com/siptheowl"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-black hover:text-pink-200 transition-colors text-lg hover:scale-105 transform duration-200"
+              className="flex items-center gap-2 text-black hover:text-violet-950 transition-colors text-lg hover:scale-105 transform duration-200"
             >
               <Instagram size={32} /> @siptheowl
             </Link>
@@ -27,7 +27,7 @@ export default function SocialLinksSection() {
               href="https://aaron-feingold.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-black hover:text-pink-200 transition-colors text-lg hover:scale-105 transform duration-200"
+              className="flex items-center gap-2 text-black hover:text-violet-950 transition-colors text-lg hover:scale-105 transform duration-200"
             >
               <Globe size={24} />
               aaron-feingold.com
@@ -42,7 +42,7 @@ export default function SocialLinksSection() {
           </p>
           <VenmoDeepLink
             username="Aaron-Feingold"
-            className="inline-flex items-center px-6 py-3 border-2 border-black font-bold hover:bg-white hover:text-pink-900 transition-all duration-300 backdrop-blur-sm bg-white/10 rounded-lg text-black md:text-lg transform hover:scale-105"
+            className="inline-flex items-center px-6 py-3 border-2 border-black font-bold hover:bg-white hover:text-violet-950 transition-all duration-300 backdrop-blur-sm bg-white/10 rounded-lg text-black md:text-lg transform hover:scale-105"
           >
             Support the Project
           </VenmoDeepLink>

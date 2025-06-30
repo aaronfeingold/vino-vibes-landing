@@ -8,8 +8,8 @@ const navItems = [
   { id: "features", label: "Features" },
   { id: "demo", label: "Demo" },
   { id: "stats", label: "Stats" },
-  { id: "vibe", label: "Vibe" },
-  { id: "vibes", label: "Vino Vibes" },
+  { id: "support", label: "Support" },
+  { id: "footer", label: "Vibes" },
 ];
 
 export default function Navbar() {
@@ -22,7 +22,7 @@ export default function Navbar() {
 
     if (id === "home") {
       window.scrollTo({ top: 0, behavior: "smooth" });
-    } else if (id === "vibes") {
+    } else if (id === "support") {
       window.scrollTo({
         top: document.documentElement.scrollHeight,
         behavior: "smooth",
