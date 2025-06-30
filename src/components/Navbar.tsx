@@ -6,6 +6,7 @@ import { useState } from "react";
 const navItems = [
   { id: "home", label: "Home" },
   { id: "features", label: "Features" },
+  { id: "demo", label: "Demo" },
   { id: "stats", label: "Stats" },
   { id: "vibe", label: "Vibe" },
   { id: "vibes", label: "Vino Vibes" },
