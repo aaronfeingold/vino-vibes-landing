@@ -28,11 +28,11 @@ export default function FeaturesSection() {
   return (
     <section
       id="features"
-      className="mb-32 lg:h-screen lg:flex lg:items-center lg:justify-center"
+      className="lg:h-screen lg:flex lg:items-center lg:justify-center"
     >
       <div
         id="features-content"
-        className="mb-16 relative z-10 flex flex-col items-center"
+        className=" relative z-10 flex flex-col items-center"
       >
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 lg:mb-20 bg-clip-text text-transparent bg-gradient-to-r from-stone-800 to-neutral-900 ">
           Making dining memories
