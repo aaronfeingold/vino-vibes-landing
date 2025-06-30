@@ -50,8 +50,8 @@ export default function SocialLinksSection() {
 
         {/* Tagline */}
         <div className="text-center">
-          <p className="text-purple-600 font-bold text-lg tracking-wider">
-            Build Your Wine Confidence
+          <p className="gradient-2-text font-bold text-lg tracking-wider">
+            Knowledge. Confidence. Vino Vibes.
           </p>
         </div>
       </div>
