@@ -17,6 +17,19 @@ module.exports = {
       },
     },
     extend: {
+      // Add mobile-safe viewport heights
+      height: {
+        "screen-safe": ["100vh", "100dvh"], // Fallback then modern
+        "screen-small": ["100vh", "100svh"], // Always accounts for browser UI
+        "screen-dynamic": ["100vh", "100dvh"], // Changes as UI shows/hides
+        "screen-large": ["100vh", "100lvh"], // Assumes UI is hidden
+      },
+      minHeight: {
+        "screen-safe": ["100vh", "100dvh"],
+        "screen-small": ["100vh", "100svh"],
+        "screen-dynamic": ["100vh", "100dvh"],
+        "screen-large": ["100vh", "100lvh"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -74,4 +87,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};
