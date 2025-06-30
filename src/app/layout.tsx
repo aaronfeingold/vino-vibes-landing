@@ -1,9 +1,13 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
+import type React from "react";
+import type { Metadata, Viewport } from "next";
+import { Poppins } from "next/font/google";
+import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] })
+const poppins = Poppins({
+  weight: ["400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+  variable: "--font-poppins",
+});
 
 export const metadata: Metadata = {
   title: "Vino Vibes AI",
@@ -27,6 +31,15 @@ export const metadata: Metadata = {
   ],
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  // Prevent auto-zoom on input focus
+  viewportFit: "cover",
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -37,7 +50,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.png" type="image/png" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={`${poppins.className}`}>{children}</body>
     </html>
   );
 }

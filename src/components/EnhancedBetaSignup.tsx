@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { EnhancedEmailInput } from "./ui/enhanced-email-input";
+import { EnhancedEmailInput, resetMobileZoom } from "./ui/enhanced-email-input";
 import DonationModal from "./ui/donation-modal";
 import { Button } from "./ui/button";
 import { emailSchema } from "../lib/validation";
@@ -54,6 +54,9 @@ export default function EnhancedBetaSignup({
       return;
     }
 
+    // Reset zoom before showing donation modal
+    resetMobileZoom();
+
     // Show donation modal after email validation
     setShowDonationModal(true);
   };
@@ -92,6 +95,8 @@ export default function EnhancedBetaSignup({
 
       if (response.ok) {
         setIsSubmitted(true);
+        // Reset zoom when showing success state
+        resetMobileZoom();
         setTimeout(() => {
           onClose();
         }, 3000);
@@ -111,11 +116,11 @@ export default function EnhancedBetaSignup({
         <div className="text-4xl mb-4">🎉</div>
         <p className="text-white font-semibold">You're on the list!</p>
         <p className="text-gray-100 text-sm">
-          We'll notify you when SIP launches.
+          We'll notify you when Vino Vibes launches.
         </p>
         {showDonationModal && (
           <p className="text-green-300 text-sm mt-2">
-            Thanks for supporting SIP! You'll get 2 free months. 🧡
+            Thanks for supporting Vino Vibes! You'll get 2 free months. 🧡
           </p>
         )}
       </div>
