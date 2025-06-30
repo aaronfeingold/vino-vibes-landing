@@ -3,6 +3,7 @@
 import { Button } from "./button";
 import { X, Heart, Gift, DollarSign } from "lucide-react";
 import VenmoDonationLink from "./venmo-donation-link";
+import { resetMobileZoom } from "./enhanced-email-input";
 
 interface DonationModalProps {
   isOpen: boolean;
@@ -19,6 +20,21 @@ export default function DonationModal({
   onDecline,
   email,
 }: DonationModalProps) {
+  const handleClose = () => {
+    resetMobileZoom();
+    onClose();
+  };
+
+  const handleAccept = () => {
+    resetMobileZoom();
+    onAccept();
+  };
+
+  const handleDecline = () => {
+    resetMobileZoom();
+    onDecline();
+  };
+
   if (!isOpen) return null;
 
   const venmoUsername = process.env.NEXT_PUBLIC_VENMO_USERNAME || "siptheowl";
@@ -27,7 +43,7 @@ export default function DonationModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
       <div className="bg-gradient-to-br from-neutral-900/90 to-neutral-800/90 backdrop-blur-md border border-white/20 rounded-3xl p-8 max-w-md mx-4 relative shadow-2xl">
         <button
-          onClick={onClose}
+          onClick={handleClose}
           className="absolute top-4 right-4 text-white/70 hover:text-white text-2xl font-bold transition-colors"
         >
           <X size={24} />
@@ -70,7 +86,7 @@ export default function DonationModal({
             username={venmoUsername}
             amount={1}
             note="SIP Beta - 2 Free Months"
-            onClick={onAccept}
+            onClick={handleAccept}
             className="w-full gradient-1 hover:from-purple-500 hover:to-fuchsia-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
             <DollarSign className="mr-2" size={20} />
@@ -78,7 +94,7 @@ export default function DonationModal({
           </VenmoDonationLink>
 
           <Button
-            onClick={onDecline}
+            onClick={handleDecline}
             variant="outline"
             className="w-full bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/40 py-3 px-6 rounded-xl transition-all duration-300"
           >

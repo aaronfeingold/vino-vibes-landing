@@ -14,6 +14,20 @@ interface EnhancedEmailInputProps {
   error?: string;
 }
 
+// Utility to reset mobile zoom
+const resetMobileZoom = () => {
+  if (typeof window !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+    const viewport = document.querySelector('meta[name=viewport]');
+    if (viewport) {
+      const content = viewport.getAttribute('content');
+      viewport.setAttribute('content', content + ', user-scalable=0');
+      setTimeout(() => {
+        viewport.setAttribute('content', content || 'width=device-width, initial-scale=1');
+      }, 500);
+    }
+  }
+};
+
 export const EnhancedEmailInput = forwardRef<
   HTMLInputElement,
   EnhancedEmailInputProps
@@ -45,6 +59,11 @@ export const EnhancedEmailInput = forwardRef<
       onValidChange?.(isValid);
     };
 
+    const handleInputBlur = () => {
+      // Reset zoom when input loses focus
+      resetMobileZoom();
+    };
+
     const showGmailButton = value.trim() && !value.includes("@");
 
     return (
@@ -58,10 +77,12 @@ export const EnhancedEmailInput = forwardRef<
               placeholder={placeholder}
               value={value}
               onChange={handleInputChange}
+              onBlur={handleInputBlur}
               disabled={disabled}
-              className={`pl-10 bg-white/20 border border-white/30 text-white placeholder-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-400 ${
+              className={`pl-10 bg-white/20 border border-white/30 text-white placeholder-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-400 text-base ${
                 error ? "border-red-300 focus:ring-red-400" : ""
               }`}
+              style={{ fontSize: "16px" }} // Prevent iOS zoom
             />
           </div>
 
@@ -86,3 +107,6 @@ export const EnhancedEmailInput = forwardRef<
 );
 
 EnhancedEmailInput.displayName = "EnhancedEmailInput";
+
+// Export the utility for use in other components
+export { resetMobileZoom };

@@ -1,5 +1,5 @@
 import type React from "react";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
@@ -29,6 +29,15 @@ export const metadata: Metadata = {
       url: "/favicon.png",
     },
   ],
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  // Prevent auto-zoom on input focus
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
