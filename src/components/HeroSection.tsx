@@ -58,14 +58,14 @@ export default function HeroSection() {
           </div>
 
           <div className="flex flex-col text-black text-center items-center pb-2 md:pb-0">
-            <p className="text-lg font-extrabold md:text-xl lg:text-xl 2xl:text-2xl mb-2 md:mb-8 leading-relaxed">
+            <p className="text-lg font-bold md:text-xl lg:text-xl 2xl:text-2xl mb-2 md:mb-8 leading-relaxed">
               Ignore the second cheapest bottle. Stop pouring juice down the
               drain.
             </p>
             {/* <p className="text-lg font-bold  md:text-xl lg:text-xl 2xl:text-2xl mb-2 md:mb-8 leading-relaxed">
               Stop pouring juice down the drain.
             </p> */}
-            <p className="text-lg font-black md:text-xl lg:text-xl 2xl:text-2xl mb-2 md:mb-8 leading-relaxed">
+            <p className="text-lg font-extrabold md:text-xl lg:text-xl 2xl:text-2xl mb-2 md:mb-8 leading-relaxed">
               Experience <span className="gradient-1-text"> Vino Vibes AI</span>
               : the <span className="gradient-2-text">knowledge</span> and{" "}
               <span className="gradient-2-text">confidence</span> to pair wines
