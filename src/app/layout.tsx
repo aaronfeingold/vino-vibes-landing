@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     siteName: "Vino Vibes AI",
     images: [
       {
-        url: "/StylishOwlAnimation.gif",
-        width: 1200,
-        height: 630,
+        url: "/vv-down-the-drain-128x128.gif",
+        width: 128,
+        height: 128,
         alt: "Vino Vibes AI - Your Sommelier in Pocket",
       },
     ],
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Vino Vibes AI",
     description: "Sip with Vino Vibes AI",
-    images: ["/StylishOwlAnimation.gif"],
+    images: ["/vv-down-the-drain-128x128.gif"],
   },
   icons: [
     {
