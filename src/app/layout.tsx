@@ -11,8 +11,29 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Vino Vibes AI",
-  description: "SIP and vibe with Vino Vibes AI",
-  generator: "v0.dev",
+  description: "Sip with Vino Vibes AI",
+  openGraph: {
+    title: "Vino Vibes AI",
+    description: "Sip with Vino Vibes AI",
+    url: "https://vinovibes.ai",
+    siteName: "Vino Vibes AI",
+    images: [
+      {
+        url: "/StylishOwlAnimation.gif",
+        width: 1200,
+        height: 630,
+        alt: "Vino Vibes AI - Your Sommelier in Pocket",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vino Vibes AI",
+    description: "Sip with Vino Vibes AI",
+    images: ["/StylishOwlAnimation.gif"],
+  },
   icons: [
     {
       rel: "icon",
