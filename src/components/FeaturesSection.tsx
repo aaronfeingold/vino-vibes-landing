@@ -4,7 +4,7 @@ import React from "react";
 import { Wine, Camera, MessageCircle, ChevronDown } from "lucide-react";
 import { Button } from "./ui/button";
 
-const features = (brandOwnedWord: React.ReactNode) => [
+const features = (brandOwnedWord: string) => [
   {
     icon: Wine,
     title: "AI-Powered Wine Pairing",
@@ -30,8 +30,10 @@ const features = (brandOwnedWord: React.ReactNode) => [
     title: "Expert Chat Interface",
     description: (
       <>
-        Discuss and refine selections through educational chats with Sip the
-        Owl. No analysis paralysis. Choose new wines with {brandOwnedWord}.
+        Discuss and refine selections through educational chats with{" "}
+        <span className="gradient-2-text">Sip the Owl</span>. No analysis
+        paralysis. Choose new wines with{" "}
+        <span className="gradient-2-text">{brandOwnedWord}</span>.
       </>
     ),
   },
@@ -49,28 +51,27 @@ export default function FeaturesSection() {
         </h2>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
-          {features(<span className="gradient-2-text">confidence</span>).map(
-            (feature, index) => (
-              <div
-                key={index}
-                className="backdrop-blur-sm bg-white/10 app-border-1 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 group"
-              >
-                <div className="flex justify-center mb-4">
-                  <div className="p-3 rounded-full gradient-1 group-hover:from-purple-500 group-hover:to-fuchsia-600 transition-all duration-300">
-                    <feature.icon className="w-8 h-8 text-white" />
-                  </div>
-                </div>
-
-                <h3 className="text-xl font-semibold text-black mb-3 text-center">
-                  {feature.title}
-                </h3>
-
-                <div className="text-black text-center leading-relaxed">
-                  {feature.description}
+          {/* // TODO: add brandOwnedWord prop to app state, so we can reuse throughout */}
+          {features("confidence").map((feature, index) => (
+            <div
+              key={index}
+              className="backdrop-blur-sm bg-white/10 app-border-1 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 group"
+            >
+              <div className="flex justify-center mb-4">
+                <div className="p-3 rounded-full gradient-1 group-hover:from-purple-500 group-hover:to-fuchsia-600 transition-all duration-300">
+                  <feature.icon className="w-8 h-8 text-white" />
                 </div>
               </div>
-            )
-          )}
+
+              <h3 className="text-xl font-semibold text-black mb-3 text-center">
+                {feature.title}
+              </h3>
+
+              <div className="text-black text-center leading-relaxed">
+                {feature.description}
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Scroll to next section button */}
