@@ -41,7 +41,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed w-full top-0 left-0 right-0 z-50 bg-black">
+    <nav className="fixed w-full top-0 left-0 right-0 z-50 gradient-1">
       <div className="w-[90%] md:w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo - Always on the left */}
@@ -117,7 +117,7 @@ export default function Navbar() {
         {/* Mobile Navigation Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 border-t border-white/20 bg-black">
+            <div className="px-2 pt-2 pb-3 space-y-1 border-t border-white/20 gradient-1">
               {navItems.map((item) => (
                 <button
                   key={item.id}
