@@ -2,9 +2,9 @@
 
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import BetaSignupModal from "./BetaSignupModal";
 import { ChevronDown } from "lucide-react";
+import ImageBanner from "./ImageBanner";
 
 export default function HeroSection() {
   const [showBetaModal, setShowBetaModal] = useState(false);
@@ -21,19 +21,19 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="flex flex-col items-center pt-20 md:pt-80 lg:pt-40 h-screen-small md:h-screen"
+      className="flex flex-col items-center justify-center min-h-screen-small md:min-h-screen px-4 pt-16 md:pt-20"
     >
       <div
-        className={`transition-all duration-1000 ${
+        className={`w-full max-w-4xl mx-auto transition-all duration-1000 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
-        <div className="text-left relative z-10">
-          {/* Responsive layout: Single column on mobile, two columns on desktop */}
-          <div className="flex flex-col md:flex-row md:items-center md:items-start">
+        <div className="text-left relative z-10 flex flex-col items-center justify-center space-y-6 md:space-y-8">
+          {/* Tagline with better spacing */}
+          <div className="flex flex-col items-center w-full">
             <h1
               id="tagline"
-              className="font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-9xl font-bold text-black mt-4 leading-tight text-center md:text-left md:flex-1"
+              className="font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-black leading-tight text-center mb-4 md:mb-6"
             >
               Wine list <span className="md:hidden"> </span>
               <br className="hidden md:block" />
@@ -43,39 +43,25 @@ export default function HeroSection() {
               <br className="hidden md:block" />
               <span className="gradient-1-text"> language?</span>
             </h1>
-            <div
-              id="vv-down-the-drain"
-              className="flex justify-center mt-6 md:mt-0 md:flex-shrink-0 2xl:mt-[20rem]"
-            >
-              <Image
-                src="/vv-down-the-drain-328x328.png"
-                alt="Wine down the drain"
-                width={128}
-                height={128}
-                className="md:w-[328px] md:h-[328px]"
-              />
-            </div>
           </div>
 
-          <div className="flex flex-col text-black text-center items-center pb-2 md:pb-0">
-            <p className="text-lg font-bold md:text-xl lg:text-xl 2xl:text-2xl mb-2 md:mb-8 leading-relaxed">
-              Stop pouring juice down the drain. Ignore the second cheapest
-              bottle.
-            </p>
-            {/* <p className="text-lg font-bold  md:text-xl lg:text-xl 2xl:text-2xl mb-2 md:mb-8 leading-relaxed">
-              Stop pouring juice down the drain.
-            </p> */}
-            <p className="text-lg font-extrabold md:text-xl lg:text-xl 2xl:text-2xl mb-2 md:mb-8 leading-relaxed">
-              Experience <span className="gradient-1-text"> Vino Vibes AI</span>
-              : the <span className="gradient-2-text">knowledge</span> and{" "}
+          {/* Image Banner */}
+          <ImageBanner />
+
+          <div
+            id="tag-summary"
+            className="flex flex-col text-black text-center items-center w-full max-w-2xl"
+          >
+            <p className="text-lg font-extrabold md:text-xl lg:text-2xl 2xl:text-3xl leading-relaxed mb-3 md:mb-4">
+              Experience <span className="gradient-1-text">Vino Vibes AI</span>:
+              the <span className="gradient-2-text">knowledge</span> and{" "}
               <span className="gradient-2-text">confidence</span> to pair wines
               with your unique <span className="gradient-1-text">vibe</span>.
-              <br />
             </p>
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col mt-2 sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full">
             <Button
               className="btn-primary text-zinc-100"
               onClick={handleVibeClick}
