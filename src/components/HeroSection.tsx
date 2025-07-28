@@ -21,27 +21,24 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="flex flex-col items-center justify-center min-h-screen-small md:min-h-screen px-4 pt-16 md:pt-20"
+      className="flex flex-col items-center justify-center min-h-screen-small md:min-h-screen px-2 md:px-4 pt-16 md:pt-20"
     >
       <div
         className={`w-full max-w-4xl mx-auto transition-all duration-1000 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
-        <div className="text-left relative z-10 flex flex-col items-center justify-center space-y-6 md:space-y-8">
+        <div className="text-left relative z-10 flex flex-col items-center justify-center space-y-4 md:space-y-6">
           {/* Tagline with better spacing */}
           <div className="flex flex-col items-center w-full">
             <h1
               id="tagline"
-              className="font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-black leading-tight text-center mb-4 md:mb-6"
+              className="font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-black leading-tight text-center mb-2 md:mb-4"
             >
               Wine list <span className="md:hidden"> </span>
-              <br className="hidden md:block" />
               feel like
               <br />
-              <span className="gradient-1-text"> another</span>
-              <br className="hidden md:block" />
-              <span className="gradient-1-text"> language?</span>
+              <span className="gradient-1-text"> another language?</span>
             </h1>
           </div>
 
@@ -53,7 +50,7 @@ export default function HeroSection() {
             className="flex flex-col text-black text-center items-center w-full max-w-2xl"
           >
             <p className="text-lg font-extrabold md:text-xl lg:text-2xl 2xl:text-3xl leading-relaxed mb-3 md:mb-4">
-              Experience <span className="gradient-1-text">Vino Vibes AI</span>:
+              Experience <span className="gradient-1-text">Vino Vibes</span>:
               the <span className="gradient-2-text">knowledge</span> and{" "}
               <span className="gradient-2-text">confidence</span> to pair wines
               with your unique <span className="gradient-1-text">vibe</span>.
