@@ -48,6 +48,5 @@ export function getLaunchCopy(): LaunchCopy {
 }
 
 export const links = {
-  feedback: "https://forms.gle/3uyzDNNS2qc7GnWG6",
   support: "https://venmo.com/u/Aaron-Feingold",
 };
