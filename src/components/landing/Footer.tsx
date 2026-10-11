@@ -20,8 +20,8 @@ export default function Footer() {
             className="h-[90px] w-auto"
           />
           <div>
-            <div className="font-display text-base font-bold">Vino Vibes</div>
-            <div className="text-[13px] text-vv-text3">Made in New Orleans. Drink responsibly, 21+.</div>
+            <div className="text-[15px] font-semibold">Vino Vibes</div>
+            <div className="text-[13px] text-vv-text3">Made in New Orleans</div>
           </div>
         </div>
         <ul className="flex flex-wrap gap-6 text-sm">
@@ -31,7 +31,7 @@ export default function Footer() {
                 href={l.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-vv-text2 transition-colors hover:text-vv-red-text"
+                className="text-vv-text2 transition-colors hover:text-vv-accent"
               >
                 {l.label}
               </a>

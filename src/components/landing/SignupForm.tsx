@@ -59,7 +59,7 @@ export default function SignupForm({
     return (
       <div
         role="status"
-        className="w-full rounded-xl border border-vv-red-text/35 bg-vv-red/[0.16] px-[18px] py-4 text-base font-semibold text-vv-text"
+        className="w-full rounded-[14px] border border-vv-stroke/45 bg-purple-500/[0.16] px-[18px] py-4 text-base font-semibold text-vv-text"
       >
         You&apos;re on the list. We will email you when your invite is ready.
       </div>
@@ -86,12 +86,12 @@ export default function SignupForm({
           aria-invalid={status === "error"}
           aria-describedby={message ? `${id}-msg` : undefined}
           disabled={status === "submitting"}
-          className="h-14 min-w-0 flex-[1_1_240px] rounded-xl border border-white/[0.16] bg-vv-surface px-[18px] text-base text-vv-text placeholder:text-vv-text3 focus:border-vv-red-text focus:outline-none"
+          className="h-14 min-w-0 flex-[1_1_240px] rounded-[14px] border border-white/[0.18] bg-vv-surface px-[18px] text-base text-vv-text placeholder:text-vv-text3 focus:border-vv-stroke focus:outline-none"
         />
         <button
           type="submit"
           disabled={status === "submitting"}
-          className={`h-14 rounded-xl bg-vv-red px-[26px] text-base font-bold text-white transition-colors hover:bg-[#E0242F] disabled:opacity-60 ${
+          className={`h-14 rounded-[14px] bg-vv-primary px-[26px] text-base font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-60 ${
             stretchButton ? "flex-auto" : "flex-auto sm:flex-none"
           }`}
         >
@@ -99,7 +99,7 @@ export default function SignupForm({
         </button>
       </div>
       {message && (
-        <p id={`${id}-msg`} role="alert" className="text-sm text-vv-red-text">
+        <p id={`${id}-msg`} role="alert" className="text-sm text-[#F9A8D4]">
           {message}
         </p>
       )}

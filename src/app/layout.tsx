@@ -1,26 +1,20 @@
 import type React from "react";
 import type { Metadata, Viewport } from "next";
-import { Manrope, Syne } from "next/font/google";
+import { Poppins } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 
 import "./globals.css";
 
-const manrope = Manrope({
+const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800"],
   subsets: ["latin"],
-  variable: "--font-manrope",
+  variable: "--font-poppins",
 });
 
-const syne = Syne({
-  weight: ["600", "700", "800"],
-  subsets: ["latin"],
-  variable: "--font-syne",
-});
-
-const TITLE = "Vino Vibes: a sommelier you can text";
+const TITLE = "Vino Vibes: the wine list, decided";
 const DESCRIPTION =
-  "Ask what to order, where to go, or why a bottle costs what it does. Vino Vibes answers with one clear pick from the list in front of you, remembers what you liked, and gets sharper every dinner.";
+  "Snap the wine list, say what you're eating, and get one bottle from it, with a reason that's about you, before your server comes back.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vinovibes.ai"),
@@ -45,7 +39,7 @@ export const metadata: Metadata = {
         url: "/vv-down-the-drain-128x128.gif",
         width: 128,
         height: 128,
-        alt: "Vino Vibes, a sommelier you can text",
+        alt: "Vino Vibes, the wine list decided",
       },
     ],
     locale: "en_US",
@@ -79,7 +73,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#1C1B1A",
+  themeColor: "#0E080E",
   userScalable: true,
   // Prevent auto-zoom on input focus
   viewportFit: "cover",
@@ -91,11 +85,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${manrope.variable} ${syne.variable}`}>
+    <html lang="en" className={poppins.variable}>
       <head>
         <link rel="icon" href="/favicon.png" type="image/png" />
       </head>
-      <body className="bg-vv-bg font-sans text-vv-text antialiased">
+      <body className="bg-vv-page font-sans text-vv-text antialiased">
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
           strategy="afterInteractive"

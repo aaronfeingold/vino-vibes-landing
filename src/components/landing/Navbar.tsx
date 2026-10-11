@@ -2,12 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { FacetMark } from "./Facet";
+import Image from "next/image";
 
 const NAV = [
   { href: "#how", label: "How it works" },
-  { href: "#four", label: "What it does" },
-  { href: "#learn", label: "Learn" },
+  { href: "#you", label: "Made for you" },
   { href: "#restaurants", label: "For restaurants" },
 ];
 
@@ -33,7 +32,7 @@ export default function Navbar({ ctaShort, ctaHref }: { ctaShort: string; ctaHre
     <nav
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
         solid
-          ? "border-b border-white/[0.07] bg-vv-bg/[0.66] backdrop-blur-[14px]"
+          ? "border-b border-white/[0.08] bg-vv-page/[0.62] backdrop-blur-[14px]"
           : "border-b border-transparent bg-transparent"
       }`}
     >
@@ -48,8 +47,8 @@ export default function Navbar({ ctaShort, ctaHref }: { ctaShort: string; ctaHre
           }}
           className="flex items-center gap-2.5 text-vv-text"
         >
-          <FacetMark />
-          <span className="font-display text-[19px] font-bold">Vino Vibes</span>
+          <Image src="/VinoVibesLogo.png" alt="" width={36} height={36} className="rounded-lg" priority />
+          <span className="text-[17px] font-bold tracking-[-0.01em]">Vino Vibes</span>
         </a>
 
         <div className="flex items-center gap-7">
@@ -58,7 +57,7 @@ export default function Navbar({ ctaShort, ctaHref }: { ctaShort: string; ctaHre
               <li key={n.href}>
                 <a
                   href={n.href}
-                  className="text-sm font-semibold text-vv-text2 transition-colors hover:text-vv-red-text"
+                  className="text-sm font-medium text-vv-text2 transition-colors hover:text-vv-accent"
                 >
                   {n.label}
                 </a>
@@ -67,7 +66,7 @@ export default function Navbar({ ctaShort, ctaHref }: { ctaShort: string; ctaHre
           </ul>
           <a
             href={ctaHref}
-            className="hidden h-10 items-center rounded-[10px] bg-vv-red px-[18px] text-sm font-bold text-white transition-colors hover:bg-[#E0242F] md:inline-flex"
+            className="hidden h-10 items-center rounded-xl bg-vv-text px-[18px] text-sm font-semibold text-vv-bg transition-opacity hover:opacity-90 md:inline-flex"
           >
             {ctaShort}
           </a>
@@ -84,7 +83,7 @@ export default function Navbar({ ctaShort, ctaHref }: { ctaShort: string; ctaHre
       </div>
 
       {open && (
-        <div className="flex flex-col gap-1 border-t border-white/[0.07] px-4 pb-5 pt-2 md:hidden">
+        <div className="flex flex-col gap-1 border-t border-white/[0.08] px-4 pb-5 pt-2 md:hidden">
           {NAV.map((n) => (
             <a
               key={n.href}
@@ -98,7 +97,7 @@ export default function Navbar({ ctaShort, ctaHref }: { ctaShort: string; ctaHre
           <a
             href={ctaHref}
             onClick={() => setOpen(false)}
-            className="mt-2 flex h-12 items-center justify-center rounded-[10px] bg-vv-red font-bold text-white"
+            className="mt-2 flex h-12 items-center justify-center rounded-xl bg-vv-text font-semibold text-vv-bg"
           >
             {ctaShort}
           </a>
