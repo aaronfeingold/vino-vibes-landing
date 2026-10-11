@@ -30,7 +30,26 @@ module.exports = {
         "screen-dynamic": ["100vh", "100dvh"],
         "screen-large": ["100vh", "100lvh"],
       },
+      fontFamily: {
+        sans: ["var(--font-manrope)", "system-ui", "sans-serif"],
+        display: ["var(--font-syne)", "system-ui", "sans-serif"],
+      },
       colors: {
+        // Direction B tokens (shared with the iOS app; keep names in sync)
+        vv: {
+          bg: "#1C1B1A",
+          bg2: "#232220",
+          surface: "#2B2A28",
+          surface2: "#353331",
+          bubble: "#3A3836",
+          meter: "#45423F",
+          text: "#F3EFEA",
+          text2: "#BDB7AF",
+          text3: "#A39C93",
+          red: "#C8161F",
+          "red-deep": "#6E0A10",
+          "red-text": "#FF5A5F",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
