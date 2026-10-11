@@ -2,7 +2,6 @@ import Image from "next/image";
 import { links } from "@/src/lib/launch-stage";
 
 const FOOTER_LINKS = [
-  { href: links.instagram, label: "Instagram" },
   { href: links.feedback, label: "Share feedback" },
   { href: links.support, label: "Support the project" },
 ];
