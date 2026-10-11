@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { links, type LaunchCopy } from "@/src/lib/launch-stage";
+import type { LaunchCopy } from "@/src/lib/launch-stage";
 import SignupForm from "./SignupForm";
 import StoreButton from "./StoreButton";
 
@@ -29,9 +29,7 @@ export default function Join({ cta }: { cta: LaunchCopy }) {
           </div>
         </div>
         <a
-          href={links.partner}
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/partners"
           className="inline-flex h-12 items-center gap-2 rounded-xl border-[1.5px] border-white/[0.24] px-5 text-[15px] font-semibold text-vv-text transition-colors hover:border-vv-accent hover:text-vv-accent"
         >
           Partner with us

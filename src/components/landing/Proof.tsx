@@ -1,13 +1,12 @@
 const STATS = [
   { value: "697", label: "wines already read from New Orleans restaurant lists" },
-  { value: "4", label: "pilot restaurants in the library so far" },
 ];
 
 // Fill in after the ten-dinner test. The card stays hidden until there is a real quote.
 const QUOTE: { text: string; who: string } | null = null;
 
 export default function Proof() {
-  const cols = QUOTE ? "min-[900px]:grid-cols-3" : "mx-auto max-w-[800px] sm:grid-cols-2";
+  const cols = QUOTE ? "mx-auto max-w-[800px] sm:grid-cols-2" : "mx-auto max-w-[400px] text-center";
 
   return (
     <section className="border-y border-white/[0.06] bg-vv-band">

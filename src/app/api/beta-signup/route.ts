@@ -5,22 +5,8 @@ import { db } from "../../../lib/db";
 import { betaSignups } from "../../../lib/db/schema";
 import { eq } from "drizzle-orm";
 import { betaSignupSchema } from "../../../lib/validation";
+import { normalizeEmail } from "../../../lib/normalize-email";
 const resend = new Resend(process.env.RESEND_API_KEY);
-
-// Normalize email to detect Gmail aliases and other tricks
-function normalizeEmail(email: string): string {
-  const [localPart, domain] = email.toLowerCase().split("@");
-
-  // Handle Gmail aliases (remove dots and everything after +)
-  if (domain === "gmail.com" || domain === "googlemail.com") {
-    const cleanLocal = localPart.replace(/\./g, "").split("+")[0];
-    return `${cleanLocal}@gmail.com`;
-  }
-
-  // Handle other common aliases
-  const cleanLocal = localPart.split("+")[0];
-  return `${cleanLocal}@${domain}`;
-}
 
 export async function POST(request: NextRequest) {
   try {

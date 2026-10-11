@@ -62,12 +62,12 @@ export default function AppMemory() {
       <SectionLabel>LATELY</SectionLabel>
       <div className="mx-4 overflow-hidden rounded-2xl bg-vv-surface">
         <Row
-          title="Txakoli Rosé, 2023"
-          sub="Chez Marigny · with redfish"
+          title="Ameztoi Txakolina Rosé, 2023"
+          sub="Maison Lune · with redfish"
           right={<div className="text-[13px] font-semibold text-vv-accent">Loved it</div>}
         />
         <Row
-          title="Morgon, 2021"
+          title="Lapierre Morgon, 2021"
           sub="At home · with red beans"
           right={<div className="text-[13px] font-semibold text-vv-text2">Liked it</div>}
         />

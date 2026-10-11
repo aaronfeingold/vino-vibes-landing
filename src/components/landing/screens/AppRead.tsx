@@ -4,17 +4,17 @@ import { Row, Screen, TopBar } from "./parts";
 const DISHES = ["Duck & andouille gumbo", "Fried crab claws"];
 
 const WINES = [
-  { name: "Crémant de Loire, NV", sub: "Loire · sparkling", price: "$58" },
-  { name: "Txakoli Rosé, 2023", sub: "Getaria · salty, spritzy rosé", price: "$54" },
-  { name: "Sancerre, 2022", sub: "Loire · crisp white", price: "$68" },
-  { name: "Morgon, 20??", sub: "Couldn't read the vintage. Tap to fix.", price: "$62", misread: true },
-  { name: "Rioja Crianza, 2019", sub: "Rioja · medium red", price: "$49" },
+  { name: "Langlois-Château Crémant, NV", sub: "Loire · sparkling", glass: "$14", price: "$58" },
+  { name: "Ameztoi Txakolina Rosé, 2023", sub: "Getaria · salty, spritzy rosé", glass: "$15", price: "$54" },
+  { name: "Vacheron Sancerre, 2022", sub: "Loire · crisp white", glass: "$17", price: "$68" },
+  { name: "Lapierre Morgon, 20??", sub: "Couldn't read the vintage. Tap to fix.", glass: "$16", price: "$62", misread: true },
+  { name: "CVNE Rioja Crianza, 2019", sub: "Rioja · medium red", glass: "$12", price: "$49" },
 ];
 
 export default function AppRead() {
   return (
     <Screen>
-      <TopBar title="Chez Marigny" sub="Read from 3 photos" />
+      <TopBar title="Maison Lune" sub="Read from 3 photos" />
 
       <div className="px-5 pt-2">
         <div className="text-2xl font-bold leading-tight tracking-[-0.01em]">I read 42 wines and 18&nbsp;dishes.</div>
@@ -46,14 +46,19 @@ export default function AppRead() {
             title={
               w.misread ? (
                 <>
-                  Morgon, <span className="text-vv-warning">20??</span>
+                  Lapierre Morgon, <span className="text-vv-warning">20??</span>
                 </>
               ) : (
                 w.name
               )
             }
             sub={w.misread ? <span className="text-vv-warning">{w.sub}</span> : w.sub}
-            right={<div className="text-[15px] font-semibold">{w.price}</div>}
+            right={
+              <div className="text-right">
+                <div className="text-[15px] font-semibold">{w.price}</div>
+                <div className="text-[11px] text-vv-text3">{w.glass} glass</div>
+              </div>
+            }
           />
         ))}
       </div>

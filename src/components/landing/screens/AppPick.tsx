@@ -2,14 +2,14 @@ import { ArrowUp, Camera } from "lucide-react";
 import { Screen, SectionLabel, TopBar } from "./parts";
 
 const ALTERNATIVES = [
-  { tag: "SAFER", name: "Sancerre, 2022", note: "Loire · clean and citrus, never wrong with fish", price: "$68" },
-  { tag: "LIGHTER BILL", name: "Vinho Verde, 2023", note: "Minho · the same snap, a little simpler", price: "$38" },
+  { tag: "SAFER", name: "Vacheron Sancerre", note: "Loire · clean and citrus, never wrong with fish", price: "$68" },
+  { tag: "LIGHTER BILL", name: "Aphros Vinho Verde", note: "Minho · the same snap, a little simpler", price: "$38" },
 ];
 
 export default function AppPick() {
   return (
     <Screen>
-      <TopBar title="Chez Marigny" sub="42 wines · 18 dishes read" right={<Camera size={22} />} />
+      <TopBar title="Maison Lune" sub="42 wines · 18 dishes read" right={<Camera size={22} />} />
 
       <div className="flex flex-wrap gap-2 px-5 pt-1 text-[13px]">
         <span className="inline-flex h-8 items-center gap-1.5 rounded-full bg-vv-surface2 px-3">
@@ -25,10 +25,13 @@ export default function AppPick() {
         </div>
         <div className="mt-1.5 flex items-start justify-between gap-3">
           <div>
-            <div className="text-[28px] font-extrabold leading-[1.15] tracking-[-0.01em]">Txakoli Rosé</div>
-            <div className="mt-1 text-sm text-vv-text2">Getaria, Spain · 2023</div>
+            <div className="text-[28px] font-extrabold leading-[1.15] tracking-[-0.01em]">Txakolina Rosé</div>
+            <div className="mt-1 text-sm text-vv-text2">Ameztoi · Getaria, Spain · 2023</div>
           </div>
-          <div className="text-2xl font-bold">$54</div>
+          <div className="text-right">
+            <div className="text-2xl font-bold">$54</div>
+            <div className="text-xs text-vv-text3">$15 a glass</div>
+          </div>
         </div>
         <div className="my-4 h-px bg-white/10" />
         <p className="text-base font-medium leading-normal">

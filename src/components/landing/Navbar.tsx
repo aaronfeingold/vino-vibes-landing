@@ -3,14 +3,16 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const NAV = [
-  { href: "#how", label: "How it works" },
-  { href: "#you", label: "Made for you" },
-  { href: "#restaurants", label: "For restaurants" },
+  { href: "/#how", label: "How it works" },
+  { href: "/#you", label: "Made for you" },
+  { href: "/partners", label: "For restaurants" },
 ];
 
 export default function Navbar({ ctaShort, ctaHref }: { ctaShort: string; ctaHref: string }) {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -38,11 +40,12 @@ export default function Navbar({ ctaShort, ctaHref }: { ctaShort: string; ctaHre
     >
       <div className="mx-auto flex h-[68px] max-w-[1200px] items-center justify-between gap-6 px-4 sm:px-6">
         <a
-          href="#top"
+          href="/"
           aria-label="Vino Vibes home"
           onClick={(e) => {
-            e.preventDefault();
             setOpen(false);
+            if (pathname !== "/") return;
+            e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
           className="flex items-center gap-2.5 text-vv-text"

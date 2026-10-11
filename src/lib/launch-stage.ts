@@ -13,12 +13,12 @@ const COPY: Record<LaunchStage, Omit<LaunchCopy, "stage" | "showForm" | "storeUr
   waitlist: {
     label: "Get early access",
     short: "Get early access",
-    note: "iPhone app, starting in New Orleans. We will email you when your invite is ready.",
+    note: "We'll email you when your invite is ready.",
   },
   testflight: {
     label: "Get the beta invite",
     short: "Join the beta",
-    note: "Free beta on iPhone. Enter your email and we will send the TestFlight invite.",
+    note: "We'll email you when your invite is ready.",
   },
   appstore: {
     label: "Download for iPhone",
@@ -51,5 +51,4 @@ export const links = {
   instagram: "https://instagram.com/siptheowl",
   feedback: "https://forms.gle/3uyzDNNS2qc7GnWG6",
   support: "https://venmo.com/u/Aaron-Feingold",
-  partner: process.env.NEXT_PUBLIC_PARTNER_URL || "https://forms.gle/3uyzDNNS2qc7GnWG6",
 };

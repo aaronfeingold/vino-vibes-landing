@@ -96,3 +96,31 @@ export type AnalyticsEvent = typeof analyticsEvents.$inferSelect;
 export type NewAnalyticsEvent = typeof analyticsEvents.$inferInsert;
 export type EmailAnalytics = typeof emailAnalytics.$inferSelect;
 export type NewEmailAnalytics = typeof emailAnalytics.$inferInsert;
+
+// Restaurants, bars and wine shops interested in trying Vino Vibes in service
+export const partnerInterests = pgTable(
+  "partner_interests",
+  {
+    id: serial("id").primaryKey(),
+    businessName: varchar("business_name", { length: 255 }).notNull(),
+    businessType: varchar("business_type", { length: 50 }).notNull(), // restaurant, bar, wine_shop, other
+    city: varchar("city", { length: 120 }).notNull(),
+    contactName: varchar("contact_name", { length: 255 }).notNull(),
+    role: varchar("role", { length: 120 }),
+    email: varchar("email", { length: 255 }).notNull(),
+    normalizedEmail: varchar("normalized_email", { length: 255 }).notNull().unique(),
+    phone: varchar("phone", { length: 50 }),
+    message: text("message"),
+    status: varchar("status", { length: 30 }).default("new").notNull(), // new, contacted, partner, declined
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+    ipAddress: inet("ip_address"),
+    userAgent: text("user_agent"),
+  },
+  (table) => [
+    index("idx_partner_interests_status").on(table.status),
+    index("idx_partner_interests_created_at").on(table.createdAt.desc()),
+  ]
+);
+
+export type PartnerInterest = typeof partnerInterests.$inferSelect;
+export type NewPartnerInterest = typeof partnerInterests.$inferInsert;

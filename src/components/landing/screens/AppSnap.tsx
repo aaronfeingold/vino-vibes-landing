@@ -1,27 +1,38 @@
 import { Check, X, Zap } from "lucide-react";
 import { Screen } from "./parts";
 
-const LIST: { section: string; wines: [string, string][] }[] = [
-  { section: "Sparkling", wines: [["Crémant de Loire, NV", "58"], ["Cava Brut Nature, NV", "46"]] },
+// [producer and wine, by the glass, by the bottle]
+const LIST: { section: string; wines: [string, string, string][] }[] = [
+  {
+    section: "Sparkling",
+    wines: [
+      ["Langlois-Château Crémant de Loire NV", "14", "58"],
+      ["Gramona Brut Nature 2019", "12", "46"],
+    ],
+  },
   {
     section: "White & rosé",
     wines: [
-      ["Txakoli Rosé, Getaria 2023", "54"],
-      ["Sancerre 2022", "68"],
-      ["Vinho Verde 2023", "38"],
-      ["Grüner Veltliner 2022", "52"],
+      ["Ameztoi Txakolina Rosé 2023", "15", "54"],
+      ["Vacheron Sancerre 2022", "17", "68"],
+      ["Aphros Vinho Verde 2023", "10", "38"],
+      ["Hirsch Grüner Veltliner 2022", "13", "52"],
     ],
   },
   {
     section: "Red",
     wines: [
-      ["Morgon 2021", "62"],
-      ["Rioja Crianza 2019", "49"],
-      ["Etna Rosso 2021", "64"],
-      ["Côtes du Rhône 2022", "44"],
+      ["Lapierre Morgon 2021", "16", "62"],
+      ["CVNE Rioja Crianza 2019", "12", "49"],
+      ["Benanti Etna Rosso 2021", "16", "64"],
+      ["Guigal Côtes du Rhône 2022", "11", "44"],
     ],
   },
 ];
+
+// Capture modes, swiped side to side like the iOS camera; the selected one sits in the middle.
+const MODES = ["Spirits", "Cocktails", "Wine list", "Menu", "Dessert"];
+const SELECTED = "Wine list";
 
 const CORNERS = [
   "left-[22px] top-[84px] border-l-[3px] border-t-[3px] rounded-tl-[14px]",
@@ -35,15 +46,20 @@ export default function AppSnap() {
     <Screen className="bg-vv-camera">
       {/* The paper wine list seen through the camera */}
       <div className="absolute left-[34px] top-24 h-[470px] w-[322px] -rotate-[2.5deg] bg-[#EDE6DA] px-[26px] py-7 font-serif text-[#2A2220] shadow-[0_30px_60px_rgba(0,0,0,0.6)] brightness-[0.78]">
-        <div className="text-center text-[13px] tracking-[0.24em]">CHEZ MARIGNY</div>
-        <div className="mt-1 text-center text-[10px] tracking-[0.2em] text-[#6B5D58]">WINES BY THE BOTTLE</div>
+        <div className="text-center text-[13px] tracking-[0.24em]">MAISON LUNE</div>
+        <div className="mt-1 text-center text-[10px] tracking-[0.2em] text-[#6B5D58]">WINES</div>
+        <div className="mt-3 flex justify-end gap-3 text-[9px] tracking-[0.12em] text-[#6B5D58]">
+          <span className="w-5 text-right">GLASS</span>
+          <span className="w-7 text-right">BTL</span>
+        </div>
         {LIST.map((g, i) => (
           <div key={g.section}>
-            <div className={`${i === 0 ? "mt-[18px]" : "mt-3.5"} text-[11px] italic text-[#6B5D58]`}>{g.section}</div>
-            {g.wines.map(([name, price], j) => (
-              <div key={name} className={`flex justify-between text-xs ${j === 0 ? "mt-1.5" : "mt-1"}`}>
-                <span>{name}</span>
-                <span>{price}</span>
+            <div className={`${i === 0 ? "mt-1" : "mt-3"} text-[11px] italic text-[#6B5D58]`}>{g.section}</div>
+            {g.wines.map(([name, glass, bottle], j) => (
+              <div key={name} className={`flex gap-3 text-[11.5px] ${j === 0 ? "mt-1" : "mt-[3px]"}`}>
+                <span className="min-w-0 flex-1 truncate">{name}</span>
+                <span className="w-5 text-right">{glass}</span>
+                <span className="w-7 text-right">{bottle}</span>
               </div>
             ))}
           </div>
@@ -72,9 +88,18 @@ export default function AppSnap() {
       </div>
 
       <div className="absolute inset-x-0 bottom-0 h-[196px] border-t border-white/[0.08] bg-vv-bg px-5 pb-7 pt-4">
-        <div className="flex justify-center gap-1.5 text-[13px]">
-          <span className="flex h-8 items-center rounded-full bg-vv-text px-3.5 font-semibold text-vv-bg">Wine list</span>
-          <span className="flex h-8 items-center rounded-full bg-vv-surface2 px-3.5 font-medium text-vv-text2">Menu</span>
+        <div className="relative -mx-5 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_22%,#000_78%,transparent)]">
+          <div className="flex justify-center gap-6 whitespace-nowrap text-[13px] font-semibold tracking-[0.06em]">
+            {MODES.map((m) => (
+              <span
+                key={m}
+                className={`flex flex-col items-center gap-1 ${m === SELECTED ? "text-vv-accent" : "text-vv-text2"}`}
+              >
+                {m.toUpperCase()}
+                <span className={`h-1 w-1 rounded-full ${m === SELECTED ? "bg-vv-accent" : "bg-transparent"}`} />
+              </span>
+            ))}
+          </div>
         </div>
         <div className="mt-[22px] flex items-center justify-between">
           <span className="w-24 text-sm text-vv-text2 underline underline-offset-[3px]">Type it instead</span>
