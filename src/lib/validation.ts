@@ -8,8 +8,6 @@ export const emailSchema = z
 
 export const betaSignupSchema = z.object({
   email: emailSchema,
-  wantsDonation: z.boolean().default(false),
-  hasSeenDonationModal: z.boolean().default(false),
 });
 
 export type EmailValidation = z.infer<typeof emailSchema>;

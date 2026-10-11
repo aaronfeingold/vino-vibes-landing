@@ -57,15 +57,6 @@ export const analytics = {
       trackEvent("signup_completed", "conversion", "beta_signup"),
   },
 
-  // Donation funnel
-  donation: {
-    modalShown: () =>
-      trackEvent("donation_modal_shown", "donation", "after_email"),
-    accepted: () =>
-      trackEvent("donation_accepted", "conversion", "venmo_redirect"),
-    declined: () => trackEvent("donation_declined", "donation", "maybe_later"),
-    venmoOpened: () => trackEvent("venmo_opened", "external_link", "payment"),
-  },
 
   // Email engagement (track with UTM parameters)
   email: {

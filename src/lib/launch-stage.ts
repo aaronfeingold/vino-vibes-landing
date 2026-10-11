@@ -46,7 +46,3 @@ export function getLaunchCopy(): LaunchCopy {
     storeUrl: stage === "appstore" ? storeUrl : null,
   };
 }
-
-export const links = {
-  support: "https://venmo.com/u/Aaron-Feingold",
-};

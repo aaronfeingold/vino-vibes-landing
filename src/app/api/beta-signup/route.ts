@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { email, wantsDonation, hasSeenDonationModal } =
+    const { email } =
       validationResult.data;
 
     const normalizedEmail = normalizeEmail(email);
@@ -45,8 +45,6 @@ export async function POST(request: NextRequest) {
     await db.insert(betaSignups).values({
       email,
       normalizedEmail,
-      wantsDonation,
-      hasSeenDonationModal,
     });
 
     // Send welcome email

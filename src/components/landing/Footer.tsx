@@ -1,9 +1,4 @@
 import Image from "next/image";
-import { links } from "@/src/lib/launch-stage";
-
-const FOOTER_LINKS = [
-  { href: links.support, label: "Support the project" },
-];
 
 export default function Footer() {
   return (
@@ -22,20 +17,6 @@ export default function Footer() {
             <div className="text-[13px] text-vv-text3">Made in New Orleans</div>
           </div>
         </div>
-        <ul className="flex flex-wrap gap-6 text-sm">
-          {FOOTER_LINKS.map((l) => (
-            <li key={l.label}>
-              <a
-                href={l.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-vv-text2 transition-colors hover:text-vv-accent"
-              >
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
       </div>
     </footer>
   );

@@ -36,7 +36,7 @@ export default function SignupForm({
       const res = await fetch("/api/beta-signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: parsed.data, wantsDonation: false, hasSeenDonationModal: false }),
+        body: JSON.stringify({ email: parsed.data }),
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok) {
