@@ -14,13 +14,11 @@ export default function Hero({ cta }: { cta: LaunchCopy }) {
       />
       <div className="relative grid items-center gap-12 min-[900px]:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] min-[900px]:gap-14">
         <div className="flex flex-col items-center gap-6 text-center min-[900px]:items-start min-[900px]:text-left">
-          <div className="text-base font-semibold text-vv-accent">Wine list feel like another language?</div>
           <h1 className="text-[46px] font-extrabold leading-[1.02] tracking-[-0.035em] min-[900px]:text-[76px]">
-            The wine list, decided.
+            The wine list, simplified.
           </h1>
           <p className="max-w-[520px] text-lg leading-[1.55] text-vv-text2 min-[900px]:text-xl">
-            Snap the list, say what you&apos;re eating, and get one bottle from it, with a reason
-            that&apos;s about you, before your server comes back.
+            Enjoying wine is easier than ever.
           </p>
           <div className="w-full max-w-[520px]">
             {cta.showForm ? (

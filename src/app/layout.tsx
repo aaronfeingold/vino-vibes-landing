@@ -12,7 +12,7 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-const TITLE = "Vino Vibes: the wine list, decided";
+const TITLE = "Vino Vibes: the wine list, simplified";
 const DESCRIPTION =
   "Snap the wine list, say what you're eating, and get one bottle from it, with a reason that's about you, before your server comes back.";
 
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
         url: "/vv-down-the-drain-128x128.gif",
         width: 128,
         height: 128,
-        alt: "Vino Vibes, the wine list decided",
+        alt: "Vino Vibes, the wine list simplified",
       },
     ],
     locale: "en_US",
