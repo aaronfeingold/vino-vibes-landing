@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Block: places</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 358px; box-sizing: border-box; padding: 18px; border-radius: 22px; background: #1F1520; border: 1px solid rgba(255,255,255,0.08); overflow: hidden; font-family: Poppins, system-ui, sans-serif; color: #F7EFF5">
+  <div style="display: flex; justify-content: space-between; align-items: baseline">
+    <div style="font-size: 11px; font-weight: 800; letter-spacing: 0.14em; color: #D8B4FE">3 PLACES NEAR YOU</div>
+    <div style="font-size: 12px; color: #A897A4">Burgundy by the glass</div>
+  </div>
+
+  <div style="margin-top: 12px; display: flex; flex-direction: column">
+    <div style="display: flex; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.07)">
+      <svg aria-hidden="true" width="34" height="34" viewBox="0 0 34 34" style="flex-shrink: 0"><polygon points="17,1 33,12 27,33 7,33 1,12" fill="#9333EA"></polygon><text x="17" y="22" text-anchor="middle" font-family="Poppins, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF">1</text></svg>
+      <div style="flex: 1; min-width: 0">
+        <div style="font-size: 15px; font-weight: 700">Oxblood Wine Bar</div>
+        <div style="margin-top: 2px; font-size: 13px; color: #C4B3C0">Chambolle-Musigny 2019 · $32 a glass</div>
+      </div>
+      <div style="font-size: 12px; color: #A897A4">0.3 mi</div>
+    </div>
+    <div style="display: flex; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.07)">
+      <svg aria-hidden="true" width="34" height="34" viewBox="0 0 34 34" style="flex-shrink: 0"><polygon points="17,1 33,12 27,33 7,33 1,12" fill="#3A2A3B"></polygon><text x="17" y="22" text-anchor="middle" font-family="Poppins, sans-serif" font-size="13" font-weight="800" fill="#F7EFF5">2</text></svg>
+      <div style="flex: 1; min-width: 0">
+        <div style="font-size: 15px; font-weight: 700">Rue Cellar</div>
+        <div style="margin-top: 2px; font-size: 13px; color: #C4B3C0">Gevrey-Chambertin 2018 · $38 a glass</div>
+      </div>
+      <div style="font-size: 12px; color: #A897A4">0.6 mi</div>
+    </div>
+    <div style="display: flex; gap: 12px; align-items: center; padding: 12px 0">
+      <svg aria-hidden="true" width="34" height="34" viewBox="0 0 34 34" style="flex-shrink: 0"><polygon points="17,1 33,12 27,33 7,33 1,12" fill="#3A2A3B"></polygon><text x="17" y="22" text-anchor="middle" font-family="Poppins, sans-serif" font-size="13" font-weight="800" fill="#F7EFF5">3</text></svg>
+      <div style="flex: 1; min-width: 0">
+        <div style="font-size: 15px; font-weight: 700">The Marrow</div>
+        <div style="margin-top: 2px; font-size: 13px; color: #C4B3C0">Bourgogne Rouge · $16, the honest starter</div>
+      </div>
+      <div style="font-size: 12px; color: #A897A4">0.9 mi</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 8px; display: flex; gap: 8px">
+    <button type="button" style="flex: 1; height: 44px; border-radius: 12px; background: transparent; border: 1px solid rgba(255,255,255,0.22); color: #F7EFF5; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Show on map</button>
+    <button type="button" style="flex: 1; height: 44px; border-radius: 12px; background: transparent; border: 1px solid rgba(255,255,255,0.22); color: #F7EFF5; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer">What to eat there</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":358,"height":300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

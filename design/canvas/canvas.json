@@ -1,0 +1,151 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-10T21:36:00Z"
+  },
+  "title": "Vino Vibes Landing",
+  "launch": {
+    "view": "canvas"
+  },
+  "pages": [],
+  "boards": {
+    "LandingV2.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 4090,
+      "title": "Live \u2014 Home (/)",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "Partners.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 1440,
+      "h": 2420,
+      "title": "Live \u2014 Partner with us (/partners)",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "AppPick.dc.html": {
+      "x": 4560,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "App \u2014 The pick"
+    },
+    "AppSnap.dc.html": {
+      "x": 5030,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "App \u2014 Snap the list"
+    },
+    "AppRead.dc.html": {
+      "x": 5500,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "App \u2014 What I read"
+    },
+    "AppMemory.dc.html": {
+      "x": 5970,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "App \u2014 What I know about you"
+    },
+    "LandingV3.dc.html": {
+      "x": 0,
+      "y": 4760,
+      "w": 1440,
+      "h": 4300,
+      "title": "Landing v3 \u2014 chat-first, in v2 purple",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "AppChat.dc.html": {
+      "x": 1520,
+      "y": 4760,
+      "w": 390,
+      "h": 844,
+      "title": "App \u2014 Chat (tap the prompts)",
+      "is_interactive": true
+    },
+    "BlockWine.dc.html": {
+      "x": 1990,
+      "y": 4760,
+      "w": 358,
+      "h": 372,
+      "title": "Block \u2014 The pick (chat)"
+    },
+    "BlockPlaces.dc.html": {
+      "x": 2428,
+      "y": 4760,
+      "w": 358,
+      "h": 300,
+      "title": "Block \u2014 Places (search)"
+    },
+    "BlockLesson.dc.html": {
+      "x": 2866,
+      "y": 4760,
+      "w": 358,
+      "h": 372,
+      "title": "Block \u2014 Lesson (learn)"
+    },
+    "BlockMemory.dc.html": {
+      "x": 1990,
+      "y": 5252,
+      "w": 358,
+      "h": 150,
+      "title": "Block \u2014 Noted (memory)"
+    },
+    "BlockCellar.dc.html": {
+      "x": 2428,
+      "y": 5252,
+      "w": 358,
+      "h": 280,
+      "title": "Block \u2014 Your bottles (organize)"
+    }
+  },
+  "order": [
+    "LandingV2.dc.html",
+    "Partners.dc.html",
+    "AppPick.dc.html",
+    "AppSnap.dc.html",
+    "AppRead.dc.html",
+    "AppMemory.dc.html",
+    "LandingV3.dc.html",
+    "AppChat.dc.html",
+    "BlockWine.dc.html",
+    "BlockPlaces.dc.html",
+    "BlockLesson.dc.html",
+    "BlockMemory.dc.html",
+    "BlockCellar.dc.html"
+  ],
+  "notes": {
+    "landingTitle": {
+      "x": 0,
+      "y": -300,
+      "text": "The live site: home and Partner with us (old main on the left)",
+      "kind": "title1",
+      "maxW": 4480
+    },
+    "appTitle": {
+      "x": 4560,
+      "y": -300,
+      "text": "iOS app screens (the live site shows these)",
+      "kind": "title1",
+      "maxW": 1800
+    },
+    "directionB": {
+      "x": 0,
+      "y": 4450,
+      "text": "Direction B: a chat-first agent, in v2 purple",
+      "kind": "title1",
+      "maxW": 3240
+    }
+  },
+  "designSystems": []
+}

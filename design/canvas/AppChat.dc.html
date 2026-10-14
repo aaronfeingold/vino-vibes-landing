@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Chat</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; overflow: hidden; background: #0E080E; color: #F7EFF5; font-family: Poppins, system-ui, sans-serif">
+
+  <div style="height: 64px; padding: 10px 12px 0 18px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06)">
+    <div style="display: flex; align-items: center; gap: 10px">
+      <svg aria-hidden="true" width="26" height="26" viewBox="0 0 26 26"><polygon points="13,1 25,9 21,25 5,25 1,9" fill="#9333EA"></polygon><polygon points="13,7 19,11 17,19 9,19 7,11" fill="#A21CAF"></polygon></svg>
+      <div style="font-family: Poppins, system-ui, sans-serif; font-size: 18px; font-weight: 700">Vino Vibes</div>
+    </div>
+    <div style="display: flex">
+      <button type="button" aria-label="Your bottles" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: transparent; border: 0; color: #C4B3C0; cursor: pointer">
+        <svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2h4v4l2 3v12a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V9l2-3z"></path><path d="M8 13h8"></path></svg>
+      </button>
+      <button type="button" aria-label="What I know about you" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: transparent; border: 0; color: #C4B3C0; cursor: pointer">
+        <svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg>
+      </button>
+    </div>
+  </div>
+
+  <div style="position: absolute; top: 76px; left: 0; right: 0; bottom: 150px; padding: 0 16px; overflow: hidden; display: flex; flex-direction: column; gap: 12px">
+    <div style="align-self: flex-end; max-width: 290px; padding: 12px 14px; border-radius: 18px 18px 4px 18px; background: #2B1E2C; font-size: 15px; line-height: 1.45">{{ask}}</div>
+    <div style="display: flex; gap: 10px; align-items: flex-start">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 26 26" style="flex-shrink: 0; margin-top: 1px"><polygon points="13,1 25,9 21,25 5,25 1,9" fill="#9333EA"></polygon></svg>
+      <div style="font-size: 15px; line-height: 1.5">{{reply}}</div>
+    </div>
+    <sc-if value="{{showWine}}" hint-placeholder-val="{{ true }}">
+      <dc-import name="BlockWine" hint-size="358px,372px"></dc-import>
+    </sc-if>
+    <sc-if value="{{showPlaces}}" hint-placeholder-val="{{ false }}">
+      <dc-import name="BlockPlaces" hint-size="358px,300px"></dc-import>
+    </sc-if>
+    <sc-if value="{{showLesson}}" hint-placeholder-val="{{ false }}">
+      <dc-import name="BlockLesson" hint-size="358px,372px"></dc-import>
+    </sc-if>
+    <sc-if value="{{showMemory}}" hint-placeholder-val="{{ false }}">
+      <dc-import name="BlockMemory" hint-size="358px,150px"></dc-import>
+    </sc-if>
+    <sc-if value="{{showCellar}}" hint-placeholder-val="{{ false }}">
+      <dc-import name="BlockCellar" hint-size="358px,280px"></dc-import>
+    </sc-if>
+  </div>
+
+  <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 12px 0 26px; background: linear-gradient(180deg, rgba(14,8,14,0), #0E080E 22%)">
+    <div style="display: flex; gap: 8px; overflow-x: auto; padding: 0 16px 12px">
+      <sc-for list="{{chips}}" as="chip" hint-placeholder-count="5">
+        <sc-if value="{{chip.on}}" hint-placeholder-val="{{ false }}">
+          <button type="button" aria-pressed="true" onClick="{{chip.pick}}" style="flex-shrink: 0; height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #9333EA; background: rgba(147,51,234,0.22); color: #F7EFF5; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap">{{chip.label}}</button>
+        </sc-if>
+        <sc-if value="{{chip.off}}" hint-placeholder-val="{{ true }}">
+          <button type="button" aria-pressed="false" onClick="{{chip.pick}}" style="flex-shrink: 0; height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); background: #1F1520; color: #C4B3C0; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap">{{chip.label}}</button>
+        </sc-if>
+      </sc-for>
+    </div>
+    <div style="margin: 0 16px; display: flex; align-items: center; gap: 6px; height: 54px; padding: 0 6px; border-radius: 27px; background: #1F1520; border: 1px solid rgba(255,255,255,0.10)">
+      <button type="button" aria-label="Photograph a wine list or menu" style="width: 42px; height: 42px; border: 0; border-radius: 21px; background: transparent; color: #C4B3C0; display: flex; align-items: center; justify-content: center; cursor: pointer">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"></path><circle cx="12" cy="13" r="3"></circle></svg>
+      </button>
+      <label for="chat-ask" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Ask anything about wine</label>
+      <input id="chat-ask" type="text" placeholder="Ask anything about wine" style="flex: 1; min-width: 0; height: 40px; border: 0; background: transparent; color: #F7EFF5; font-family: inherit; font-size: 15px; outline: none">
+      <button type="button" aria-label="Talk instead" style="width: 42px; height: 42px; border: 0; border-radius: 21px; background: linear-gradient(90deg, #9333EA, #A21CAF); color: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer">
+        <svg aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0"></path><path d="M12 18v4"></path></svg>
+      </button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { scene: 'order' };
+  }
+  renderVals() {
+    var s = this.state.scene;
+    var scenes = {
+      order: { label: 'Order for me', ask: 'Steakhouse tonight, ribeye. I want something serious, around $150.', reply: 'Then this is the one. It is on their list at $148.' },
+      find: { label: 'Find a spot', ask: 'Where can I get great Burgundy by the glass near the Warehouse District?', reply: 'Three spots within a short walk. Start with the first.' },
+      learn: { label: 'Teach me', ask: 'Teach me Barolo. Fast.', reply: 'Four things, and you will know more than most of the table.' },
+      remember: { label: 'Remember this', ask: 'That Chianti last week was too thin for me.', reply: 'Good to know. That changes what I pick for you.' },
+      bottles: { label: 'My bottles', ask: 'What have I liked lately?', reply: 'Here is your shelf. Steak nights is filling up.' }
+    };
+    var order = ['order', 'find', 'learn', 'remember', 'bottles'];
+    var cur = scenes[s] || scenes.order;
+    var chips = order.map((k) => ({
+      label: scenes[k].label,
+      on: k === s,
+      off: k !== s,
+      pick: () => this.setState({ scene: k })
+    }));
+    return {
+      ask: cur.ask,
+      reply: cur.reply,
+      chips: chips,
+      showWine: s === 'order',
+      showPlaces: s === 'find',
+      showLesson: s === 'learn',
+      showMemory: s === 'remember',
+      showCellar: s === 'bottles'
+    };
+  }
+}
+</script>
+</body>
+</html>

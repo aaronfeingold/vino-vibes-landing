@@ -1,0 +1,24 @@
+<!-- @dsCard group="Site" width=900 height=760 subtitle="src/components/landing/PartnerForm.tsx · the form on /partners" -->
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><style>body{margin:0;background:var(--vv-page)} .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}</style></head>
+<body class="vv">
+<div style="padding:24px;max-width:852px">
+  <form class="vv-card" style="padding:32px;display:flex;flex-direction:column;gap:20px" onsubmit="return false">
+    <div class="grid">
+      <div class="vv-field"><label for="f1">Name of your place</label><input id="f1" class="vv-input vv-input--form"></div>
+      <div class="vv-field"><label for="f2">What kind of place</label><select id="f2" class="vv-input vv-input--form"><option>Choose one</option><option>Restaurant</option><option>Bar</option><option>Wine shop</option><option>Something else</option></select></div>
+      <div class="vv-field"><label for="f3">City</label><input id="f3" class="vv-input vv-input--form"></div>
+      <div class="vv-field"><label for="f4">Your name</label><input id="f4" class="vv-input vv-input--form"></div>
+      <div class="vv-field"><label for="f5">Your role <span class="opt">(optional)</span></label><input id="f5" class="vv-input vv-input--form" placeholder="Owner, GM, sommelier"></div>
+      <div class="vv-field"><label for="f6">Email</label><input id="f6" type="email" class="vv-input vv-input--form"></div>
+      <div class="vv-field"><label for="f7">Phone <span class="opt">(optional)</span></label><input id="f7" type="tel" class="vv-input vv-input--form"></div>
+    </div>
+    <div class="vv-field"><label for="f8">Anything we should know <span class="opt">(optional)</span></label><textarea id="f8" rows="4" class="vv-input vv-input--form" style="height:auto;padding:12px 16px" placeholder="How your wine program works, when service is busiest, what you'd want from this"></textarea></div>
+    <div><button class="vv-b vv-b--primary" type="submit">I'm interested</button></div>
+  </form>
+  <div class="vv-success" role="status" style="margin-top:24px;padding:28px;border-radius:var(--radius-card)">
+    <div style="font-size:18px;font-weight:700">Thanks. We'll be in touch.</div>
+    <p style="margin:8px 0 0;color:var(--vv-text2)">We read every one of these ourselves and will reach out to set things up.</p>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vino Vibes landing page v3</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#F7EFF5}a:hover{color:#D8B4FE}
+.vv-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.vv-poly{clip-path:polygon(28% 0,100% 14%,86% 72%,38% 100%,0 46%)}
+.vv-poly2{clip-path:polygon(0 18%,62% 0,100% 58%,54% 100%,10% 84%)}
+.vv-poly3{clip-path:polygon(50% 0,100% 38%,80% 100%,20% 100%,0 38%)}
+.vv-hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);gap:48px;align-items:center}
+.vv-navlinks{display:flex}
+.vv-burger{display:none}
+@media (max-width:1000px){
+.vv-grid4{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.vv-grid3{grid-template-columns:minmax(0,1fr)!important;justify-items:center}
+.vv-stagger{margin-top:0!important}
+}
+@media (max-width:900px){
+.vv-hero{grid-template-columns:minmax(0,1fr)}
+.vv-hero-copy{text-align:center;align-items:center}
+.vv-grid2{grid-template-columns:minmax(0,1fr)!important}
+.vv-h1{font-size:46px!important}
+.vv-h2{font-size:34px!important}
+.vv-navlinks{display:none}
+.vv-navcta{display:none!important}
+.vv-burger{display:flex}
+}
+@media (max-width:600px){
+.vv-grid4{grid-template-columns:minmax(0,1fr)!important}
+}
+</style>
+</helmet>
+<div style="position: relative; background: #0E080E; color: #F7EFF5; font-family: Poppins, system-ui, sans-serif; overflow: hidden">
+
+  <nav style="position: sticky; top: 0; z-index: 50; background: rgba(14,8,14,0.66); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.07)">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
+      <a href="#top" aria-label="Vino Vibes home" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
+        <svg aria-hidden="true" width="30" height="30" viewBox="0 0 26 26"><polygon points="13,1 25,9 21,25 5,25 1,9" fill="{{red}}"></polygon><polygon points="13,7 19,11 17,19 9,19 7,11" fill="#A21CAF"></polygon></svg>
+        <span style="font-family: Poppins, system-ui, sans-serif; font-size: 19px; font-weight: 700">Vino Vibes</span>
+      </a>
+      <div style="display: flex; align-items: center; gap: 28px">
+        <ul class="vv-navlinks" style="list-style: none; margin: 0; padding: 0; gap: 28px; align-items: center">
+          <li><a href="#how" style="font-size: 14px; font-weight: 600; color: #C4B3C0; text-decoration: none">How it works</a></li>
+          <li><a href="#four" style="font-size: 14px; font-weight: 600; color: #C4B3C0; text-decoration: none">What it does</a></li>
+          <li><a href="#learn" style="font-size: 14px; font-weight: 600; color: #C4B3C0; text-decoration: none">Learn</a></li>
+          <li><a href="#restaurants" style="font-size: 14px; font-weight: 600; color: #C4B3C0; text-decoration: none">For restaurants</a></li>
+        </ul>
+        <a class="vv-navcta" href="#join" style="display: inline-flex; align-items: center; height: 40px; padding: 0 18px; border-radius: 10px; background: linear-gradient(90deg, {{red}}, #A21CAF); color: #FFFFFF; font-size: 14px; font-weight: 700; text-decoration: none">{{ctaShort}}</a>
+        <button class="vv-burger" type="button" aria-label="Open menu" onClick="{{toggleMenu}}" style="width: 44px; height: 44px; align-items: center; justify-content: center; background: transparent; border: 0; color: #F7EFF5; cursor: pointer">
+          <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+        </button>
+      </div>
+    </div>
+    <sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+      <div style="padding: 8px 24px 20px; display: flex; flex-direction: column; gap: 4px; border-top: 1px solid rgba(255,255,255,0.07)">
+        <a href="#how" style="padding: 12px 0; font-size: 16px; text-decoration: none">How it works</a>
+        <a href="#four" style="padding: 12px 0; font-size: 16px; text-decoration: none">What it does</a>
+        <a href="#learn" style="padding: 12px 0; font-size: 16px; text-decoration: none">Learn</a>
+        <a href="#restaurants" style="padding: 12px 0; font-size: 16px; text-decoration: none">For restaurants</a>
+        <a href="#join" style="margin-top: 8px; display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 10px; background: linear-gradient(90deg, {{red}}, #A21CAF); color: #FFFFFF; font-weight: 700; text-decoration: none">{{ctaShort}}</a>
+      </div>
+    </sc-if>
+  </nav>
+
+  <section id="top" style="position: relative; isolation: isolate">
+    <div aria-hidden="true" style="position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none">
+      <div style="position: absolute; right: -120px; top: -60px; width: 760px; height: 680px; filter: blur({{blur}}px); opacity: 0.7">
+        <div class="vv-poly" style="width: 100%; height: 100%; background: {{red}}"></div>
+      </div>
+      <div style="position: absolute; right: 260px; top: 380px; width: 420px; height: 380px; filter: blur({{blur}}px); opacity: 0.55">
+        <div class="vv-poly2" style="width: 100%; height: 100%; background: #A21CAF"></div>
+      </div>
+      <div style="position: absolute; left: -200px; top: 520px; width: 460px; height: 420px; filter: blur({{blur}}px); opacity: 0.35">
+        <div class="vv-poly3" style="width: 100%; height: 100%; background: {{red}}"></div>
+      </div>
+      <sc-if value="{{facets}}" hint-placeholder-val="{{ true }}">
+        <svg width="100%" height="100%" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0"><polygon points="820,40 1300,90 1220,520 900,700 700,330" fill="none" stroke="rgba(216,180,254,0.22)" stroke-width="1"></polygon><polygon points="900,140 1180,180 1120,440 940,520 840,320" fill="none" stroke="rgba(216,180,254,0.14)" stroke-width="1"></polygon><polyline points="700,330 940,520 1220,520" fill="none" stroke="rgba(216,180,254,0.12)" stroke-width="1"></polyline><polygon points="60,620 260,560 330,760 160,860" fill="none" stroke="rgba(216,180,254,0.12)" stroke-width="1"></polygon></svg>
+      </sc-if>
+    </div>
+
+    <div style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 104px; box-sizing: border-box">
+      <div class="vv-hero">
+        <div class="vv-hero-copy" style="display: flex; flex-direction: column; gap: 24px">
+          <h1 class="vv-h1" style="margin: 0; font-family: Poppins, system-ui, sans-serif; font-size: 78px; font-weight: 800; line-height: 0.98; letter-spacing: -0.03em">The wine list, simplified.</h1>
+          <p style="margin: 0; max-width: 540px; font-size: 20px; line-height: 1.55; color: #C4B3C0">Enjoying wine is easier than ever.</p>
+          <sc-if value="{{showForm}}" hint-placeholder-val="{{ true }}">
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; width: 100%; max-width: 540px">
+              <label for="hero-email" class="vv-sr">Email address</label>
+              <input id="hero-email" type="email" placeholder="you@email.com" style="flex: 1 1 240px; min-width: 0; height: 56px; padding: 0 18px; box-sizing: border-box; border-radius: 12px; border: 1px solid rgba(255,255,255,0.16); background: #1F1520; color: #F7EFF5; font-family: inherit; font-size: 16px">
+              <button type="button" style="flex: 0 0 auto; height: 56px; padding: 0 26px; border: 0; border-radius: 12px; background: linear-gradient(90deg, {{red}}, #A21CAF); color: #FFFFFF; font-family: inherit; font-size: 16px; font-weight: 700; cursor: pointer">{{ctaLabel}}</button>
+            </div>
+          </sc-if>
+          <sc-if value="{{isStore}}" hint-placeholder-val="{{ false }}">
+            <a href="#download" style="display: inline-flex; align-items: center; gap: 10px; height: 56px; padding: 0 26px; border-radius: 12px; background: linear-gradient(90deg, {{red}}, #A21CAF); color: #FFFFFF; font-size: 16px; font-weight: 700; text-decoration: none">{{ctaLabel}}</a>
+          </sc-if>
+          <div style="font-size: 14px; color: #A897A4">{{ctaNote}}</div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 16px">
+          <div style="width: 340px; height: 712px; padding: 10px; box-sizing: border-box; border-radius: 54px; background: #050305; border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 50px 100px -30px rgba(0,0,0,0.9), 0 0 0 1px rgba(147,51,234,0.15)">
+            <div style="width: 320px; height: 692px; border-radius: 44px; overflow: hidden">
+              <div style="width: 390px; height: 844px; transform: scale(0.8205); transform-origin: 0 0">
+                <dc-import name="AppChat" hint-size="390px,844px"></dc-import>
+              </div>
+            </div>
+          </div>
+          <div style="font-size: 13px; color: #A897A4">Tap the prompts. Each answer builds its own screen.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" style="background: #140C14; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06)">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 112px 24px; box-sizing: border-box">
+      <div style="max-width: 720px; margin: 0 auto 64px; text-align: center">
+        <div style="font-size: 13px; font-weight: 800; letter-spacing: 0.14em; color: #D8B4FE">HOW IT WORKS</div>
+        <h2 class="vv-h2" style="margin: 12px 0 16px; font-family: Poppins, system-ui, sans-serif; font-size: 48px; font-weight: 800; line-height: 1.05; letter-spacing: -0.02em">You talk. It builds the screen.</h2>
+        <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #C4B3C0">No menus to learn. It's one conversation, and every answer shows up as the thing you need right then: a pick, a list of places, a lesson.</p>
+      </div>
+      <div class="vv-grid3" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; align-items: start">
+        <div style="display: flex; flex-direction: column; gap: 14px; align-items: center">
+          <div style="font-size: 15px; font-weight: 700">Ask what to order <span style="color: #D8B4FE">→ a pick</span></div>
+          <dc-import name="BlockWine" hint-size="358px,372px"></dc-import>
+        </div>
+        <div class="vv-stagger" style="margin-top: 56px; display: flex; flex-direction: column; gap: 14px; align-items: center">
+          <div style="font-size: 15px; font-weight: 700">Ask where to go <span style="color: #D8B4FE">→ places</span></div>
+          <dc-import name="BlockPlaces" hint-size="358px,300px"></dc-import>
+        </div>
+        <div class="vv-stagger" style="margin-top: 112px; display: flex; flex-direction: column; gap: 14px; align-items: center">
+          <div style="font-size: 15px; font-weight: 700">Ask why <span style="color: #D8B4FE">→ a lesson</span></div>
+          <dc-import name="BlockLesson" hint-size="358px,372px"></dc-import>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="four" style="position: relative; isolation: isolate">
+    <div aria-hidden="true" style="position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none">
+      <div style="position: absolute; left: 30%; top: 120px; width: 620px; height: 420px; filter: blur({{blur}}px); opacity: 0.22">
+        <div class="vv-poly2" style="width: 100%; height: 100%; background: {{red}}"></div>
+      </div>
+    </div>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 120px 24px; box-sizing: border-box">
+      <div style="max-width: 720px; margin-bottom: 56px">
+        <div style="font-size: 13px; font-weight: 800; letter-spacing: 0.14em; color: #D8B4FE">WHAT IT DOES</div>
+        <h2 class="vv-h2" style="margin: 12px 0 0; font-family: Poppins, system-ui, sans-serif; font-size: 48px; font-weight: 800; line-height: 1.05; letter-spacing: -0.02em">Four things, one conversation.</h2>
+      </div>
+      <div class="vv-grid4" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px">
+        <div style="padding: 24px; border-radius: 20px; background: #1F1520; border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 14px">
+          <svg aria-hidden="true" width="40" height="40" viewBox="0 0 26 26"><polygon points="13,1 25,9 21,25 5,25 1,9" fill="{{red}}"></polygon><path d="M8 11h10M8 15h6" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"></path></svg>
+          <h3 style="margin: 0; font-family: Poppins, system-ui, sans-serif; font-size: 24px; font-weight: 700">Chat</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #C4B3C0">One conversation runs everything. Type it, say it, or snap the list.</p>
+          <div style="margin-top: auto; align-self: flex-end; padding: 10px 12px; border-radius: 14px 14px 4px 14px; background: #2B1E2C; font-size: 13px">Ribeye, $150, something serious.</div>
+        </div>
+        <div style="padding: 24px; border-radius: 20px; background: #1F1520; border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 14px">
+          <svg aria-hidden="true" width="40" height="40" viewBox="0 0 26 26"><polygon points="13,1 25,9 21,25 5,25 1,9" fill="{{red}}"></polygon><circle cx="12" cy="13" r="4" fill="none" stroke="#FFFFFF" stroke-width="1.8"></circle><path d="M15 16l3 3" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"></path></svg>
+          <h3 style="margin: 0; font-family: Poppins, system-ui, sans-serif; font-size: 24px; font-weight: 700">Search</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #C4B3C0">Who pours what, with which food, near you. Real lists from real restaurants.</p>
+          <div style="margin-top: auto; padding: 10px 12px; border-radius: 12px; background: #2B1E2C; font-size: 13px"><strong>Oxblood</strong> <span style="color: #C4B3C0">· Chambolle by the glass</span></div>
+        </div>
+        <div style="padding: 24px; border-radius: 20px; background: #1F1520; border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 14px">
+          <svg aria-hidden="true" width="40" height="40" viewBox="0 0 26 26"><polygon points="13,1 25,9 21,25 5,25 1,9" fill="{{red}}"></polygon><circle cx="13" cy="11" r="3" fill="none" stroke="#FFFFFF" stroke-width="1.8"></circle><path d="M8 19a5 5 0 0 1 10 0" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"></path></svg>
+          <h3 style="margin: 0; font-family: Poppins, system-ui, sans-serif; font-size: 24px; font-weight: 700">Memory</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #C4B3C0">What you loved, what you didn't, and what you had it with. You can see all of it.</p>
+          <div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 6px">
+            <span style="padding: 6px 10px; border-radius: 999px; background: rgba(147,51,234,0.2); font-size: 12px">Big reds</span>
+            <span style="padding: 6px 10px; border-radius: 999px; background: rgba(147,51,234,0.2); font-size: 12px">Brunello</span>
+            <span style="padding: 6px 10px; border-radius: 999px; background: #2B1E2C; color: #C4B3C0; font-size: 12px; text-decoration: line-through">Thin Chianti</span>
+          </div>
+        </div>
+        <div style="padding: 24px; border-radius: 20px; background: #1F1520; border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 14px">
+          <svg aria-hidden="true" width="40" height="40" viewBox="0 0 26 26"><polygon points="13,1 25,9 21,25 5,25 1,9" fill="{{red}}"></polygon><path d="M8 10h10M8 14h10M8 18h6" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"></path></svg>
+          <h3 style="margin: 0; font-family: Poppins, system-ui, sans-serif; font-size: 24px; font-weight: 700">Organize</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #C4B3C0">Your bottles, your places and your lists, kept without you lifting a finger.</p>
+          <div style="margin-top: auto; display: flex; justify-content: space-between; padding: 10px 12px; border-radius: 12px; background: #2B1E2C; font-size: 13px"><strong>Steak nights</strong><span style="color: #C4B3C0">3 bottles</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="learn" style="background: #140C14; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06)">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 120px 24px; box-sizing: border-box">
+      <div class="vv-grid2" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; align-items: center">
+        <div style="display: flex; flex-direction: column; gap: 22px">
+          <div style="font-size: 13px; font-weight: 800; letter-spacing: 0.14em; color: #D8B4FE">LEARN AS YOU DRINK</div>
+          <h2 class="vv-h2" style="margin: 0; font-family: Poppins, system-ui, sans-serif; font-size: 48px; font-weight: 800; line-height: 1.05; letter-spacing: -0.02em">Trade up without getting taken.</h2>
+          <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #C4B3C0">Spending more is easy. Spending well is the skill. Every pick comes with the story behind it, and when you ask why a bottle costs what it does, you get a straight answer.</p>
+          <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px">
+            <li style="display: flex; gap: 12px; align-items: flex-start"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 16 16" style="flex-shrink: 0; margin-top: 4px"><polygon points="8,0 16,6 13,16 3,16 0,6" fill="{{red}}"></polygon></svg><span style="font-size: 17px; line-height: 1.5">One line of story with every pick: the place, the grape, the people</span></li>
+            <li style="display: flex; gap: 12px; align-items: flex-start"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 16 16" style="flex-shrink: 0; margin-top: 4px"><polygon points="8,0 16,6 13,16 3,16 0,6" fill="{{red}}"></polygon></svg><span style="font-size: 17px; line-height: 1.5">Ask why, and it goes as deep as you want</span></li>
+            <li style="display: flex; gap: 12px; align-items: flex-start"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 16 16" style="flex-shrink: 0; margin-top: 4px"><polygon points="8,0 16,6 13,16 3,16 0,6" fill="{{red}}"></polygon></svg><span style="font-size: 17px; line-height: 1.5">Straight answers on price: worth it, or what to drink instead</span></li>
+          </ul>
+        </div>
+
+        <div style="padding: 24px; border-radius: 24px; background: #1F1520; border: 1px solid rgba(255,255,255,0.08)">
+          <div style="align-self: flex-end; margin-left: auto; max-width: 340px; padding: 12px 14px; border-radius: 18px 18px 4px 18px; background: #2B1E2C; font-size: 15px; line-height: 1.45">Is the $148 Barolo worth it over the $70 Nebbiolo?</div>
+          <div style="margin-top: 18px; font-size: 11px; font-weight: 800; letter-spacing: 0.14em; color: #D8B4FE">WORTH IT?</div>
+          <div style="margin-top: 12px; display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr) minmax(0, 1fr); border-radius: 14px; overflow: hidden; font-size: 14px">
+            <div style="padding: 10px 12px; background: #2B1E2C"></div>
+            <div style="padding: 10px 12px; background: #2B1E2C; font-weight: 700">Langhe Nebbiolo<div style="font-weight: 600; color: #C4B3C0">$70</div></div>
+            <div style="padding: 10px 12px; background: rgba(147,51,234,0.22); font-weight: 700">Barolo<div style="font-weight: 600; color: #F7EFF5">$148</div></div>
+            <div style="padding: 10px 12px; color: #C4B3C0; border-top: 1px solid rgba(255,255,255,0.06)">Grape</div>
+            <div style="padding: 10px 12px; border-top: 1px solid rgba(255,255,255,0.06)">Nebbiolo</div>
+            <div style="padding: 10px 12px; border-top: 1px solid rgba(255,255,255,0.06); background: rgba(147,51,234,0.08)">Nebbiolo</div>
+            <div style="padding: 10px 12px; color: #C4B3C0; border-top: 1px solid rgba(255,255,255,0.06)">Vineyards</div>
+            <div style="padding: 10px 12px; border-top: 1px solid rgba(255,255,255,0.06)">Across the region</div>
+            <div style="padding: 10px 12px; border-top: 1px solid rgba(255,255,255,0.06); background: rgba(147,51,234,0.08)">Eleven named villages</div>
+            <div style="padding: 10px 12px; color: #C4B3C0; border-top: 1px solid rgba(255,255,255,0.06)">Ageing</div>
+            <div style="padding: 10px 12px; border-top: 1px solid rgba(255,255,255,0.06)">Months</div>
+            <div style="padding: 10px 12px; border-top: 1px solid rgba(255,255,255,0.06); background: rgba(147,51,234,0.08)">38 months or more</div>
+          </div>
+          <p style="margin: 16px 0 0; font-size: 15px; line-height: 1.55">Same grape, very different time and place. With a ribeye and an occasion, the Barolo earns it. On a Tuesday, the Nebbiolo gives you most of the pleasure for half the price.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; box-sizing: border-box">
+      <h2 class="vv-h2" style="margin: 0 0 40px; font-family: Poppins, system-ui, sans-serif; font-size: 36px; font-weight: 700; text-align: center">Built at New Orleans tables</h2>
+      <div class="vv-grid3" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px">
+        <div style="padding: 28px; border-radius: 20px; background: #1F1520; border: 1px solid rgba(255,255,255,0.08); width: 100%; box-sizing: border-box">
+          <div style="font-family: Poppins, system-ui, sans-serif; font-size: 52px; font-weight: 800; color: #D8B4FE">697</div>
+          <div style="margin-top: 4px; font-size: 16px; line-height: 1.5; color: #C4B3C0">wines already read from New Orleans restaurant lists</div>
+        </div>
+        <div style="padding: 28px; border-radius: 20px; background: #1F1520; border: 1px solid rgba(255,255,255,0.08); width: 100%; box-sizing: border-box">
+          <div style="font-family: Poppins, system-ui, sans-serif; font-size: 52px; font-weight: 800; color: #D8B4FE">4</div>
+          <div style="margin-top: 4px; font-size: 16px; line-height: 1.5; color: #C4B3C0">pilot restaurants in the library so far</div>
+        </div>
+        <div style="padding: 28px; border-radius: 20px; background: #1F1520; border: 1px dashed rgba(255,255,255,0.22); width: 100%; box-sizing: border-box">
+          <p style="margin: 0; font-size: 18px; line-height: 1.5">“[First diner quote goes here, after the ten-dinner test]”</p>
+          <div style="margin-top: 12px; font-size: 14px; color: #A897A4">[Name, neighbourhood]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="join" style="position: relative; isolation: isolate; border-top: 1px solid rgba(255,255,255,0.06)">
+    <div aria-hidden="true" style="position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none">
+      <div style="position: absolute; left: 50%; top: 40px; width: 900px; height: 520px; margin-left: -450px; filter: blur({{blur}}px); opacity: 0.5">
+        <div class="vv-poly3" style="width: 100%; height: 100%; background: {{red}}"></div>
+      </div>
+    </div>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 128px 24px 72px; box-sizing: border-box; text-align: center">
+      <h2 class="vv-h2" style="margin: 0 auto; max-width: 820px; font-family: Poppins, system-ui, sans-serif; font-size: 60px; font-weight: 800; line-height: 1.02; letter-spacing: -0.03em">Your next wine list is already decided.</h2>
+      <div style="margin: 32px auto 0; max-width: 540px; display: flex; flex-direction: column; align-items: center; gap: 14px">
+        <sc-if value="{{showForm}}" hint-placeholder-val="{{ true }}">
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; width: 100%">
+            <label for="join-email" class="vv-sr">Email address</label>
+            <input id="join-email" type="email" placeholder="you@email.com" style="flex: 1 1 240px; min-width: 0; height: 56px; padding: 0 18px; box-sizing: border-box; border-radius: 12px; border: 1px solid rgba(255,255,255,0.16); background: #1F1520; color: #F7EFF5; font-family: inherit; font-size: 16px">
+            <button type="button" style="flex: 1 1 auto; height: 56px; padding: 0 26px; border: 0; border-radius: 12px; background: linear-gradient(90deg, {{red}}, #A21CAF); color: #FFFFFF; font-family: inherit; font-size: 16px; font-weight: 700; cursor: pointer">{{ctaLabel}}</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{isStore}}" hint-placeholder-val="{{ false }}">
+          <a href="#download" style="display: inline-flex; align-items: center; height: 56px; padding: 0 26px; border-radius: 12px; background: linear-gradient(90deg, {{red}}, #A21CAF); color: #FFFFFF; font-size: 16px; font-weight: 700; text-decoration: none">{{ctaLabel}}</a>
+        </sc-if>
+        <div style="font-size: 14px; color: #C4B3C0">{{ctaNote}}</div>
+      </div>
+
+      <div id="restaurants" style="margin: 96px auto 0; max-width: 900px; padding: 28px 32px; border-radius: 20px; background: #1F1520; border: 1px solid rgba(255,255,255,0.08); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; text-align: left">
+        <div style="flex: 1 1 420px">
+          <div style="font-size: 18px; font-weight: 800">Run a restaurant or a wine shop?</div>
+          <div style="margin-top: 6px; font-size: 15px; line-height: 1.5; color: #C4B3C0">Free seats for you and your staff, and a card with a code for your guests.</div>
+        </div>
+        <a href="#partner" style="display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 20px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.24); font-size: 15px; font-weight: 700; text-decoration: none">Partner with us
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="border-top: 1px solid rgba(255,255,255,0.08); background: #000000">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 32px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px">
+      <div style="display: flex; align-items: center; gap: 16px">
+        <img src="/_blob/d0bc08d1aec5c6bfcbd9890e7fc1e90e" alt="Sip the Owl, the Vino Vibes mark" style="height: 90px; width: auto">
+        <div>
+          <div style="font-family: Poppins, system-ui, sans-serif; font-size: 16px; font-weight: 700">Vino Vibes</div>
+          <div style="font-size: 13px; color: #A897A4">Made in New Orleans. Drink responsibly, 21+.</div>
+        </div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; font-size: 14px">
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"red":{"editor":"color","default":"#9333EA","options":["#9333EA","#7E22CE","#A855F7","#A21CAF"],"section":"Look"},"blur":{"editor":"range","min":20,"max":160,"step":4,"unit":"px","default":88,"section":"Look"},"facets":{"editor":"boolean","default":true,"section":"Look"},"ctaStage":{"editor":"enum","options":["waitlist","testflight","appstore"],"default":"waitlist","section":"Launch stage"},"$preview":{"width":1440,"height":4300}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { menuOpen: false };
+  }
+  renderVals() {
+    var stage = this.props.ctaStage ?? 'waitlist';
+    var copy = {
+      waitlist: { label: 'Get early access', short: 'Get early access', note: 'iPhone app, starting in New Orleans. We will email you when your invite is ready.' },
+      testflight: { label: 'Get the beta invite', short: 'Join the beta', note: 'Free beta on iPhone. Enter your email and we will send the TestFlight invite.' },
+      appstore: { label: 'Download for iPhone', short: 'Download', note: 'Free to try on iPhone.' }
+    };
+    var c = copy[stage] || copy.waitlist;
+    return {
+      red: this.props.red ?? '#9333EA',
+      blur: this.props.blur ?? 88,
+      facets: this.props.facets ?? true,
+      ctaLabel: c.label,
+      ctaShort: c.short,
+      ctaNote: c.note,
+      showForm: stage !== 'appstore',
+      isStore: stage === 'appstore',
+      menuOpen: this.state.menuOpen,
+      toggleMenu: () => this.setState({ menuOpen: !this.state.menuOpen })
+    };
+  }
+}
+</script>
+</body>
+</html>
