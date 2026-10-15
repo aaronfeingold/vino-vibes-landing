@@ -10,7 +10,7 @@ Source of truth: `aaronfeingold/vino-vibes-landing`, branch `claude/cool-ptolemy
 | --- | --- | --- |
 | Pages | HomePage (`/`), PartnersPage (`/partners`) | Yes |
 | Site | Navbar, Button, SignupForm, PartnerForm, SectionHeader, Card, Steps, PhoneFrame, Footer | Yes |
-| App screens | AppPick, AppSnap, AppRead, AppMemory: the v1 screens. The site now shows the v2 screens (see `design/README.md` and `canvas/Vino Vibes App v2.dc.html`); these previews have not been updated yet | v1 no longer on the site |
+| App screens | AppSnap, AppAnalysis, AppPick, AppProfile, AppCheckIn, AppLibrary, AppWine, AppNearby: the v2 screens the site shows in its phones (`canvas/Vino Vibes App v2.dc.html`) | Yes, as pictures on the site |
 | Direction B · chat-first (not live) | Chat-first pieces and the generative blocks (WinePick, Places, Lesson, Noted, YourBottles, WorthIt) | No: the next step for the app |
 
 ## Voice

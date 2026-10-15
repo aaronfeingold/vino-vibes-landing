@@ -1,7 +1,7 @@
 # AppPick
 
-The pick: one bottle from the restaurant's list, its price by the bottle and the glass, the reason it suits this person, one line of story, and two quieter alternatives (Safer, Lighter bill). "I'm having it" saves the choice; the composer at the bottom keeps the conversation going.
+The pick, as a chat. The user's request, then a pick card (best match on this list, bottle and glass price, a personal reason, "I'm having it"), a side-by-side comparison with two alternatives, and quick replies to adjust. The composer at the bottom keeps the conversation going.
 
-Sample restaurant: Maison Lune (invented). Wines are real producers with representative prices. The screen is 390 × 844 and appears on the site inside a PhoneFrame.
+Sample restaurant: Maison Lune (invented). Wines are real producers with representative prices. The screen is 390 × 844 and appears on the site inside a PhoneFrame. Design: `design/canvas/Vino Vibes App v2.dc.html`, option 2i.
 
-Code: `src/components/landing/screens/AppPick.tsx`, built from `Screen`, `TopBar`, `SectionLabel` and `Row` in `parts.tsx`.
+Code: `src/components/landing/screens/AppPick.tsx`, built from the parts in `parts.tsx`.

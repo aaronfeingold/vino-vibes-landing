@@ -51,9 +51,9 @@ Exported 2026-10-14 from the branch `claude/cool-ptolemy-3jw1uh`
 
   v2 also has options that are not on the site: 2a and 2c (other profile layouts), 2h
   (list sorted by palate fit) and 2k (Snap with a "See analysis" pill). "What I read"
-  and "What I know about you" were replaced by 2g and 2b. `canvas/AppRead.dc.html`,
-  `canvas/AppMemory.dc.html` and the matching `design-system/components/App*` previews
-  still show the v1 screens.
+  and "What I know about you" were replaced by 2g and 2b. `canvas/AppRead.dc.html` and
+  `canvas/AppMemory.dc.html` still show the v1 screens; the `design-system/components/App*`
+  previews show v2.
 
 ## Not live: Direction B (chat-first)
 
