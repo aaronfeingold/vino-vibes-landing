@@ -32,13 +32,13 @@ export default function Hero({ cta }: { cta: LaunchCopy }) {
 
         <div className="relative flex justify-center min-[900px]:min-h-[700px]">
           <div className="absolute left-0 top-[70px] hidden -rotate-[9deg] opacity-55 min-[900px]:block">
-            <PhoneFrame width={262} label="The Vino Vibes camera reading a wine list">
+            <PhoneFrame width={262} label="The Vino Vibes camera extracting wines from a wine list">
               <AppSnap />
             </PhoneFrame>
           </div>
           <PhoneFrame
             width={332}
-            label="The Vino Vibes pick screen: one bottle from the list, with a personal reason"
+            label="The Vino Vibes pick: one bottle from the list, with a personal reason and a side-by-side comparison"
             className="relative shadow-[0_40px_90px_-20px_rgba(0,0,0,0.85)] min-[900px]:ml-24"
           >
             <AppPick />

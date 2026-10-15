@@ -1,6 +1,6 @@
 import { Check } from "lucide-react";
 import PhoneFrame from "./PhoneFrame";
-import AppMemory from "./screens/AppMemory";
+import AppProfile from "./screens/AppProfile";
 
 const PROMISES = [
   "Only picks from the list in front of you",
@@ -34,10 +34,10 @@ export default function MadeForYou() {
         <div className="flex justify-center">
           <PhoneFrame
             width={313}
-            label="What I know about you: traits, taste and recent bottles, each one removable"
+            label="Your profile: a one-line portrait, a style map of every wine you have had with your sweet spot shaded, and recent wines"
             className="shadow-[0_40px_90px_-24px_rgba(0,0,0,0.85)]"
           >
-            <AppMemory />
+            <AppProfile />
           </PhoneFrame>
         </div>
       </div>

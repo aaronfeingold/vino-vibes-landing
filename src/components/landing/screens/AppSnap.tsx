@@ -1,114 +1,99 @@
-import { Check, X, Zap } from "lucide-react";
-import { Screen } from "./parts";
+import { X, Zap } from "lucide-react";
+import { Screen, WineDot } from "./parts";
 
-// [producer and wine, by the glass, by the bottle]
-const LIST: { section: string; wines: [string, string, string][] }[] = [
-  {
-    section: "Sparkling",
-    wines: [
-      ["Langlois-Château Crémant de Loire NV", "14", "58"],
-      ["Gramona Brut Nature 2019", "12", "46"],
-    ],
-  },
-  {
-    section: "White & rosé",
-    wines: [
-      ["Ameztoi Txakolina Rosé 2023", "15", "54"],
-      ["Vacheron Sancerre 2022", "17", "68"],
-      ["Aphros Vinho Verde 2023", "10", "38"],
-      ["Hirsch Grüner Veltliner 2022", "13", "52"],
-    ],
-  },
+// Page 2 of the paper list. Highlighted lines have already been extracted.
+const LIST: { section: string; wines: { name: string; price: string; read?: boolean }[] }[] = [
   {
     section: "Red",
     wines: [
-      ["Lapierre Morgon 2021", "16", "62"],
-      ["CVNE Rioja Crianza 2019", "12", "49"],
-      ["Benanti Etna Rosso 2021", "16", "64"],
-      ["Guigal Côtes du Rhône 2022", "11", "44"],
+      { name: "Lapierre Morgon 20··", price: "62", read: true },
+      { name: "CVNE Rioja Crianza 2019", price: "49", read: true },
+      { name: "Benanti Etna Rosso 2021", price: "64", read: true },
+      { name: "Guigal Côtes du Rhône 2022", price: "44" },
+      { name: "Tempier Bandol Rouge 2020", price: "96" },
     ],
   },
+  { section: "Dessert", wines: [{ name: "Royal Tokaji 5 Puttonyos", price: "18" }] },
 ];
 
 // Capture modes, swiped side to side like the iOS camera; the selected one sits in the middle.
-const MODES = ["Spirits", "Cocktails", "Wine list", "Menu", "Dessert"];
+const MODES = ["Cocktails", "Wine list", "Menu"];
 const SELECTED = "Wine list";
-
-const CORNERS = [
-  "left-[22px] top-[84px] border-l-[3px] border-t-[3px] rounded-tl-[14px]",
-  "right-[22px] top-[84px] border-r-[3px] border-t-[3px] rounded-tr-[14px]",
-  "left-[22px] top-[546px] border-b-[3px] border-l-[3px] rounded-bl-[14px]",
-  "right-[22px] top-[546px] border-b-[3px] border-r-[3px] rounded-br-[14px]",
-];
 
 export default function AppSnap() {
   return (
     <Screen className="bg-vv-camera">
       {/* The paper wine list seen through the camera */}
-      <div className="absolute left-[34px] top-24 h-[470px] w-[322px] -rotate-[2.5deg] bg-[#EDE6DA] px-[26px] py-7 font-serif text-[#2A2220] shadow-[0_30px_60px_rgba(0,0,0,0.6)] brightness-[0.78]">
-        <div className="text-center text-[13px] tracking-[0.24em]">MAISON LUNE</div>
-        <div className="mt-1 text-center text-[10px] tracking-[0.2em] text-[#6B5D58]">WINES</div>
-        <div className="mt-3 flex justify-end gap-3 text-[9px] tracking-[0.12em] text-[#6B5D58]">
-          <span className="w-5 text-right">GLASS</span>
-          <span className="w-7 text-right">BTL</span>
-        </div>
-        {LIST.map((g, i) => (
-          <div key={g.section}>
-            <div className={`${i === 0 ? "mt-1" : "mt-3"} text-[11px] italic text-[#6B5D58]`}>{g.section}</div>
-            {g.wines.map(([name, glass, bottle], j) => (
-              <div key={name} className={`flex gap-3 text-[11.5px] ${j === 0 ? "mt-1" : "mt-[3px]"}`}>
-                <span className="min-w-0 flex-1 truncate">{name}</span>
-                <span className="w-5 text-right">{glass}</span>
-                <span className="w-7 text-right">{bottle}</span>
+      <div className="absolute left-[58px] top-[104px] flex h-[350px] w-[274px] -rotate-2 flex-col gap-1 bg-[#EDE6DA] px-5 py-[22px] font-serif text-[10.5px] text-[#2A2220] shadow-[0_30px_60px_rgba(0,0,0,0.6)] brightness-[0.78]">
+        <div className="text-center text-xs tracking-[0.24em]">MAISON LUNE</div>
+        {LIST.map((g) => (
+          <div key={g.section} className="flex flex-col gap-1">
+            <div className="mt-2.5 italic text-[#6B5D58]">{g.section}</div>
+            {g.wines.map((w) => (
+              <div key={w.name} className={`flex justify-between ${w.read ? "bg-purple-500/25" : ""}`}>
+                <span>{w.name}</span>
+                <span>{w.price}</span>
               </div>
             ))}
           </div>
         ))}
       </div>
 
-      {CORNERS.map((c) => (
-        <div key={c} className={`absolute h-9 w-9 border-vv-stroke ${c}`} />
-      ))}
-
-      <div className="absolute inset-x-0 top-0 flex h-[72px] items-center justify-between bg-gradient-to-b from-vv-camera/90 to-vv-camera/0 px-3 pt-4">
+      <div className="absolute inset-x-0 top-0 flex h-[120px] items-center justify-between bg-gradient-to-b from-vv-camera/95 to-vv-camera/0 px-3 pt-[47px]">
         <span className="flex h-11 w-11 items-center justify-center">
           <X size={22} />
         </span>
-        <div className="text-base font-semibold">Snap the wine list</div>
+        <div className="text-base font-semibold">Page 2 of the list</div>
         <span className="flex h-11 w-11 items-center justify-center">
           <Zap size={22} />
         </span>
       </div>
+      <div className="absolute inset-x-0 top-0 pl-[30px] pt-4 text-[15px] font-semibold">9:41</div>
 
-      <div className="absolute inset-x-0 top-[598px] flex justify-center">
-        <div className="inline-flex h-9 items-center gap-2 rounded-full border border-vv-stroke/50 bg-vv-surface/[0.92] px-3.5 text-sm font-medium">
-          <Check size={16} strokeWidth={2.4} className="text-vv-accent" />
-          Reading… 11 wines so far
+      <div className="absolute inset-x-0 top-[470px] overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_22%,#000_78%,transparent)]">
+        <div className="flex justify-center gap-6 whitespace-nowrap text-[13px] font-semibold tracking-[0.06em]">
+          {MODES.map((m) => (
+            <span
+              key={m}
+              className={`flex flex-col items-center gap-1 ${m === SELECTED ? "text-vv-accent" : "text-vv-text2"}`}
+            >
+              {m.toUpperCase()}
+              {m === SELECTED && <span className="h-1 w-1 rounded-full bg-vv-accent" />}
+            </span>
+          ))}
         </div>
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 h-[196px] border-t border-white/[0.08] bg-vv-bg px-5 pb-7 pt-4">
-        <div className="relative -mx-5 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_22%,#000_78%,transparent)]">
-          <div className="flex justify-center gap-6 whitespace-nowrap text-[13px] font-semibold tracking-[0.06em]">
-            {MODES.map((m) => (
-              <span
-                key={m}
-                className={`flex flex-col items-center gap-1 ${m === SELECTED ? "text-vv-accent" : "text-vv-text2"}`}
-              >
-                {m.toUpperCase()}
-                <span className={`h-1 w-1 rounded-full ${m === SELECTED ? "bg-vv-accent" : "bg-transparent"}`} />
-              </span>
-            ))}
-          </div>
+      <div className="absolute inset-x-0 top-[512px] flex justify-center">
+        <span className="flex h-[76px] w-[76px] items-center justify-center rounded-full border-4 border-vv-text">
+          <span className="block h-[60px] w-[60px] rounded-full bg-vv-text" />
+        </span>
+      </div>
+
+      {/* Wines stream into this sheet while you shoot; swipe it up for the analysis */}
+      <div className="absolute inset-x-0 bottom-0 top-[612px] rounded-t-3xl border-t border-white/10 bg-vv-surface pt-2">
+        <div className="mx-auto h-[5px] w-9 rounded-[3px] bg-white/[0.22]" />
+        <div className="flex items-center gap-2.5 px-5 pb-2 pt-3">
+          <span className="h-4 w-4 shrink-0 rounded-full border-[2.5px] border-vv-surface2 border-t-vv-accent" />
+          <span className="flex-1 text-[15px] font-semibold">Extracting · 29 wines so far</span>
+          <span className="text-[13px] font-semibold text-vv-accent">Swipe up</span>
         </div>
-        <div className="mt-[22px] flex items-center justify-between">
-          <span className="w-24 text-sm text-vv-text2 underline underline-offset-[3px]">Type it instead</span>
-          <span className="flex h-[76px] w-[76px] items-center justify-center rounded-full border-4 border-vv-text">
-            <span className="block h-[60px] w-[60px] rounded-full bg-vv-text" />
+        <div className="flex items-center gap-3 border-t border-white/[0.06] px-5 py-[9px]">
+          <WineDot color="red" />
+          <span className="flex-1 text-sm">Benanti Etna Rosso 2021</span>
+          <span className="rounded-md bg-vv-accent px-1.5 py-0.5 text-[11px] font-bold text-vv-bg">ON YOUR TO-TRY</span>
+        </div>
+        <div className="flex items-center gap-3 border-t border-white/[0.06] px-5 py-[9px]">
+          <WineDot color="red" />
+          <span className="flex-1 text-sm">CVNE Rioja Crianza 2019</span>
+          <span className="text-sm font-semibold">$49</span>
+        </div>
+        <div className="flex items-center gap-3 border-t border-white/[0.06] bg-vv-warning/[0.08] px-5 py-[9px]">
+          <WineDot color="red" />
+          <span className="flex-1 text-sm">
+            Lapierre Morgon <span className="text-vv-warning">20??</span>
           </span>
-          <span className="flex h-11 w-24 items-center justify-center rounded-[14px] bg-vv-primary text-[15px] font-semibold text-white">
-            Done · 2
-          </span>
+          <span className="text-xs text-vv-warning">Reshoot closer</span>
         </div>
       </div>
     </Screen>

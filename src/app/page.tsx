@@ -2,6 +2,7 @@ import Navbar from "../components/landing/Navbar";
 import Hero from "../components/landing/Hero";
 import HowItWorks from "../components/landing/HowItWorks";
 import MadeForYou from "../components/landing/MadeForYou";
+import Library from "../components/landing/Library";
 import Proof from "../components/landing/Proof";
 import Join from "../components/landing/Join";
 import Footer from "../components/landing/Footer";
@@ -18,6 +19,7 @@ export default function Home() {
         <Hero cta={cta} />
         <HowItWorks />
         <MadeForYou />
+        <Library />
         <Proof />
         <Join cta={cta} />
       </main>

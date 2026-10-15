@@ -1,26 +1,26 @@
 import type { ComponentType } from "react";
 import PhoneFrame from "./PhoneFrame";
 import AppSnap from "./screens/AppSnap";
-import AppRead from "./screens/AppRead";
+import AppAnalysis from "./screens/AppAnalysis";
 import AppPick from "./screens/AppPick";
 
 const STEPS: { title: string; body: string; label: string; Screen: ComponentType }[] = [
   {
     title: "Snap the list",
     body: "Photograph the wine list and the menu. It reads every bottle and every price.",
-    label: "The camera reading a wine list",
+    label: "The camera extracting wines from a wine list, with each one listed below as it is found",
     Screen: AppSnap,
   },
   {
     title: "Tell it what you're eating",
     body: "Tap your dish. See what it read, and fix anything it got wrong.",
-    label: "The list of wines and dishes it read, with one entry flagged to fix",
-    Screen: AppRead,
+    label: "The list analysis: extracted, matched, compared with your palate and saved, with one vintage flagged to confirm",
+    Screen: AppAnalysis,
   },
   {
     title: "Get one pick",
     body: "One bottle from this list, at the listed price, and why it suits you.",
-    label: "The pick: one bottle with a personal reason",
+    label: "The pick in a chat: one bottle with a personal reason, a side-by-side comparison and quick replies",
     Screen: AppPick,
   },
 ];

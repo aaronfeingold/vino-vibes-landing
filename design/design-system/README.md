@@ -10,7 +10,7 @@ Source of truth: `aaronfeingold/vino-vibes-landing`, branch `claude/cool-ptolemy
 | --- | --- | --- |
 | Pages | HomePage (`/`), PartnersPage (`/partners`) | Yes |
 | Site | Navbar, Button, SignupForm, PartnerForm, SectionHeader, Card, Steps, PhoneFrame, Footer | Yes |
-| App screens | AppPick, AppSnap, AppRead, AppMemory: the screens the site shows in its phones | Yes, as pictures on the site |
+| App screens | AppPick, AppSnap, AppRead, AppMemory: the v1 screens. The site now shows the v2 screens (see `design/README.md` and `canvas/Vino Vibes App v2.dc.html`); these previews have not been updated yet | v1 no longer on the site |
 | Direction B · chat-first (not live) | Chat-first pieces and the generative blocks (WinePick, Places, Lesson, Noted, YourBottles, WorthIt) | No: the next step for the app |
 
 ## Voice
@@ -21,7 +21,7 @@ Plain, confident, short enough to read at a table.
 - Leads say it in one breath: "Enjoying wine is easier than ever."
 - Promises are concrete and checkable: "Only picks from the list in front of you." "Never pushes you up in price." "Shows you everything it knows about you, and forgets anything you ask it to."
 - To restaurants, say what it costs them and what we ask: "It costs you nothing. All we ask for is honest feedback."
-- The app speaks as "I" and makes it personal: "You loved the cider bars in San Sebastián. This is the same coast in a glass."
+- The app does not speak as "I". It says what it did ("List analyzed", "Saved to your library") and makes it personal: "Same coast as San Sebastián: salty, a little spritz, bright enough for the roux."
 - Only real numbers ("697 wines already read from New Orleans restaurant lists"). No invented stats or quotes. No emoji, no exclamation marks.
 
 ## Colour

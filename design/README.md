@@ -29,12 +29,31 @@ Exported 2026-10-14 from the branch `claude/cool-ptolemy-3jw1uh`
 ## What is live
 
 - **Home (`/`)**: hero "The wine list, simplified." with the pick screen in a phone,
-  How it works (three phones), Made for the connoisseur, one proof stat, the closing
-  sign-up, a strip pointing restaurants to `/partners`, and the footer.
+  How it works (three phones), Made for the connoisseur (the profile), Your wine library
+  (four phones), one proof stat, the closing sign-up, a strip pointing restaurants to
+  `/partners`, and the footer.
 - **Partner with us (`/partners`)**: free trial for restaurants, bars and wine shops,
   four steps, and an interest form that saves to the database.
-- **App screens shown on the site**: Snap the list, What I read, The pick, What I know
-  about you (`screenshots/app-*.png`). They are concepts for the iPhone app.
+- **App screens shown on the site** (`screenshots/app-*.png`), from `canvas/Vino Vibes App v2.dc.html`.
+  They are concepts for the iPhone app. The app no longer speaks as "I"; it says what it
+  did (extracted, matched, compared, saved).
+
+  | Screen | v2 option | Code (`src/components/landing/screens/`) | On the page |
+  | --- | --- | --- | --- |
+  | Snap: live extraction sheet | 2l | `AppSnap.tsx` | Hero (behind), How it works 1 |
+  | List analysis report | 2g | `AppAnalysis.tsx` | How it works 2 |
+  | Pick and compare, as chat | 2i | `AppPick.tsx` | Hero (front), How it works 3 |
+  | Profile: portrait and style map | 2b | `AppProfile.tsx` | Made for the connoisseur |
+  | Next-day check-in | 2j | `AppCheckIn.tsx` | Your wine library |
+  | Library by place | 2d | `AppLibrary.tsx` | Your wine library |
+  | One wine, over time | 2e | `AppWine.tsx` | Your wine library |
+  | Tonight, nearby | 2f | `AppNearby.tsx` | Your wine library |
+
+  v2 also has options that are not on the site: 2a and 2c (other profile layouts), 2h
+  (list sorted by palate fit) and 2k (Snap with a "See analysis" pill). "What I read"
+  and "What I know about you" were replaced by 2g and 2b. `canvas/AppRead.dc.html`,
+  `canvas/AppMemory.dc.html` and the matching `design-system/components/App*` previews
+  still show the v1 screens.
 
 ## Not live: Direction B (chat-first)
 

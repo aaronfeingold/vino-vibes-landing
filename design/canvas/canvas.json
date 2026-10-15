@@ -47,14 +47,14 @@
       "y": 0,
       "w": 390,
       "h": 844,
-      "title": "App \u2014 What I read"
+      "title": "App \u2014 What I read (v1, replaced by v2 2g)"
     },
     "AppMemory.dc.html": {
       "x": 5970,
       "y": 0,
       "w": 390,
       "h": 844,
-      "title": "App \u2014 What I know about you"
+      "title": "App \u2014 What I know about you (v1, replaced by v2 2b)"
     },
     "LandingV3.dc.html": {
       "x": 0,
@@ -107,6 +107,14 @@
       "w": 358,
       "h": 280,
       "title": "Block \u2014 Your bottles (organize)"
+    },
+    "Vino Vibes App v2.dc.html": {
+      "x": 0,
+      "y": 9600,
+      "w": 1440,
+      "h": 4300,
+      "title": "App v2 \u2014 profile, library, analysis, pick, snap (2a\u20132l)",
+      "expand": "fill"
     }
   },
   "order": [

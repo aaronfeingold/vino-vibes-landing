@@ -52,6 +52,15 @@ module.exports = {
           accent: "#D8B4FE",
           stroke: "#C084FC",
           warning: "#F5B04C",
+          // Wine swatches: dots on wine rows and the style map only
+          wine: {
+            red: "#8E1219",
+            white: "#E5D3B3",
+            rose: "#E8A0A0",
+            orange: "#D98A3D",
+            sparkling: "#D9C98F",
+            dessert: "#B9822F",
+          },
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
