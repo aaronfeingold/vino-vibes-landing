@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Block: your bottles</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 358px; box-sizing: border-box; padding: 18px; border-radius: 22px; background: #1F1520; border: 1px solid rgba(255,255,255,0.08); font-family: Poppins, system-ui, sans-serif; color: #F7EFF5">
+  <div style="font-size: 11px; font-weight: 800; letter-spacing: 0.14em; color: #D8B4FE">YOUR BOTTLES</div>
+
+  <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 8px">
+    <div style="display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 14px; background: #2B1E2C">
+      <div aria-hidden="true" style="display: flex">
+        <span style="width: 18px; height: 26px; border-radius: 4px; background: #8E1219"></span>
+        <span style="width: 18px; height: 26px; border-radius: 4px; background: #C8161F; margin-left: -6px"></span>
+        <span style="width: 18px; height: 26px; border-radius: 4px; background: #E5D3B3; margin-left: -6px"></span>
+      </div>
+      <div style="flex: 1; font-size: 15px; font-weight: 700">Loved</div>
+      <div style="font-size: 13px; color: #C4B3C0">7 bottles</div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 14px; background: #2B1E2C">
+      <div aria-hidden="true" style="display: flex">
+        <span style="width: 18px; height: 26px; border-radius: 4px; background: #6E0A10"></span>
+        <span style="width: 18px; height: 26px; border-radius: 4px; background: #B9A27A; margin-left: -6px"></span>
+        <span style="width: 18px; height: 26px; border-radius: 4px; background: #45423F; margin-left: -6px"></span>
+      </div>
+      <div style="flex: 1; font-size: 15px; font-weight: 700">Want to try</div>
+      <div style="font-size: 13px; color: #C4B3C0">4 bottles</div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 14px; background: #2B1E2C; border: 1px solid rgba(147,51,234,0.5)">
+      <div aria-hidden="true" style="display: flex">
+        <span style="width: 18px; height: 26px; border-radius: 4px; background: #8E1219"></span>
+        <span style="width: 18px; height: 26px; border-radius: 4px; background: #6E0A10; margin-left: -6px"></span>
+        <span style="width: 18px; height: 26px; border-radius: 4px; background: #C8161F; margin-left: -6px"></span>
+      </div>
+      <div style="flex: 1">
+        <div style="font-size: 15px; font-weight: 700">Steak nights</div>
+        <div style="font-size: 12px; color: #D8B4FE">Barolo 2016 just added</div>
+      </div>
+      <div style="font-size: 13px; color: #C4B3C0">3 bottles</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 12px; display: flex; gap: 8px">
+    <button type="button" style="flex: 1; height: 44px; border-radius: 12px; background: transparent; border: 1px solid rgba(255,255,255,0.22); color: #F7EFF5; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer">New list</button>
+    <button type="button" style="flex: 1; height: 44px; border-radius: 12px; background: transparent; border: 1px solid rgba(255,255,255,0.22); color: #F7EFF5; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Places I've been</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":358,"height":280}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

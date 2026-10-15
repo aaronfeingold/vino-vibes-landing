@@ -52,3 +52,9 @@
     min-height: 100svh; /* Small viewport height (safest) */
   }
 }
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}

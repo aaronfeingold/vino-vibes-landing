@@ -1,0 +1,42 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+html,body{margin:0;background:var(--background)}
+.cover{position:relative;width:960px;height:288px;overflow:hidden;background:var(--background)}
+.cover svg{position:absolute;inset:0}
+.brand{fill:var(--primary)}
+.deep{fill:var(--primary-deep)}
+.raised{fill:var(--surface-raised)}
+.hi{fill:var(--highlight)}
+.slab{rx:var(--radius-block)}
+.tile{rx:var(--radius-lg)}
+.name{position:absolute;left:40px;bottom:40px;max-width:440px}
+.name h1{margin:0;font-family:var(--font-sans);font-size:72px;line-height:.95;font-weight:800;letter-spacing:-0.03em;color:var(--foreground)}
+.name p{margin:16px 0 0;font-family:var(--font-sans);font-size:14px;color:var(--muted-foreground)}
+</style></head>
+<body>
+<div class="cover">
+  <svg width="960" height="288" viewBox="0 0 960 288" aria-hidden="true">
+    <!--
+      blocks: primary slab 240x210 (radius-block), primary-deep 140x220 (radius-block), surface-raised 150x140 (radius-block), highlight 72x72 (radius-lg)
+      arrangement: one tall purple slab bleeding off the top with satellites, deep block bleeding off the right and bottom, all right of x=480
+      pattern: literal motif, the facet silhouette (the brand mark), six units on a diagonal; chosen because the README names the facet as the mark and the glow
+      steps and radii: gaps of space-6 (24px) and space-4 (16px); radius-block 22px, radius-lg 12px; facets 26px on a 40px pitch
+    -->
+    <rect class="brand slab" x="600" y="-22" width="240" height="210"></rect>
+    <rect class="deep slab" x="856" y="92" width="140" height="220"></rect>
+    <rect class="raised slab" x="496" y="172" width="150" height="140"></rect>
+    <rect class="hi tile" x="664" y="208" width="72" height="72"></rect>
+    <g class="deep" transform="translate(632 24)"><polygon points="13,1 25,9 21,25 5,25 1,9"></polygon></g>
+    <g class="deep" transform="translate(672 64)"><polygon points="13,1 25,9 21,25 5,25 1,9"></polygon></g>
+    <g class="deep" transform="translate(712 104)"><polygon points="13,1 25,9 21,25 5,25 1,9"></polygon></g>
+    <g class="deep" transform="translate(752 144)"><polygon points="13,1 25,9 21,25 5,25 1,9"></polygon></g>
+    <g class="brand" transform="translate(872 116)"><polygon points="13,1 25,9 21,25 5,25 1,9"></polygon></g>
+    <g class="brand" transform="translate(912 156)"><polygon points="13,1 25,9 21,25 5,25 1,9"></polygon></g>
+  </svg>
+  <div class="name">
+    <h1>Vino Vibes</h1>
+    <p>The wine list, simplified.</p>
+  </div>
+</div>
+</body></html>

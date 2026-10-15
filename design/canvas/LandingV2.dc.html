@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vino Vibes home (live)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#F7EFF5}a:hover{color:#D8B4FE}
+.vv-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.vv-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,0.95fr);gap:56px;align-items:center}
+.vv-navlinks{display:flex}
+.vv-burger{display:none}
+@media (max-width:899px){
+.vv-hero{grid-template-columns:minmax(0,1fr);gap:48px}
+.vv-hero-copy{text-align:center;align-items:center}
+.vv-backphone{display:none}
+.vv-grid3{grid-template-columns:minmax(0,1fr)!important;gap:56px!important}
+.vv-grid2{grid-template-columns:minmax(0,1fr)!important}
+.vv-h1{font-size:46px!important}
+.vv-h2{font-size:32px!important}
+}
+@media (max-width:767px){
+.vv-navlinks{display:none}
+.vv-navcta{display:none!important}
+.vv-burger{display:flex}
+}
+</style>
+</helmet>
+<div style="position: relative; background: #0E080E; color: #F7EFF5; font-family: Poppins, system-ui, sans-serif; overflow: hidden">
+
+  <nav style="position: absolute; top: 0; left: 0; right: 0; z-index: 50; border-bottom: 1px solid transparent">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
+      <a href="#top" aria-label="Vino Vibes home" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
+        <img src="/_blob/160a5467dd874f4a33bd1f86bd55c804" alt="" style="width: 36px; height: 36px; border-radius: 8px">
+        <span style="font-size: 17px; font-weight: 700; letter-spacing: -0.01em">Vino Vibes</span>
+      </a>
+      <div style="display: flex; align-items: center; gap: 28px">
+        <ul class="vv-navlinks" style="list-style: none; margin: 0; padding: 0; gap: 28px; align-items: center">
+          <li><a href="#how" style="font-size: 14px; font-weight: 500; color: #C4B3C0; text-decoration: none">How it works</a></li>
+          <li><a href="#you" style="font-size: 14px; font-weight: 500; color: #C4B3C0; text-decoration: none">Made for you</a></li>
+          <li><a href="Partners.dc.html" style="font-size: 14px; font-weight: 500; color: #C4B3C0; text-decoration: none">For restaurants</a></li>
+        </ul>
+        <a class="vv-navcta" href="#join" style="display: inline-flex; align-items: center; height: 40px; padding: 0 18px; border-radius: 12px; background: #F7EFF5; color: #120B12; font-size: 14px; font-weight: 600; text-decoration: none">{{ctaShort}}</a>
+        <button class="vv-burger" type="button" aria-label="Open menu" onClick="{{toggleMenu}}" style="width: 44px; height: 44px; align-items: center; justify-content: center; background: transparent; border: 0; color: #F7EFF5; cursor: pointer">
+          <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+    </div>
+    <sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+      <div style="padding: 8px 16px 20px; display: flex; flex-direction: column; gap: 4px; border-top: 1px solid rgba(255,255,255,0.08); background: rgba(14,8,14,0.62); backdrop-filter: blur(14px)">
+        <a href="#how" style="padding: 12px 0; font-size: 16px; text-decoration: none">How it works</a>
+        <a href="#you" style="padding: 12px 0; font-size: 16px; text-decoration: none">Made for you</a>
+        <a href="Partners.dc.html" style="padding: 12px 0; font-size: 16px; text-decoration: none">For restaurants</a>
+        <a href="#join" style="margin-top: 8px; display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 12px; background: #F7EFF5; color: #120B12; font-weight: 600; text-decoration: none">{{ctaShort}}</a>
+      </div>
+    </sc-if>
+  </nav>
+
+  <section id="top" style="position: relative; max-width: 1200px; margin: 0 auto; padding: 140px 24px 112px; box-sizing: border-box">
+    <div aria-hidden="true" style="position: absolute; right: 4%; top: 40px; width: 640px; height: 640px; max-width: 100%; border-radius: 50%; background: radial-gradient(circle, rgba(168,85,247,0.22), rgba(168,85,247,0) 65%); pointer-events: none"></div>
+    <div class="vv-hero" style="position: relative">
+      <div class="vv-hero-copy" style="display: flex; flex-direction: column; gap: 24px">
+        <h1 class="vv-h1" style="margin: 0; font-size: 76px; font-weight: 800; line-height: 1.02; letter-spacing: -0.035em">The wine list, simplified.</h1>
+        <p style="margin: 0; max-width: 520px; font-size: 20px; line-height: 1.55; color: #C4B3C0">Enjoying wine is easier than ever.</p>
+        <sc-if value="{{showForm}}" hint-placeholder-val="{{ true }}">
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; width: 100%; max-width: 520px">
+            <label for="hero-email" class="vv-sr">Email address</label>
+            <input id="hero-email" type="email" placeholder="you@email.com" style="flex: 1 1 240px; min-width: 0; height: 56px; padding: 0 18px; box-sizing: border-box; border-radius: 14px; border: 1px solid rgba(255,255,255,0.18); background: #1F1520; color: #F7EFF5; font-family: inherit; font-size: 16px">
+            <button type="button" style="flex: 0 0 auto; height: 56px; padding: 0 26px; border: 0; border-radius: 14px; background: linear-gradient(90deg, #9333EA, #A21CAF); color: #FFFFFF; font-family: inherit; font-size: 16px; font-weight: 600; cursor: pointer">{{ctaLabel}}</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{isStore}}" hint-placeholder-val="{{ false }}">
+          <a href="#download" style="display: inline-flex; align-items: center; gap: 10px; height: 56px; padding: 0 26px; border-radius: 14px; background: #F7EFF5; color: #120B12; font-size: 16px; font-weight: 600; text-decoration: none">
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"></rect><path d="M12 18h.01"></path></svg>
+            {{ctaLabel}}
+          </a>
+        </sc-if>
+        <div style="font-size: 14px; color: #A897A4">{{ctaNote}}</div>
+      </div>
+
+      <div style="position: relative; display: flex; justify-content: center; min-height: 700px">
+        <div class="vv-backphone" aria-hidden="true" style="position: absolute; left: 0; top: 70px; transform: rotate(-9deg); opacity: 0.55">
+          <div style="width: 262px; height: 548px; padding: 8px; box-sizing: border-box; border-radius: 41px; background: #050305; border: 1px solid rgba(255,255,255,0.14)">
+            <div style="width: 246px; height: 532px; border-radius: 33px; overflow: hidden">
+              <div style="width: 390px; height: 844px; transform: scale(0.6308); transform-origin: 0 0">
+                <dc-import name="AppSnap" hint-size="390px,844px"></dc-import>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="position: relative; margin-left: 96px; width: 332px; height: 695px; padding: 10px; box-sizing: border-box; border-radius: 52px; background: #050305; border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 40px 90px -20px rgba(0,0,0,0.85)">
+          <div style="width: 312px; height: 675px; border-radius: 42px; overflow: hidden">
+            <div style="width: 390px; height: 844px; transform: scale(0.8); transform-origin: 0 0">
+              <dc-import name="AppPick" hint-size="390px,844px"></dc-import>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" style="background: #140C14; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06)">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 112px 24px; box-sizing: border-box">
+      <div style="text-align: center; max-width: 640px; margin: 0 auto 64px">
+        <div style="font-size: 14px; font-weight: 600; letter-spacing: 0.12em; color: #D8B4FE">HOW IT WORKS</div>
+        <h2 class="vv-h2" style="margin: 12px 0 0; font-size: 44px; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em">Ninety seconds, start to pour.</h2>
+      </div>
+      <div class="vv-grid3" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px">
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px">
+          <div style="width: 250px; height: 522px; padding: 8px; box-sizing: border-box; border-radius: 40px; background: #050305; border: 1px solid rgba(255,255,255,0.14)">
+            <div style="width: 234px; height: 506px; border-radius: 32px; overflow: hidden">
+              <div style="width: 390px; height: 844px; transform: scale(0.6); transform-origin: 0 0">
+                <dc-import name="AppSnap" hint-size="390px,844px"></dc-import>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size: 14px; font-weight: 700; color: #D8B4FE">1</div>
+            <h3 style="margin: 6px 0 8px; font-size: 22px; font-weight: 700">Snap the list</h3>
+            <p style="margin: 0; max-width: 300px; font-size: 16px; line-height: 1.55; color: #C4B3C0">Photograph the wine list and the menu. It reads every bottle and every price.</p>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px">
+          <div style="width: 250px; height: 522px; padding: 8px; box-sizing: border-box; border-radius: 40px; background: #050305; border: 1px solid rgba(255,255,255,0.14)">
+            <div style="width: 234px; height: 506px; border-radius: 32px; overflow: hidden">
+              <div style="width: 390px; height: 844px; transform: scale(0.6); transform-origin: 0 0">
+                <dc-import name="AppRead" hint-size="390px,844px"></dc-import>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size: 14px; font-weight: 700; color: #D8B4FE">2</div>
+            <h3 style="margin: 6px 0 8px; font-size: 22px; font-weight: 700">Tell it what you're eating</h3>
+            <p style="margin: 0; max-width: 300px; font-size: 16px; line-height: 1.55; color: #C4B3C0">Tap your dish. See what it read, and fix anything it got wrong.</p>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px">
+          <div style="width: 250px; height: 522px; padding: 8px; box-sizing: border-box; border-radius: 40px; background: #050305; border: 1px solid rgba(255,255,255,0.14)">
+            <div style="width: 234px; height: 506px; border-radius: 32px; overflow: hidden">
+              <div style="width: 390px; height: 844px; transform: scale(0.6); transform-origin: 0 0">
+                <dc-import name="AppPick" hint-size="390px,844px"></dc-import>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size: 14px; font-weight: 700; color: #D8B4FE">3</div>
+            <h3 style="margin: 6px 0 8px; font-size: 22px; font-weight: 700">Get one pick</h3>
+            <p style="margin: 0; max-width: 300px; font-size: 16px; line-height: 1.55; color: #C4B3C0">One bottle from this list, at the listed price, and why it suits you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="you" style="max-width: 1200px; margin: 0 auto; padding: 120px 24px; box-sizing: border-box">
+    <div class="vv-grid2" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; align-items: center">
+      <div style="display: flex; flex-direction: column; gap: 24px">
+        <div style="font-size: 14px; font-weight: 600; letter-spacing: 0.12em; color: #D8B4FE">MADE FOR THE CONNOISSEUR</div>
+        <h2 class="vv-h2" style="margin: 0; font-size: 44px; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em">You're different. Vino Vibes gets you.</h2>
+        <p style="margin: 0; font-size: 18px; line-height: 1.625; color: #C4B3C0">Vino Vibes is all about the experience: enjoying the good life. It cuts through the noise so you know exactly how to make every dinner and night out the best it can be, with the best wine, spirits and cocktails on the list.</p>
+        <ul style="list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 16px">
+          <li style="display: flex; gap: 14px; align-items: flex-start"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8B4FE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px"><path d="M20 6 9 17l-5-5"></path></svg><span style="font-size: 17px; line-height: 1.5">Only picks from the list in front of you</span></li>
+          <li style="display: flex; gap: 14px; align-items: flex-start"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8B4FE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px"><path d="M20 6 9 17l-5-5"></path></svg><span style="font-size: 17px; line-height: 1.5">Never pushes you up in price</span></li>
+          <li style="display: flex; gap: 14px; align-items: flex-start"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8B4FE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px"><path d="M20 6 9 17l-5-5"></path></svg><span style="font-size: 17px; line-height: 1.5">Shows you everything it knows about you, and forgets anything you ask it to</span></li>
+        </ul>
+      </div>
+      <div style="display: flex; justify-content: center">
+        <div style="width: 313px; height: 654px; padding: 10px; box-sizing: border-box; border-radius: 49px; background: #050305; border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 40px 90px -24px rgba(0,0,0,0.85)">
+          <div style="width: 293px; height: 634px; border-radius: 39px; overflow: hidden">
+            <div style="width: 390px; height: 844px; transform: scale(0.7513); transform-origin: 0 0">
+              <dc-import name="AppMemory" hint-size="390px,844px"></dc-import>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: #140C14; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06)">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 88px 24px; box-sizing: border-box">
+      <h2 style="margin: 0 0 40px; font-size: 32px; font-weight: 700; letter-spacing: -0.01em; text-align: center">Built at New Orleans tables</h2>
+      <div style="max-width: 400px; margin: 0 auto; padding: 28px; border-radius: 20px; background: #1F1520; text-align: center; box-sizing: border-box">
+        <div style="font-size: 48px; font-weight: 800; letter-spacing: -0.02em">697</div>
+        <div style="margin-top: 6px; font-size: 16px; line-height: 1.5; color: #C4B3C0">wines already read from New Orleans restaurant lists</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="join" style="max-width: 1200px; margin: 0 auto; padding: 120px 24px 64px; box-sizing: border-box; text-align: center">
+    <h2 class="vv-h2" style="margin: 0 auto; max-width: 760px; font-size: 52px; font-weight: 800; line-height: 1.08; letter-spacing: -0.03em">Your next wine list is already decided.</h2>
+    <div style="margin: 32px auto 0; max-width: 520px; display: flex; flex-direction: column; align-items: center; gap: 14px">
+      <sc-if value="{{showForm}}" hint-placeholder-val="{{ true }}">
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; width: 100%">
+          <label for="join-email" class="vv-sr">Email address</label>
+          <input id="join-email" type="email" placeholder="you@email.com" style="flex: 1 1 240px; min-width: 0; height: 56px; padding: 0 18px; box-sizing: border-box; border-radius: 14px; border: 1px solid rgba(255,255,255,0.18); background: #1F1520; color: #F7EFF5; font-family: inherit; font-size: 16px">
+          <button type="button" style="flex: 1 1 auto; height: 56px; padding: 0 26px; border: 0; border-radius: 14px; background: linear-gradient(90deg, #9333EA, #A21CAF); color: #FFFFFF; font-family: inherit; font-size: 16px; font-weight: 600; cursor: pointer">{{ctaLabel}}</button>
+        </div>
+      </sc-if>
+      <sc-if value="{{isStore}}" hint-placeholder-val="{{ false }}">
+        <a href="#download" style="display: inline-flex; align-items: center; height: 56px; padding: 0 26px; border-radius: 14px; background: #F7EFF5; color: #120B12; font-size: 16px; font-weight: 600; text-decoration: none">{{ctaLabel}}</a>
+      </sc-if>
+      <div style="font-size: 14px; color: #A897A4">{{ctaNote}}</div>
+    </div>
+
+    <div id="restaurants" style="margin: 96px auto 0; max-width: 900px; padding: 28px 32px; border-radius: 20px; background: #1F1520; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; text-align: left; box-sizing: border-box">
+      <div style="flex: 1 1 420px">
+        <div style="font-size: 18px; font-weight: 700">Run a restaurant or a wine shop?</div>
+        <div style="margin-top: 6px; font-size: 15px; line-height: 1.5; color: #C4B3C0">Free seats for you and your staff, and a card with a code for your guests.</div>
+      </div>
+      <a href="Partners.dc.html" style="display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 20px; border-radius: 12px; border: 1.5px solid rgba(255,255,255,0.24); font-size: 15px; font-weight: 600; text-decoration: none">Partner with us
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+      </a>
+    </div>
+  </section>
+
+  <footer style="border-top: 1px solid rgba(255,255,255,0.08); background: #000000">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 32px 24px; display: flex; align-items: center; gap: 16px">
+      <img src="/_blob/8c05fae2cfb9f034073e25be85d07e34" alt="Sip the Owl, the Vino Vibes mark" style="height: 90px; width: auto">
+      <div>
+        <div style="font-size: 15px; font-weight: 600">Vino Vibes</div>
+        <div style="font-size: 13px; color: #A897A4">Made in New Orleans</div>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"ctaStage":{"editor":"enum","options":["waitlist","testflight","appstore"],"default":"waitlist","section":"Launch stage"},"$preview":{"width":1440,"height":4090}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { menuOpen: false };
+  }
+  renderVals() {
+    var stage = this.props.ctaStage ?? 'waitlist';
+    var copy = {
+      waitlist: { label: 'Get early access', short: 'Get early access', note: 'We will email you when your invite is ready.' },
+      testflight: { label: 'Get the beta invite', short: 'Join the beta', note: 'We will email you when your invite is ready.' },
+      appstore: { label: 'Download for iPhone', short: 'Download', note: 'Free to try on iPhone.' }
+    };
+    var c = copy[stage] || copy.waitlist;
+    return {
+      ctaLabel: c.label,
+      ctaShort: c.short,
+      ctaNote: c.note,
+      showForm: stage !== 'appstore',
+      isStore: stage === 'appstore',
+      menuOpen: this.state.menuOpen,
+      toggleMenu: () => this.setState({ menuOpen: !this.state.menuOpen })
+    };
+  }
+}
+</script>
+</body>
+</html>

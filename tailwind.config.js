@@ -30,7 +30,38 @@ module.exports = {
         "screen-dynamic": ["100vh", "100dvh"],
         "screen-large": ["100vh", "100lvh"],
       },
+      fontFamily: {
+        sans: ["var(--font-poppins)", "system-ui", "sans-serif"],
+      },
+      backgroundImage: {
+        "vv-primary": "linear-gradient(90deg, #9333EA, #A21CAF)",
+      },
       colors: {
+        // App tokens from the design canvas (shared with the iOS app; keep names in sync)
+        vv: {
+          page: "#0E080E",
+          band: "#140C14",
+          bg: "#120B12",
+          camera: "#0B070B",
+          phone: "#050305",
+          surface: "#1F1520",
+          surface2: "#2B1E2C",
+          text: "#F7EFF5",
+          text2: "#C4B3C0",
+          text3: "#A897A4",
+          accent: "#D8B4FE",
+          stroke: "#C084FC",
+          warning: "#F5B04C",
+          // Wine swatches: dots on wine rows and the style map only
+          wine: {
+            red: "#8E1219",
+            white: "#E5D3B3",
+            rose: "#E8A0A0",
+            orange: "#D98A3D",
+            sparkling: "#D9C98F",
+            dessert: "#B9822F",
+          },
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

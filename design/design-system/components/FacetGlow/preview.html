@@ -1,0 +1,24 @@
+<!-- @dsCard group="Direction B · chat-first (not live)" height=280 subtitle="Blurred facet light with thin outlines" -->
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+body{margin:0;background:var(--background)}
+.stage{position:relative;isolation:isolate;overflow:hidden;height:280px}
+.glow{position:absolute;z-index:-1;filter:blur(72px);opacity:.45}
+.glow>div{width:100%;height:100%}
+.a{clip-path:polygon(28% 0,100% 14%,86% 72%,38% 100%,0 46%);background:var(--primary)}
+.b{clip-path:polygon(0 18%,62% 0,100% 58%,54% 100%,10% 84%);background:#a21caf}
+[data-theme="oxblood"] .b{background:var(--primary-deep)}
+.lines{position:absolute;inset:0;z-index:-1;width:100%;height:100%}
+.lines *{fill:none;stroke:var(--highlight)}
+</style></head>
+<body>
+<div class="vv stage">
+  <div class="glow" style="right:-80px;top:-80px;width:520px;height:420px"><div class="a"></div></div>
+  <div class="glow" style="right:200px;top:140px;width:300px;height:260px"><div class="b"></div></div>
+  <svg class="lines" viewBox="0 0 960 280" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><polygon points="560,10 900,40 850,250 640,300 480,140" stroke-opacity=".22"></polygon><polygon points="620,60 820,80 780,220 660,250 590,150" stroke-opacity=".14"></polygon></svg>
+  <div style="position:absolute;left:32px;bottom:32px;max-width:420px">
+    <div class="vv-eyebrow">Facet glow</div>
+    <div class="vv-display" style="margin-top:8px;font-size:34px;font-weight:800;line-height:1.05">Light through a cut glass.</div>
+  </div>
+</div>
+</body></html>

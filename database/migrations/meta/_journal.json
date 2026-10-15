@@ -15,6 +15,13 @@
       "when": 1749708115921,
       "tag": "0001_right_microbe",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1791691742875,
+      "tag": "0002_partner_interests",
+      "breakpoints": true
     }
   ]
 }

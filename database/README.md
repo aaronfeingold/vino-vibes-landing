@@ -87,18 +87,9 @@ NEON_DATABASE_URL="postgresql://username:password@host/database?sslmode=require"
 Create a `.env` file in your project root:
 ```bash
 NEON_DATABASE_URL="your_neon_database_url_here"
-NEXT_PUBLIC_VENMO_USERNAME="your_venmo_username"
 ```
 
 **Important**: Use `.env` (not `.env.local`) because drizzle-kit only reads `.env` files by default. Next.js will automatically load `.env` files, so this works for both Next.js and drizzle-kit commands.
-
-### Additional Environment Variables
-
-#### Venmo Integration
-- **`NEXT_PUBLIC_VENMO_USERNAME`**: Your Venmo username (without @) for donation links
-  - Used in the donation modal and support links
-  - Example: `siptheowl`
-  - Required for Venmo payment functionality
 
 ## Current Tables
 
