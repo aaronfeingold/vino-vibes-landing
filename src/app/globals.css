@@ -56,5 +56,18 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Anchor jumps clear the fixed 68px navbar. Sections pull this back by
+       their own top padding (negative scroll-mt) so the heading, not the
+       empty padding, lands about 32px under the bar. */
+    scroll-padding-top: 68px;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }

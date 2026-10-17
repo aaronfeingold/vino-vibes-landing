@@ -4,10 +4,31 @@ import { partnerInterests } from "../../../lib/db/schema";
 import { eq } from "drizzle-orm";
 import { partnerSignupSchema } from "../../../lib/validation";
 import { normalizeEmail } from "../../../lib/normalize-email";
+import {
+  BodyTooLarge,
+  MIN_FILL_MS,
+  clientIp,
+  isSameOrigin,
+  rateLimit,
+  readJson,
+  verifyTurnstile,
+} from "../../../lib/bot-guard";
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    if (!isSameOrigin(request)) {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    }
+
+    const ipAddress = clientIp(request);
+    if (!rateLimit(`partner:${ipAddress}`, 5, 10 * 60_000)) {
+      return NextResponse.json(
+        { error: "Too many attempts. Please try again in a few minutes." },
+        { status: 429 }
+      );
+    }
+
+    const body = await readJson(request, 16_384);
     const parsed = partnerSignupSchema.safeParse(body);
 
     if (!parsed.success) {
@@ -17,11 +38,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { website, ...data } = parsed.data;
+    const { website, elapsedMs, turnstileToken, ...data } = parsed.data;
 
-    // Bots fill the hidden field; answer as if it worked and store nothing
-    if (website) {
+    // Bots fill the hidden field or submit instantly; answer as if it worked and store nothing
+    if (website || (elapsedMs ?? 0) < MIN_FILL_MS) {
       return NextResponse.json({ success: true });
+    }
+
+    if (!(await verifyTurnstile(turnstileToken, ipAddress))) {
+      return NextResponse.json(
+        { error: "Please confirm you're human and try again." },
+        { status: 400 }
+      );
     }
 
     const normalizedEmail = normalizeEmail(data.email);
@@ -39,18 +67,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const forwardedFor = request.headers.get("x-forwarded-for");
-    const ipAddress = forwardedFor?.split(",")[0]?.trim() || null;
-
     await db.insert(partnerInterests).values({
       ...data,
       normalizedEmail,
-      ipAddress,
+      ipAddress: ipAddress === "unknown" ? null : ipAddress,
       userAgent: request.headers.get("user-agent"),
     });
 
     return NextResponse.json({ success: true });
   } catch (error) {
+    if (error instanceof BodyTooLarge || error instanceof SyntaxError) {
+      return NextResponse.json({ error: "Invalid input" }, { status: 400 });
+    }
     console.error("Partner signup error:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }

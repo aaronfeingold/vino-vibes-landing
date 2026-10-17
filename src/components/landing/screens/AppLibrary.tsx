@@ -45,7 +45,7 @@ export default function AppLibrary() {
           </span>
         </div>
         <Segmented items={["Places", "Wines", "Nearby"]} active="Places" className="mt-3" />
-        <div className="mx-5 mt-3 text-xs text-vv-text3">14 places · 37 wines · New Orleans and 2 trips</div>
+        <div className="mx-5 mt-3 text-xs text-vv-text3">14 places · 37 wines · Home and 2 trips</div>
 
         <div className="mx-4 mt-3.5 flex flex-col gap-3">
           {PLACES.map((p) => (

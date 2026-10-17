@@ -34,17 +34,18 @@ const SCREENS: { title: string; body: string; label: string; Screen: ComponentTy
 
 export default function Library() {
   return (
-    <section id="library" className="scroll-mt-16">
+    <section id="library" className="scroll-mt-[-48px] md:scroll-mt-[-80px]">
       <div className="mx-auto max-w-[1200px] px-4 py-20 sm:px-6 md:py-28">
-        <div className="mx-auto mb-16 max-w-[640px] text-center">
+        <div className="mx-auto mb-10 max-w-[640px] text-center md:mb-16">
           <div className="text-sm font-semibold tracking-[0.12em] text-vv-accent">YOUR WINE LIBRARY</div>
           <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] min-[900px]:text-[44px]">
             Every place, every pour, remembered.
           </h2>
         </div>
-        <ul className="grid gap-14 sm:grid-cols-2 sm:gap-x-8 xl:grid-cols-4 xl:gap-x-6">
+        {/* Swipeable on phones; a 2 x 2 grid on tablets; one row on wide screens. */}
+        <ul className="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-x-8 sm:gap-y-14 sm:overflow-visible sm:px-0 sm:pb-0 xl:grid-cols-4 xl:gap-x-6">
           {SCREENS.map(({ title, body, label, Screen }) => (
-            <li key={title} className="flex flex-col items-center gap-6 text-center">
+            <li key={title} className="flex w-[min(78vw,280px)] shrink-0 snap-center flex-col items-center gap-6 text-center sm:w-auto">
               <PhoneFrame width={250} label={label}>
                 <Screen />
               </PhoneFrame>

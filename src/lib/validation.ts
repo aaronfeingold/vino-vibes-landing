@@ -6,8 +6,18 @@ export const emailSchema = z
   .min(1, "Email is required")
   .max(255, "Email is too long");
 
+// Fields every public form sends so the server can screen out bots. The
+// honeypot accepts any value here; the route checks it and answers as if the
+// signup worked, so a bot learns nothing from a validation error.
+const botFields = {
+  website: z.string().max(500).optional(),
+  elapsedMs: z.number().int().nonnegative().optional(),
+  turnstileToken: z.string().max(2048).optional(),
+};
+
 export const betaSignupSchema = z.object({
   email: emailSchema,
+  ...botFields,
 });
 
 export type EmailValidation = z.infer<typeof emailSchema>;
@@ -32,8 +42,7 @@ export const partnerSignupSchema = z.object({
   email: emailSchema,
   phone: optionalText(50),
   message: optionalText(2000),
-  // Honeypot: real people leave this empty
-  website: z.string().max(0).optional(),
+  ...botFields,
 });
 
 export type PartnerSignupData = z.infer<typeof partnerSignupSchema>;

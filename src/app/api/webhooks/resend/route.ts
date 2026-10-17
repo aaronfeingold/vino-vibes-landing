@@ -1,16 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "../../../../lib/db";
 import { emailAnalytics } from "../../../../lib/db/schema";
+import { verifyResendWebhook } from "./verify";
 
 // Resend webhook handler for email events
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    // Without a verified signature anyone could write rows into email analytics.
+    const secret = process.env.RESEND_WEBHOOK_SECRET;
+    if (!secret) {
+      console.error("RESEND_WEBHOOK_SECRET is not set; refusing webhook");
+      return NextResponse.json({ error: "Webhook not configured" }, { status: 503 });
+    }
 
-    // Verify webhook signature (add this for security)
-    // const signature = request.headers.get('resend-signature');
+    const raw = await request.text();
+    if (raw.length > 65_536 || !verifyResendWebhook(raw, request.headers, secret)) {
+      return NextResponse.json({ error: "Invalid signature" }, { status: 401 });
+    }
 
-    const { type, data } = body;
+    const { type, data } = JSON.parse(raw);
 
     // Map Resend events to our analytics
     const eventMapping: Record<string, string> = {

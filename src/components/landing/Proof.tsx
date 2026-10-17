@@ -1,5 +1,5 @@
 const STATS = [
-  { value: "697", label: "wines already read from New Orleans restaurant lists" },
+  { value: "697", label: "wines already read from local restaurant lists" },
 ];
 
 // Fill in after the ten-dinner test. The card stays hidden until there is a real quote.
@@ -11,7 +11,7 @@ export default function Proof() {
   return (
     <section className="border-y border-white/[0.06] bg-vv-band">
       <div className="mx-auto max-w-[1200px] px-4 py-[88px] sm:px-6">
-        <h2 className="mb-10 text-center text-[32px] font-bold tracking-[-0.01em]">Built at New Orleans tables</h2>
+        <h2 className="mb-10 text-center text-[32px] font-bold tracking-[-0.01em]">The best wine near you, wherever you are</h2>
         <div className={`grid gap-6 ${cols}`}>
           {STATS.map((s) => (
             <div key={s.label} className="rounded-[20px] bg-vv-surface p-7">

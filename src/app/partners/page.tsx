@@ -97,7 +97,7 @@ export default function PartnersPage() {
           </ol>
         </section>
 
-        <section id="interest" className="mx-auto max-w-[900px] scroll-mt-20 px-4 pb-24 sm:px-6">
+        <section id="interest" className="mx-auto max-w-[900px] px-4 pb-24 sm:px-6">
           <h2 className="mb-2 text-[32px] font-extrabold tracking-[-0.02em]">Let&apos;s talk</h2>
           <p className="mb-8 text-vv-text2">Tell us a little about your place and we&apos;ll reach out.</p>
           <PartnerForm />

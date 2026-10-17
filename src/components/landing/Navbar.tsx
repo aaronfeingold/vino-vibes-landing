@@ -16,25 +16,39 @@ export default function Navbar({ ctaShort, ctaHref }: { ctaShort: string; ctaHre
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Clear at the top; blurred and tinted once the reader is halfway through the hero.
+  // Clear at the very top; tinted and blurred after about a thumb's width of scroll.
   useEffect(() => {
-    const onScroll = () => {
-      const hero = document.getElementById("top");
-      const threshold = hero ? hero.offsetHeight / 2 : 300;
-      setScrolled(window.scrollY > threshold);
-    };
+    const onScroll = () => setScrolled(window.scrollY > window.innerHeight / 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
+
+  // Close the mobile menu on Escape or when the viewport grows past the breakpoint.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const mq = window.matchMedia("(min-width: 768px)");
+    const onMq = () => mq.matches && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    mq.addEventListener("change", onMq);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      mq.removeEventListener("change", onMq);
+    };
+  }, [open]);
 
   const solid = scrolled || open;
 
   return (
     <nav
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 ${
         solid
-          ? "border-b border-white/[0.08] bg-vv-page/[0.62] backdrop-blur-[14px]"
+          ? "border-b border-white/[0.08] bg-vv-page/[0.38] backdrop-blur-[14px]"
           : "border-b border-transparent bg-transparent"
       }`}
     >
@@ -77,6 +91,7 @@ export default function Navbar({ ctaShort, ctaHref }: { ctaShort: string; ctaHre
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
+            aria-controls="mobile-menu"
             onClick={() => setOpen((o) => !o)}
             className="flex h-11 w-11 items-center justify-center text-vv-text md:hidden"
           >
@@ -85,8 +100,18 @@ export default function Navbar({ ctaShort, ctaHref }: { ctaShort: string; ctaHre
         </div>
       </div>
 
-      {open && (
-        <div className="flex flex-col gap-1 border-t border-white/[0.08] px-4 pb-5 pt-2 md:hidden">
+      <div
+        id="mobile-menu"
+        className={`grid transition-[grid-template-rows] duration-300 md:hidden ${
+          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
+        <div
+          inert={!open}
+          className={`flex flex-col gap-1 overflow-hidden px-4 sm:px-6 ${
+            open ? "border-t border-white/[0.08] pb-5 pt-2" : ""
+          }`}
+        >
           {NAV.map((n) => (
             <a
               key={n.href}
@@ -105,7 +130,7 @@ export default function Navbar({ ctaShort, ctaHref }: { ctaShort: string; ctaHre
             {ctaShort}
           </a>
         </div>
-      )}
+      </div>
     </nav>
   );
 }
