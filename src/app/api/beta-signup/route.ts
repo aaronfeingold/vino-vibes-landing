@@ -83,7 +83,7 @@ export async function POST(request: NextRequest) {
 
     // Send welcome email
     try {
-      const domain = process.env.NEXT_PUBLIC_DOMAIN || "https://vino-vibes.ai";
+      const domain = process.env.NEXT_PUBLIC_DOMAIN || "https://vinovibes.ai";
 
       const emailTemplate = generateBetaWelcomeEmail({ email, domain });
       await resend.emails.send(emailTemplate);
