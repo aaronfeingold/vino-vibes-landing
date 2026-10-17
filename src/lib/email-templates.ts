@@ -13,8 +13,6 @@ const VV = {
   text2: "#c4b3c0",
   text3: "#a897a4",
   accent: "#d8b4fe",
-  primaryFrom: "#9333ea",
-  primaryTo: "#a21caf",
 };
 
 const FONT = "Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif";
@@ -22,7 +20,7 @@ const FONT = "Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif";
 const FEATURES = [
   {
     title: "Bespoke pairings",
-    body: "Photograph the menu and the wine list. Sips to lips and a full belly.",
+    body: "Sips to lips and a full belly.",
   },
   {
     title: "Palleted experiences",
@@ -30,7 +28,7 @@ const FEATURES = [
   },
   {
     title: "Recollections",
-    body: "Savor the moment, and remember every bottle worth remembering.",
+    body: "Your memories age like fine wine.",
   },
 ];
 
@@ -113,7 +111,6 @@ export function generateBetaWelcomeEmail({
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${VV.surface}" style="background-color:${VV.surface};border-radius:20px;">
                 <tr>
                   <td style="padding:28px;">
-                    <div style="font-family:${FONT};font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:${VV.accent};padding-bottom:20px;">Beta release</div>
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">${features}
                     </table>
                   </td>
@@ -134,13 +131,6 @@ export function generateBetaWelcomeEmail({
                   </td>
                 </tr>
               </table>
-            </td>
-          </tr>
-
-          <!-- Primary action -->
-          <tr>
-            <td align="left" style="padding-top:32px;">
-              <a href="${site}/#how" style="display:inline-block;padding:14px 28px;border-radius:999px;background-color:${VV.primaryFrom};background-image:linear-gradient(90deg, ${VV.primaryFrom}, ${VV.primaryTo});font-family:${FONT};font-size:15px;font-weight:600;color:#ffffff;text-decoration:none;">See how it works</a>
             </td>
           </tr>
 
@@ -169,13 +159,10 @@ export function generateBetaWelcomeEmail({
     "",
     "Thanks for joining. Coming soon:",
     "",
-    "Beta release",
     ...FEATURES.map((s, i) => `0${i + 1} ${s.title}. ${s.body}`),
     "",
     "What happens next",
     ...NEXT.map((n) => `- ${n}`),
-    "",
-    `See how it works: ${site}/#how`,
     "",
     SIGN_OFF,
   ].join("\n");
