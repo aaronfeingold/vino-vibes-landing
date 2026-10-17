@@ -119,13 +119,13 @@ export function generateBetaWelcomeEmail({
             </td>
           </tr>
 
-          <!-- Choose the right wine -->
+          <!-- The right wine -->
           <tr>
             <td style="padding-top:16px;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${VV.surface}" style="background-color:${VV.surface};border-radius:20px;">
                 <tr>
                   <td style="padding:28px 28px 18px 28px;">
-                    <div style="font-family:${FONT};font-size:16px;font-weight:600;color:${VV.text};padding-bottom:14px;">Choose the right wine every time.</div>
+                    <div style="font-family:${FONT};font-size:16px;font-weight:600;color:${VV.text};padding-bottom:14px;">The right wine every time.</div>
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">${next}
                     </table>
                   </td>
@@ -161,7 +161,7 @@ export function generateBetaWelcomeEmail({
     "",
     ...FEATURES.map((s, i) => `0${i + 1} ${s.title}. ${s.body}`),
     "",
-    "Choose the right wine every time.",
+    "The right wine every time.",
     ...NEXT.map((n) => `- ${n}`),
     "",
     SIGN_OFF,
