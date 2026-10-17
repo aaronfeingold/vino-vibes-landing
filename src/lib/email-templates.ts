@@ -19,18 +19,18 @@ const VV = {
 
 const FONT = "Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif";
 
-const STEPS = [
+const FEATURES = [
   {
-    title: "Snap the list",
-    body: "Photograph the wine list and the menu. It reads every bottle and every price.",
+    title: "Bespoke pairings",
+    body: "Photograph the menu and the wine list. Sips to lips and a full belly.",
   },
   {
-    title: "Tell it what you're eating",
-    body: "Tap your dish. See what it read, and fix anything it got wrong.",
+    title: "Palleted experiences",
+    body: "Your taste buds matter.",
   },
   {
-    title: "Get one pick",
-    body: "One bottle from this list, at the listed price, and why it suits you.",
+    title: "Recollections",
+    body: "Savor the moment, and remember every bottle worth remembering.",
   },
 ];
 
@@ -49,11 +49,11 @@ export function generateBetaWelcomeEmail({
   const domainName = domain.replace(/^https?:\/\//, "").replace(/^www\./, "");
   const site = domain.replace(/\/$/, "");
 
-  const steps = STEPS.map(
+  const features = FEATURES.map(
     (s, i) => `
               <tr>
-                <td valign="top" width="36" style="padding:0 0 ${i === STEPS.length - 1 ? 0 : 20}px 0;font-family:${FONT};font-size:15px;font-weight:700;color:${VV.accent};">0${i + 1}</td>
-                <td valign="top" style="padding:0 0 ${i === STEPS.length - 1 ? 0 : 20}px 0;font-family:${FONT};">
+                <td valign="top" width="36" style="padding:0 0 ${i === FEATURES.length - 1 ? 0 : 20}px 0;font-family:${FONT};font-size:15px;font-weight:700;color:${VV.accent};">0${i + 1}</td>
+                <td valign="top" style="padding:0 0 ${i === FEATURES.length - 1 ? 0 : 20}px 0;font-family:${FONT};">
                   <div style="font-size:16px;font-weight:600;color:${VV.text};line-height:1.4;">${s.title}</div>
                   <div style="font-size:14px;color:${VV.text2};line-height:1.6;margin-top:4px;">${s.body}</div>
                 </td>
@@ -79,7 +79,7 @@ export function generateBetaWelcomeEmail({
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body style="margin:0;padding:0;background-color:${VV.page};">
-  <div style="display:none;max-height:0;overflow:hidden;opacity:0;">You're on the list. Here is what happens next.</div>
+  <div style="display:none;max-height:0;overflow:hidden;opacity:0;">You're on the list. Here is what is coming.</div>
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${VV.page}" style="background-color:${VV.page};">
     <tr>
       <td align="center" style="padding:32px 16px;">
@@ -102,20 +102,19 @@ export function generateBetaWelcomeEmail({
           <!-- Headline -->
           <tr>
             <td style="font-family:${FONT};">
-              <div style="font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:${VV.accent};">Beta list</div>
-              <h1 style="margin:12px 0 0 0;font-size:36px;font-weight:800;letter-spacing:-0.02em;line-height:1.1;color:${VV.text};">You're on the list.</h1>
-              <p style="margin:16px 0 0 0;font-size:16px;line-height:1.6;color:${VV.text2};">Thanks for joining the Vino Vibes beta. Here is what the app does, and what happens next.</p>
+              <h1 style="margin:0;font-size:36px;font-weight:800;letter-spacing:-0.02em;line-height:1.1;color:${VV.text};">You're on the list.</h1>
+              <p style="margin:16px 0 0 0;font-size:16px;line-height:1.6;color:${VV.text2};">Thanks for joining. Coming soon:</p>
             </td>
           </tr>
 
-          <!-- How it works -->
+          <!-- Coming soon -->
           <tr>
             <td style="padding-top:32px;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${VV.surface}" style="background-color:${VV.surface};border-radius:20px;">
                 <tr>
                   <td style="padding:28px;">
-                    <div style="font-family:${FONT};font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:${VV.accent};padding-bottom:20px;">Ninety seconds, start to pour</div>
-                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">${steps}
+                    <div style="font-family:${FONT};font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:${VV.accent};padding-bottom:20px;">Beta release</div>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">${features}
                     </table>
                   </td>
                 </tr>
@@ -151,8 +150,7 @@ export function generateBetaWelcomeEmail({
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid ${VV.surface2};">
                 <tr>
                   <td style="padding-top:20px;font-family:${FONT};font-size:13px;line-height:1.6;color:${VV.text3};">
-                    ${SIGN_OFF}<br />
-                    Made in New Orleans.
+                    ${SIGN_OFF}
                   </td>
                 </tr>
               </table>
@@ -169,10 +167,10 @@ export function generateBetaWelcomeEmail({
   const text = [
     "You're on the list.",
     "",
-    "Thanks for joining the Vino Vibes beta. Here is what the app does, and what happens next.",
+    "Thanks for joining. Coming soon:",
     "",
-    "Ninety seconds, start to pour",
-    ...STEPS.map((s, i) => `0${i + 1} ${s.title}. ${s.body}`),
+    "Beta release",
+    ...FEATURES.map((s, i) => `0${i + 1} ${s.title}. ${s.body}`),
     "",
     "What happens next",
     ...NEXT.map((n) => `- ${n}`),
@@ -180,7 +178,6 @@ export function generateBetaWelcomeEmail({
     `See how it works: ${site}/#how`,
     "",
     SIGN_OFF,
-    "Made in New Orleans.",
   ].join("\n");
 
   return {
