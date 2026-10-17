@@ -139,7 +139,8 @@ export function generateBetaWelcomeEmail({
             <td style="padding-top:40px;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid ${VV.surface2};">
                 <tr>
-                  <td style="padding-top:20px;font-family:${FONT};font-size:13px;line-height:1.6;color:${VV.text3};">
+                  <td valign="middle" width="48" style="padding-top:20px;"><img src="${site}/sip-inverted-no-background.png" width="48" height="48" alt="Sip the Owl" style="display:block;border:0;" /></td>
+                  <td valign="middle" style="padding-top:20px;padding-left:12px;font-family:${FONT};font-size:13px;line-height:1.6;color:${VV.text3};">
                     ${SIGN_OFF}
                   </td>
                 </tr>
