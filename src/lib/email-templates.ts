@@ -15,6 +15,10 @@ const VV = {
   accent: "#d8b4fe",
 };
 
+// Images and links always point at the live site so they load in every
+// environment, whatever NEXT_PUBLIC_DOMAIN is set to.
+const SITE = "https://vinovibes.ai";
+
 const FONT = "Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif";
 
 const FEATURES = [
@@ -45,7 +49,6 @@ export function generateBetaWelcomeEmail({
   domain,
 }: BetaWelcomeEmailData) {
   const domainName = domain.replace(/^https?:\/\//, "").replace(/^www\./, "");
-  const site = domain.replace(/\/$/, "");
 
   const features = FEATURES.map(
     (s, i) => `
@@ -86,10 +89,10 @@ export function generateBetaWelcomeEmail({
           <!-- Logo -->
           <tr>
             <td style="padding:0 0 32px 0;">
-              <a href="${site}" style="text-decoration:none;">
+              <a href="${SITE}" style="text-decoration:none;">
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                   <tr>
-                    <td valign="middle"><img src="${site}/email/vino-vibes-logo-96.png" width="36" height="36" alt="" style="display:block;border:0;border-radius:8px;" /></td>
+                    <td valign="middle"><img src="${SITE}/email/vino-vibes-logo-96.png" width="36" height="36" alt="" style="display:block;border:0;border-radius:8px;" /></td>
                     <td valign="middle" style="padding-left:10px;font-family:${FONT};font-size:18px;font-weight:700;color:${VV.text};">Vino Vibes</td>
                   </tr>
                 </table>
@@ -139,7 +142,7 @@ export function generateBetaWelcomeEmail({
             <td style="padding-top:40px;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid ${VV.surface2};">
                 <tr>
-                  <td valign="middle" width="48" style="padding-top:20px;"><img src="${site}/sip-inverted-no-background.png" width="48" height="48" alt="Sip the Owl" style="display:block;border:0;" /></td>
+                  <td valign="middle" width="48" style="padding-top:20px;"><img src="${SITE}/sip-inverted-no-background.png" width="48" height="48" alt="Sip the Owl" style="display:block;border:0;" /></td>
                   <td valign="middle" style="padding-top:20px;padding-left:12px;font-family:${FONT};font-size:13px;line-height:1.6;color:${VV.text3};">
                     ${SIGN_OFF}
                   </td>
