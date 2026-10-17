@@ -7,7 +7,7 @@ import AppSnap from "./screens/AppSnap";
 
 export default function Hero({ cta }: { cta: LaunchCopy }) {
   return (
-    <section id="top" className="relative mx-auto max-w-[1200px] px-4 pb-28 pt-[140px] sm:px-6">
+    <section id="top" className="relative mx-auto max-w-[1200px] px-4 pb-20 pt-[112px] sm:pt-[140px] md:pb-28 sm:px-6">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute right-[4%] top-10 h-[640px] w-[640px] max-w-full rounded-full bg-[radial-gradient(circle,rgba(168,85,247,0.22),rgba(168,85,247,0)_65%)]"

@@ -28,6 +28,20 @@ export default function Navbar({ ctaShort, ctaHref }: { ctaShort: string; ctaHre
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Close the mobile menu on Escape or when the viewport grows past the breakpoint.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const mq = window.matchMedia("(min-width: 768px)");
+    const onMq = () => mq.matches && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    mq.addEventListener("change", onMq);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      mq.removeEventListener("change", onMq);
+    };
+  }, [open]);
+
   const solid = scrolled || open;
 
   return (
@@ -77,6 +91,7 @@ export default function Navbar({ ctaShort, ctaHref }: { ctaShort: string; ctaHre
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
+            aria-controls="mobile-menu"
             onClick={() => setOpen((o) => !o)}
             className="flex h-11 w-11 items-center justify-center text-vv-text md:hidden"
           >
@@ -85,8 +100,18 @@ export default function Navbar({ ctaShort, ctaHref }: { ctaShort: string; ctaHre
         </div>
       </div>
 
-      {open && (
-        <div className="flex flex-col gap-1 border-t border-white/[0.08] px-4 pb-5 pt-2 md:hidden">
+      <div
+        id="mobile-menu"
+        className={`grid transition-[grid-template-rows] duration-300 md:hidden ${
+          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
+        <div
+          inert={!open}
+          className={`flex flex-col gap-1 overflow-hidden px-4 sm:px-6 ${
+            open ? "border-t border-white/[0.08] pb-5 pt-2" : ""
+          }`}
+        >
           {NAV.map((n) => (
             <a
               key={n.href}
@@ -105,7 +130,7 @@ export default function Navbar({ ctaShort, ctaHref }: { ctaShort: string; ctaHre
             {ctaShort}
           </a>
         </div>
-      )}
+      </div>
     </nav>
   );
 }
