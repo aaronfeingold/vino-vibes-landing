@@ -21,7 +21,7 @@ export default function Footer() {
           />
           <div>
             <div className="text-[15px] font-semibold">Vino Vibes</div>
-            <div className="text-[13px] text-vv-text3">Made in New Orleans</div>
+            <div className="text-[13px] text-vv-text3">Great wine, wherever you are</div>
           </div>
         </div>
         <nav aria-label="Footer">
