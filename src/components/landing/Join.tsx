@@ -5,7 +5,7 @@ import StoreButton from "./StoreButton";
 
 export default function Join({ cta }: { cta: LaunchCopy }) {
   return (
-    <section id="join" className="mx-auto max-w-[1200px] scroll-mt-16 px-4 pb-16 pt-24 text-center sm:px-6 md:pt-[120px]">
+    <section id="join" className="scroll-mt-[-64px] md:scroll-mt-[-88px] mx-auto max-w-[1200px] px-4 pb-16 pt-24 text-center sm:px-6 md:pt-[120px]">
       <h2 className="mx-auto max-w-[760px] text-[32px] font-extrabold leading-[1.08] tracking-[-0.03em] min-[900px]:text-[52px]">
         Your next wine list is already decided.
       </h2>
@@ -20,7 +20,7 @@ export default function Join({ cta }: { cta: LaunchCopy }) {
 
       <div
         id="restaurants"
-        className="mx-auto mt-24 flex max-w-[900px] scroll-mt-24 flex-wrap items-center justify-between gap-5 rounded-[20px] bg-vv-surface px-8 py-7 text-left"
+        className="mx-auto mt-24 flex max-w-[900px] flex-wrap items-center justify-between gap-5 rounded-[20px] bg-vv-surface px-8 py-7 text-left"
       >
         <div className="flex-[1_1_420px]">
           <div className="text-lg font-bold">Run a restaurant or a wine shop?</div>

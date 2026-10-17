@@ -10,7 +10,7 @@ const PROMISES = [
 
 export default function MadeForYou() {
   return (
-    <section id="you" className="mx-auto max-w-[1200px] scroll-mt-16 px-4 py-20 sm:px-6 md:py-[120px]">
+    <section id="you" className="scroll-mt-[-48px] md:scroll-mt-[-88px] mx-auto max-w-[1200px] px-4 py-20 sm:px-6 md:py-[120px]">
       <div className="grid items-center gap-16 min-[900px]:grid-cols-2">
         <div className="flex flex-col gap-6">
           <div className="text-sm font-semibold tracking-[0.12em] text-vv-accent">MADE FOR THE CONNOISSEUR</div>

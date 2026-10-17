@@ -27,7 +27,7 @@ const STEPS: { title: string; body: string; label: string; Screen: ComponentType
 
 export default function HowItWorks() {
   return (
-    <section id="how" className="scroll-mt-16 border-y border-white/[0.06] bg-vv-band">
+    <section id="how" className="scroll-mt-[-48px] md:scroll-mt-[-80px] border-y border-white/[0.06] bg-vv-band">
       <div className="mx-auto max-w-[1200px] px-4 py-20 sm:px-6 md:py-28">
         <div className="mx-auto mb-10 max-w-[640px] text-center md:mb-16">
           <div className="text-sm font-semibold tracking-[0.12em] text-vv-accent">HOW IT WORKS</div>

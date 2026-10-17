@@ -6,11 +6,37 @@ import { betaSignups } from "../../../lib/db/schema";
 import { eq } from "drizzle-orm";
 import { betaSignupSchema } from "../../../lib/validation";
 import { normalizeEmail } from "../../../lib/normalize-email";
+import {
+  BodyTooLarge,
+  MIN_FILL_MS,
+  clientIp,
+  isSameOrigin,
+  rateLimit,
+  readJson,
+  verifyTurnstile,
+} from "../../../lib/bot-guard";
 const resend = new Resend(process.env.RESEND_API_KEY);
+
+// The same answer for a new email, a repeat, and a screened-out bot, so the
+// endpoint can't be used to check who is on the list.
+const OK = () =>
+  NextResponse.json({ success: true, message: "Successfully joined beta list!" });
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    if (!isSameOrigin(request)) {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    }
+
+    const ip = clientIp(request);
+    if (!rateLimit(`beta:${ip}`, 5, 10 * 60_000)) {
+      return NextResponse.json(
+        { error: "Too many attempts. Please try again in a few minutes." },
+        { status: 429 }
+      );
+    }
+
+    const body = await readJson(request);
 
     // Validate request body with Zod
     const validationResult = betaSignupSchema.safeParse(body);
@@ -22,8 +48,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { email } =
-      validationResult.data;
+    const { email, website, elapsedMs, turnstileToken } = validationResult.data;
+
+    // Bots fill the hidden field or submit instantly; answer as if it worked and store nothing
+    if (website || (elapsedMs ?? 0) < MIN_FILL_MS) {
+      return OK();
+    }
+
+    if (!(await verifyTurnstile(turnstileToken, ip))) {
+      return NextResponse.json(
+        { error: "Please confirm you're human and try again." },
+        { status: 400 }
+      );
+    }
 
     const normalizedEmail = normalizeEmail(email);
 
@@ -35,10 +72,7 @@ export async function POST(request: NextRequest) {
       .limit(1);
 
     if (existingUser.length > 0) {
-      return NextResponse.json(
-        { error: "This email is already on our beta list!" },
-        { status: 409 }
-      );
+      return OK();
     }
 
     // Insert new signup
@@ -58,11 +92,11 @@ export async function POST(request: NextRequest) {
       // Don't fail the signup if email fails
     }
 
-    return NextResponse.json({
-      success: true,
-      message: "Successfully joined beta list!",
-    });
+    return OK();
   } catch (error) {
+    if (error instanceof BodyTooLarge || error instanceof SyntaxError) {
+      return NextResponse.json({ error: "Invalid input" }, { status: 400 });
+    }
     console.error("Beta signup error:", error);
     return NextResponse.json(
       { error: "Internal server error" },

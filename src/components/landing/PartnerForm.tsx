@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { partnerSignupSchema, type PartnerSignupData } from "@/src/lib/validation";
 import { trackEvent } from "@/src/lib/analytics";
+import Turnstile from "./Turnstile";
 
 type Status = "idle" | "submitting" | "done" | "error";
 
@@ -41,6 +42,11 @@ function Field({
 export default function PartnerForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
+  const [token, setToken] = useState<string>();
+  const shownAt = useRef(0);
+  useEffect(() => {
+    shownAt.current = Date.now();
+  }, []);
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -58,7 +64,7 @@ export default function PartnerForm() {
       const res = await fetch("/api/partner-signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(parsed.data),
+        body: JSON.stringify({ ...parsed.data, elapsedMs: Date.now() - shownAt.current, turnstileToken: token }),
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok) {
@@ -134,6 +140,8 @@ export default function PartnerForm() {
         <label htmlFor="website">Website</label>
         <input id="website" name="website" tabIndex={-1} autoComplete="off" />
       </div>
+
+      <Turnstile onToken={setToken} />
 
       {message && (
         <p role="alert" className="text-sm text-[#F9A8D4]">

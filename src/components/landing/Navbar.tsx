@@ -16,16 +16,16 @@ export default function Navbar({ ctaShort, ctaHref }: { ctaShort: string; ctaHre
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Clear at the top; blurred and tinted once the reader is halfway through the hero.
+  // Clear at the very top; tinted and blurred after about a thumb's width of scroll.
   useEffect(() => {
-    const onScroll = () => {
-      const hero = document.getElementById("top");
-      const threshold = hero ? hero.offsetHeight / 2 : 300;
-      setScrolled(window.scrollY > threshold);
-    };
+    const onScroll = () => setScrolled(window.scrollY > window.innerHeight / 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   // Close the mobile menu on Escape or when the viewport grows past the breakpoint.
@@ -46,9 +46,9 @@ export default function Navbar({ ctaShort, ctaHref }: { ctaShort: string; ctaHre
 
   return (
     <nav
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 ${
         solid
-          ? "border-b border-white/[0.08] bg-vv-page/[0.62] backdrop-blur-[14px]"
+          ? "border-b border-white/[0.08] bg-vv-page/[0.38] backdrop-blur-[14px]"
           : "border-b border-transparent bg-transparent"
       }`}
     >
