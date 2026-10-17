@@ -33,9 +33,9 @@ const FEATURES = [
 ];
 
 const NEXT = [
-  "We launch first in New Orleans.",
-  "You get the app before the public launch.",
-  "We write only when there is something real to show you.",
+  "Order with confidence.",
+  "Build global wine knowledge, one new varietal at a time.",
+  "Create dining memories.",
 ];
 
 const SIGN_OFF = "Vino Vibes. The wine list, simplified.";
@@ -119,13 +119,13 @@ export function generateBetaWelcomeEmail({
             </td>
           </tr>
 
-          <!-- What happens next -->
+          <!-- Choose the right wine -->
           <tr>
             <td style="padding-top:16px;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${VV.surface}" style="background-color:${VV.surface};border-radius:20px;">
                 <tr>
                   <td style="padding:28px 28px 18px 28px;">
-                    <div style="font-family:${FONT};font-size:16px;font-weight:600;color:${VV.text};padding-bottom:14px;">What happens next</div>
+                    <div style="font-family:${FONT};font-size:16px;font-weight:600;color:${VV.text};padding-bottom:14px;">Choose the right wine every time.</div>
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">${next}
                     </table>
                   </td>
@@ -161,7 +161,7 @@ export function generateBetaWelcomeEmail({
     "",
     ...FEATURES.map((s, i) => `0${i + 1} ${s.title}. ${s.body}`),
     "",
-    "What happens next",
+    "Choose the right wine every time.",
     ...NEXT.map((n) => `- ${n}`),
     "",
     SIGN_OFF,
